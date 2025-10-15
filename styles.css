@@ -81,3 +81,24 @@ ul li::before {
   font-size: 0.9rem;
   display: inline-block;
 }
+#filters {
+  background: #f8f5ec;
+  padding: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+#filters form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#filters label {
+  font-weight: bold;
+  color: #a07c3b;
+}
+#filters select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.95rem;
+}
