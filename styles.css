@@ -52,3 +52,23 @@ ul li::before {
   font-size: 0.85rem;
   font-weight: bold;
 }
+#chatbox h3 {
+  font-family: 'Libre Baskerville', serif;
+  color: #333;
+}
+
+#chatbox textarea {
+  font-family: 'Lato', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+#chatbox button {
+  background-color: #C1A875;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
