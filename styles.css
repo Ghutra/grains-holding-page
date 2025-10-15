@@ -102,3 +102,19 @@ ul li::before {
   background: #fff;
   font-size: 0.95rem;
 }
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .product-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .product-card {
+    flex: 1 1 300px;
+    max-width: 320px;
+  }
+}
