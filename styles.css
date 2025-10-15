@@ -44,3 +44,11 @@ ul li::before {
   text-decoration: none;
   border-radius: 4px;
 }
+.copilot-badge {
+  background-color: #C1A875;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
