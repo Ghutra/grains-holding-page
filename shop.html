@@ -29,35 +29,6 @@
     }
     p {
       margin: 0.5rem 0 1rem;
-      <section id="filters">
-  <h2>🔍 Refine Your Search</h2>
-  <form>
-    <label for="region">Region:</label>
-    <select id="region" name="region">
-      <option value="">All</option>
-      <option value="uae">UAE</option>
-      <option value="india">India</option>
-      <option value="gcc">GCC</option>
-    </select>
-
-    <label for="grade">Grade:</label>
-    <select id="grade" name="grade">
-      <option value="">All</option>
-      <option value="export">B2B Export</option>
-      <option value="organic">Organic Tier 1</option>
-      <option value="bulk">Bulk Grade</option>
-    </select>
-
-    <label for="ritual">Ritual Use:</label>
-    <select id="ritual" name="ritual">
-      <option value="">All</option>
-      <option value="fasting">Seasonal Fasting</option>
-      <option value="ancestral">Ancestral Diets</option>
-      <option value="breadmaking">Breadmaking</option>
-    </select>
-  </form>
-</section>
-
     }
     ul {
       padding-left: 1.2rem;
@@ -73,6 +44,27 @@
     }
     .product-card p {
       margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+    #filters {
+      background: #f8f5ec;
+      padding: 2rem;
+      border-bottom: 1px solid #ddd;
+    }
+    #filters form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    #filters label {
+      font-weight: bold;
+      color: #a07c3b;
+    }
+    #filters select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
       font-size: 0.95rem;
     }
     footer {
@@ -105,10 +97,39 @@
     </ul>
   </section>
 
+  <section id="filters">
+    <h2>🔍 Refine Your Search</h2>
+    <form>
+      <label for="region">Region:</label>
+      <select id="region" name="region">
+        <option value="">All</option>
+        <option value="uae">UAE</option>
+        <option value="india">India</option>
+        <option value="gcc">GCC</option>
+      </select>
+
+      <label for="grade">Grade:</label>
+      <select id="grade" name="grade">
+        <option value="">All</option>
+        <option value="export">B2B Export</option>
+        <option value="organic">Organic Tier 1</option>
+        <option value="bulk">Bulk Grade</option>
+      </select>
+
+      <label for="ritual">Ritual Use:</label>
+      <select id="ritual" name="ritual">
+        <option value="">All</option>
+        <option value="fasting">Seasonal Fasting</option>
+        <option value="ancestral">Ancestral Diets</option>
+        <option value="breadmaking">Breadmaking</option>
+      </select>
+    </form>
+  </section>
+
   <section>
     <h2>Featured Listings</h2>
 
-    <div class="product-card">
+    <div class="product-card" data-region="uae" data-grade="export" data-ritual="fasting">
       <h3>🌾 Emirati Pearl Millet</h3>
       <p><strong>Origin:</strong> Al Ain, UAE</p>
       <p><strong>Grade:</strong> Verified B2B Export</p>
@@ -118,32 +139,6 @@
       <p><strong>Ritual Use:</strong> Seasonal fasting, heritage recipes</p>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-region="india" data-grade="organic" data-ritual="ancestral">
       <h3>🌾 Indian Finger Millet</h3>
-      <p><strong>Origin:</strong> Karnataka, India</p>
-      <p><strong>Grade:</strong> Organic Tier 1</p>
-      <p><strong>Packaging:</strong> 10kg eco packs</p>
-      <p><strong>Trust Badge:</strong> ✅ Peer-reviewed</p>
-      <p><strong>Certifications:</strong> USDA Organic, FSSAI</p>
-      <p><strong>Ritual Use:</strong> Diabetic-friendly, ancestral diets</p>
-    </div>
-
-    <div class="product-card">
-      <h3>🌾 Dubai Rye Blend</h3>
-      <p><strong>Origin:</strong> Dubai Grain Terminal</p>
-      <p><strong>Grade:</strong> Mixed Export Grade</p>
-      <p><strong>Packaging:</strong> 50kg bulk sacks</p>
-      <p><strong>Trust Badge:</strong> ✅ Verified logistics</p>
-      <p><strong>Certifications:</strong> ISO 9001, HACCP</p>
-      <p><strong>Ritual Use:</strong> Breadmaking, seasonal rituals</p>
-    </div>
-
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Grains Hub. Built with restraint. Trusted across borders.</p>
-    <p>Contact: <a href="mailto:letsask@grains.ae">letsask@grains.ae</a></p>
-  </footer>
-
-</body>
-</html>
+      <p><strong>Origin:</strong> Karnataka, India
