@@ -118,3 +118,16 @@ ul li::before {
     max-width: 320px;
   }
 }
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.product-card {
+  flex: 1 1 300px;
+  max-width: 320px;
+  box-sizing: border-box;
+}
