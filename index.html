@@ -126,6 +126,20 @@
     }, 1200);
   }
 </script>
+<div id="alliya-badge" onclick="toggleChat()">
+  <img src="alliya-icon.ico" alt="Alliya" style="width:24px; height:24px;" />
+  <span>Ask Alliya</span>
+</div>
+
+<div id="chat-box" class="hidden">
+  <h3>Quiet support. Verified answers.</h3>
+  <textarea id="user-input" placeholder="Ask me anything..."></textarea>
+  <button onclick="simulateResponse()">Send</button>
+  <button onclick="toggleChat()">Minimize</button>
+  <div id="ai-response" class="hidden"></div>
+</div>
+
+<script src="alliya.js"></script>
 
 </body>
 </html>
