@@ -1,7 +1,21 @@
+// 1. Import modules
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
+// 2. Middleware
+app.use(bodyParser.json());
+app.use(express.static('public')); // serve HTML, CSS, etc.
+
+// 3. API endpoint for Alliya
 app.post('/api/alliya-response', (req, res) => {
   const query = req.body.query;
-  // Logic to fetch verified response
-  const response = `Verified insight: "${query}" aligns with UAE compliance standards.`;
-  res.json({ reply: response });
+  const reply = `Verified insight: "${query}" aligns with UAE compliance standards.`;
+  res.json({ reply });
 });
-/api/alliya-response
+
+// 4. Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Grains Hub server running on port ${PORT}`);
+});
