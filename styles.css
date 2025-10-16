@@ -181,6 +181,8 @@ ul li::before {
 .hidden {
   display: none;
 }
+
+}
 #scan-log {
   background: #fdfdf9;
   padding: 2rem;
