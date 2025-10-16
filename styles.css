@@ -181,3 +181,16 @@ ul li::before {
 .hidden {
   display: none;
 }
+#scan-log {
+  background: #fdfdf9;
+  padding: 2rem;
+  border-top: 1px solid #e0d8c0;
+}
+#scan-log ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+#scan-log li::before {
+  content: "✅ ";
+  color: #a07c3b;
+}
