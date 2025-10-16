@@ -89,7 +89,19 @@
   <p><em>“We didn’t chase scale. We earned trust. Grains Hub is a signal—built with restraint, verified across borders.”</em></p>
   <p><strong>— Shahid Bashir, Founder</strong></p>
 </section>
-    
+  <div id="alliya-badge" onclick="toggleChat()">
+  <img src="alliya-icon.ico" alt="Alliya" style="width:24px; height:24px; vertical-align:middle;" />
+  <span>Ask Alliya</span>
+</div>
+
+<div id="chat-box" class="hidden">
+  <h3>Quiet support. Verified answers.</h3>
+  <textarea id="user-input" placeholder="Ask me anything..."></textarea>
+  <button onclick="simulateResponse()">Send</button>
+  <button onclick="toggleChat()">Minimize</button>
+  <div id="ai-response" class="hidden"></div>
+</div>
+  
 <footer>
   <p style="background-color:#C1A875; color:#fff; display:inline-block; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.9rem;">
     Microsoft Copilot Enabled
