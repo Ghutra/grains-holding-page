@@ -111,5 +111,22 @@
 <div id="alliya-chatbot"></div>
 <script src="allyia.js"></script>
   </div>
+<script>
+  function toggleChat() {
+    document.getElementById('chat-box').classList.toggle('hidden');
+  }
+
+  async function simulateResponse() {
+    const input = document.getElementById('user-input').value;
+    const responseBox = document.getElementById('ai-response');
+    responseBox.classList.remove('hidden');
+    responseBox.textContent = "Alliya is typing...";
+
+    setTimeout(() => {
+      responseBox.textContent = `Verified insight: "${input}" has been noted. Let me guide you quietly.`;
+    }, 1200);
+  }
+</script>
+
 </body>
 </html>
