@@ -112,8 +112,10 @@
 <script src="allyia.js"></script>
   </div>
 <script>
-  
-    }
+  function toggleChat() {
+    document.getElementById('chat-box').classList.toggle('hidden');
+  }
+
   async function simulateResponse() {
     const input = document.getElementById('user-input').value;
     const responseBox = document.getElementById('ai-response');
