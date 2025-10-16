@@ -26,3 +26,6 @@ function simulateResponse() {
     responseBox.innerHTML = reply;
   }, 1200);
 }
+if (input.includes("rice")) {
+  reply += ` <a href="shop.html?filter=rice" style="color:#a07c3b; font-weight:bold;">View rice options →</a>`;
+}
