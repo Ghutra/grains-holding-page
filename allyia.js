@@ -22,7 +22,7 @@ function simulateResponse() {
 
     // Fallback logic
     else {
-      reply = `Aliya couldn’t verify this. Try <a href="https://www.bing.com/search?q=${encodeURIComponent(input)}" target="_blank" style="color:#0056B3;">Copilot</a> or message us on <a href="https://wa.me/971501234567" target="_blank" style="color:#25D366;">WhatsApp</a>.`;
+      reply = `Aliya couldn’t verify this. Try <a href="https://www.bing.com/search?q=${encodeURIComponent(input)}" target="_blank" style="color:#0056B3;">Copilot</a> or message us on <a href="https://wa.me/971585521976" target="_blank" style="color:#25D366;">WhatsApp</a>.`;
     }
 
     responseBox.innerHTML = reply;
