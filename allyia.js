@@ -19,6 +19,18 @@ function simulateResponse() {
     } else if (input.includes("what is grains hub")) {
       reply = `Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance.`;
     }
+function verifySupplier() {
+  fetch("https://grains-backend.onrender.com/api/verify-supplier")
+    .then(res => res.json())
+    .then(data => {
+      if (data.verified) {
+        showVerifiedBadge(data.supplier);
+      }
+    })
+    .catch(error => {
+      console.error("Verification failed:", error);
+    });
+}
 
     // Fallback logic
     else {
@@ -28,13 +40,3 @@ function simulateResponse() {
     responseBox.innerHTML = reply;
   }, 1200);
 }
-fetch("https://grains-backend.onrender.com/api/verify-supplier")
-  .then(res => res.json())
-  .then(data => {
-    if (data.verified) {
-      showVerifiedBadge(data.supplier);
-    }
-  })
-  .catch(error => {
-    console.error("Verification failed:", error);
-  });
