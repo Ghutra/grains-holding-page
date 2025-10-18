@@ -40,3 +40,9 @@ function verifySupplier() {
     responseBox.innerHTML = reply;
   }, 1200);
 }
+function showVerifiedBadge(supplierName) {
+  const badge = document.createElement("div");
+  badge.className = "verified-badge";
+  badge.innerText = `✅ Verified: ${supplierName}`;
+  document.body.appendChild(badge);
+}
