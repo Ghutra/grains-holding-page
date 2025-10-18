@@ -24,15 +24,12 @@ function simulateResponse() {
 
     responseBox.innerHTML = reply;
 
-    // Trigger backend verification if needed
-    if (input.includes("verify supplier")) {
-      verifySupplier();
-    }
+    // ✅ Always trigger backend verification
+    verifySupplier();
 
   }, 1200);
 }
 
-// ✅ Move this outside simulateResponse
 function verifySupplier() {
   fetch("https://grains-backend.onrender.com/api/verify-supplier")
     .then(res => res.json())
