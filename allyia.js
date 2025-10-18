@@ -18,7 +18,21 @@ function simulateResponse() {
       reply = `Aliya flagged an expired certificate on Oct 12. Please review the scan log.`;
     } else if (input.includes("what is grains hub")) {
       reply = `Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance.`;
+    } else {
+      reply = `Aliya couldn’t verify this. Try <a href="https://www.bing.com/search?q=${encodeURIComponent(input)}" target="_blank" style="color:#0056B3;">Copilot</a> or message us on <a href="https://wa.me/971585521976" target="_blank" style="color:#25D366;">WhatsApp</a>.`;
     }
+
+    responseBox.innerHTML = reply;
+
+    // Trigger backend verification if needed
+    if (input.includes("verify supplier")) {
+      verifySupplier();
+    }
+
+  }, 1200);
+}
+
+// ✅ Move this outside simulateResponse
 function verifySupplier() {
   fetch("https://grains-backend.onrender.com/api/verify-supplier")
     .then(res => res.json())
@@ -32,14 +46,6 @@ function verifySupplier() {
     });
 }
 
-    // Fallback logic
-    else {
-      reply = `Aliya couldn’t verify this. Try <a href="https://www.bing.com/search?q=${encodeURIComponent(input)}" target="_blank" style="color:#0056B3;">Copilot</a> or message us on <a href="https://wa.me/971585521976" target="_blank" style="color:#25D366;">WhatsApp</a>.`;
-    }
-
-    responseBox.innerHTML = reply;
-  }, 1200);
-}
 function showVerifiedBadge(supplierName) {
   const badge = document.createElement("div");
   badge.className = "verified-badge";
