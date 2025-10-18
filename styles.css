@@ -226,3 +226,11 @@ ul li::before {
   margin-left: 6px;
   font-size: 1.2rem;
 }
+.verified-badge {
+  background-color: #e0ffe0;
+  color: #006400;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 10px;
+}
