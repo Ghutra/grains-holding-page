@@ -28,3 +28,13 @@ function simulateResponse() {
     responseBox.innerHTML = reply;
   }, 1200);
 }
+fetch("https://grains-backend.onrender.com/api/verify-supplier")
+  .then(res => res.json())
+  .then(data => {
+    if (data.verified) {
+      showVerifiedBadge(data.supplier);
+    }
+  })
+  .catch(error => {
+    console.error("Verification failed:", error);
+  });
