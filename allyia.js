@@ -40,6 +40,13 @@ const replyDatabase = {
   "irri 6 stock": `✅ Available: Irri 6 Broken 5%, 35Kg PP Bags, FCL — Dubai.`,
   "1509 stock": `✅ Available: 1509 Creamy Sella, 10x4 40Kg Nonwoven — Dubai.`,
 
+  // 🌾 Premium Rice Varieties
+"1121": `1121 Basmati is one of the longest grain rice varieties, known for its aroma, elongation, and fluffiness. Verified for export to UAE, EU, and Gulf markets.`,
+"1509": `1509 Basmati is a cost-effective long grain with creamy texture. Verified for ritual and pesticide compliance.`,
+"sella 1121": `Sella 1121 is available in Dubai. 10x4 40Kg Nonwoven Master Bags. Booking open for Crop 2025.`,
+"basmati rice": `Basmati Rice includes 1121 and 1509 grades. Verified suppliers from India and Pakistan are listed.`,
+"rice": `Rice options include Irri, Sella, and Basmati. Type a grade or supplier name for verified availability.`,
+
   // 🔍 General Queries
   "available stock": `Stock availability is updated daily. Type a product name for details.`,
   "booking": `Booking is open for verified batches. Contact <a href="mailto:booking@grains.ae">booking@grains.ae</a>.`,
