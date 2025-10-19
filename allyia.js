@@ -31,10 +31,10 @@ function simulateResponse() {
 }
 
 function verifySupplier() {
-  fetch("https://grains-backend.onrender.com/api/verify-supplier")
+  fetch("https://grains-backend.onrender.com/verify-supplier")
     .then(res => res.json())
     .then(data => {
-      if (data.verified) {
+      if (data.verified && data.supplier) {
         showVerifiedBadge(data.supplier);
       }
     })
