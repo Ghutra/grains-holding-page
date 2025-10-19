@@ -1,3 +1,13 @@
+window.addEventListener('load', () => {
+  const responseBox = document.getElementById('ai-response');
+  responseBox.classList.remove('hidden');
+  responseBox.innerHTML = `<span class="dots">Alliya is typing<span>.</span><span>.</span><span>.</span></span>`;
+
+  setTimeout(() => {
+    responseBox.innerHTML = `👋 Hi, I’m Alliya. I’ll assist you in finding verified grains, spices, and rice. Type a product, supplier, or scan query to begin.`;
+  }, 1200);
+});
+
 // ✅ Keyword–Response Map
 const replyDatabase = {
   // 🇵🇰 Verified Suppliers – Pakistan
