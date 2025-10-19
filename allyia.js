@@ -1,43 +1,44 @@
 // ✅ Keyword–Response Map
 const replyDatabase = {
-  // Compliance & Verification
-  "certificate": `Verified certificate protocols are in place. Please refer to the Trust & Compliance page.`,
-  "audit": `Latest audit logs are available. <a href="trust.html#scan-log">View scan log →</a>`,
-  "batch": `Batch tracking is enabled. You may request verification for specific batch IDs.`,
-  "origin": `Origin data is verified across borders. Dubai and Lahore hubs are synced.`,
-  "ritual": `Ritual compliance verified for select suppliers. See scan log for details.`,
-  "residue": `No pesticide residue detected in recent audits. <a href="trust.html#scan-log">View report →</a>`,
-  "flag": `Expired flags are listed in the Trust section. <a href="trust.html#flags">Review flags →</a>`,
-  "trust": `Grains Hub is built on verified trust. <a href="trust.html">Explore trust protocols →</a>`,
-  "compliance": `Compliance audits are conducted weekly. <a href="trust.html">View compliance →</a>`,
-  "export": `Export routes are verified. Contact <a href="mailto:trust@grains.ae">trust@grains.ae</a> for documentation.`,
-  "verified routes": `Verified trade routes include Dubai–Lahore and Alras–Karachi.`,
+  // 🇵🇰 Verified Suppliers – Pakistan
+  "zia international": `✅ Verified: Zia International, Madina Town, Faisalabad.`,
+  "adam international": `✅ Verified: Adam International, Faisalabad.`,
+  "sa rice mills": `✅ Verified: SA Rice Mills, Faisalabad.`,
+  "al arab rice mills": `✅ Verified: Al Arab Rice Mills, MirzaPur, Lahore.`,
+  "asif rice mills": `✅ Verified: Asif Rice Mills, Karachi.`,
 
-  // Location & Hubs
+  // 🇮🇳 Verified Supplier – India
+  "mahavir rice mills": `✅ Verified: Mahavir Rice Mills, Link Road Taraori, Karnal, Haryana.`,
+
+  // 🇦🇪 Verified Suppliers – Dubai
+  "fateh din": `✅ Verified: Fateh Din General Trading LLC, Dubai.`,
+  "laddo general": `✅ Verified: Laddo General Trading LLC, Alras.`,
+  "namavar foodstuff": `✅ Verified: Namavar Foodstuff Trading, Dubai.`,
+  "yastoor ul haq": `✅ Verified: Yastoor Ul Haq Wholesale, Alras.`,
+  "green and white": `✅ Verified: Green & White Foodstuff Trading, Alras.`,
+  "si global": `✅ Verified: Si Global, Alras.`,
+  "sakhi international": `✅ Verified: Sakhi International Foodstuff Trading Co., Alras.`,
+
+  // 📦 Booking Entries
+  "irri 6 broken 100": `📦 Booking Open: Irri 6 Broken 100%, 40Kg PP Bags, C&F Dubai, New Crop 2025, Origin Pakistan — $310.`,
+  "irri 6 broken 5": `📦 Booking Open: Irri 6 Broken 5%, 40Kg PP Bags, C&F Dubai, New Crop 2025, Origin Pakistan — $380.`,
+  "1509 creamy sella": `📦 Booking Open: 1509 Creamy Sella, 10x4 40Kg Nonwoven Master Bag, Crop 2025, Origin India — $775.`,
+  "sona massori steam": `📦 Booking Open: Sona Massori Steam, 18Kg Nonwoven, Crop 2025, Origin India — $520.`,
+  "swarna raw": `📦 Booking Open: Swarna Raw & Processed, 18Kg Nonwoven, Crop 2025, Origin India — $415.`,
+
+  // 🏢 Available Stock – Dubai
+  "irri 6 stock": `✅ Available: Irri 6 Broken 5%, 35Kg PP Bags, FCL — Dubai.`,
+  "1509 stock": `✅ Available: 1509 Creamy Sella, 10x4 40Kg Nonwoven — Dubai.`,
+
+  // 🔍 General Queries
+  "available stock": `Stock availability is updated daily. Type a product name for details.`,
+  "booking": `Booking is open for verified batches. Contact <a href="mailto:booking@grains.ae">booking@grains.ae</a>.`,
+  "supplier": `Type a supplier name to check verification.`,
   "dubai": `Dubai Hub is active and verified. Alliya monitors supplier scans daily.`,
-  "lahore": `Lahore Hub is synced with Dubai for cross-border compliance.`,
-  "alras": `Alras terminal is enabled for Sella and Basmati shipments.`,
-
-  // Products & Varieties
-  "lentil": `Lentil stock is available. <a href="shop.html?filter=lentil">View lentils →</a>`,
-  "black pepper": `Black pepper is listed under verified spice category.`,
-  "sella": `Sella rice is available in 1121 and 1509 variants.`,
-  "sella 1121": `Sella 1121 is in verified stock. <a href="shop.html?filter=sella1121">View →</a>`,
-  "basmati rice": `Basmati Rice is available in 1121 and 1509 grades.`,
-  "irri 6": `Irri 6 is listed under verified Pakistani grains.`,
-  "irri": `Irri varieties include Irri 6 and Irri 9. <a href="shop.html?filter=irri">Explore →</a>`,
-  "1121": `1121 grade is available in Sella and Basmati formats.`,
-  "1509": `1509 is a premium long-grain variant. <a href="shop.html?filter=1509">View →</a>`,
   "india": `Indian-origin grains are verified for ritual and pesticide compliance.`,
   "pakistan": `Pakistani grains are scanned weekly. Irri and Basmati are available.`,
-
-  // Availability & Booking
-  "available stock": `Stock availability is updated daily. Type a product name for details.`,
-  "available": `Verified stock is available. You may request booking.`,
-  "stock": `Stock logs are maintained in real-time. <a href="shop.html">Visit shop →</a>`,
-  "booking": `Booking is open for verified batches. Contact <a href="mailto:booking@grains.ae">booking@grains.ae</a>.`
+  "alras": `Alras terminal is enabled for Sella and Basmati shipments.`,
 };
-
 
 // ✅ Main Response Logic
 function simulateResponse() {
