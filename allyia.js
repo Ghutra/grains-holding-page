@@ -13,6 +13,16 @@ function simulateResponse() {
       verifySupplier(); // ✅ Trigger backend fetch
       return;
     }
+const replyDatabase = {
+  "rice": `Verified insight: Rice options are available. <a href="shop.html?filter=rice">View rice →</a>`,
+  "millet": `Verified insight: Millet varieties are listed. <a href="shop.html?filter=millet">Explore millet →</a>`,
+  "supplier lud-21": `Supplier #LUD-21 was verified for ritual compliance on Oct 14.`,
+  "expired certificate": `Aliya flagged an expired certificate on Oct 12. Please review the scan log.`,
+  "what is grains hub": `Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance.`,
+  "pesticide audit": `Hub audit of Oct 11 passed pesticide scan. No residue detected.`,
+  "monarch capital": `Monarch Capital is enabled for verified trade routes.`,
+  "verify supplier": `Checking supplier verification...`, // triggers backend
+};
 
     // Other keyword logic
     if (input.includes("rice")) {
@@ -27,6 +37,28 @@ function simulateResponse() {
 
     responseBox.innerHTML = reply;
   }, 1200);
+  function simulateResponse() {
+  const input = document.getElementById('user-input').value.toLowerCase().trim();
+  const responseBox = document.getElementById('ai-response');
+  responseBox.classList.remove('hidden');
+  responseBox.innerHTML = `<span class="dots">Alliya is typing<span>.</span><span>.</span><span>.</span></span>`;
+
+  setTimeout(() => {
+    let reply = replyDatabase[input];
+
+    if (reply) {
+      responseBox.innerHTML = reply;
+
+      // Trigger backend only for supplier verification
+      if (input === "verify supplier") {
+        verifySupplier();
+      }
+
+    } else {
+      responseBox.innerHTML = `Aliya couldn’t verify this. Try <a href="https://www.bing.com/search?q=${encodeURIComponent(input)}" target="_blank">Copilot</a> or message us on <a href="https://wa.me/971585521976" target="_blank">WhatsApp</a>.`;
+    }
+  }, 1200);
+
 }
 function verifySupplier() {
   fetch("https://grains-backend.onrender.com/api/verify-supplier")
