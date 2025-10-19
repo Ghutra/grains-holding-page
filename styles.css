@@ -233,4 +233,5 @@ ul li::before {
   border-radius: 6px;
   font-weight: bold;
   margin-top: 10px;
+  font-family: 'Segoe UI', sans-serif;
 }
