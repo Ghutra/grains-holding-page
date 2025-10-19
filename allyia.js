@@ -1,14 +1,43 @@
 // ✅ Keyword–Response Map
 const replyDatabase = {
-  "rice": `Verified insight: Rice options are available. <a href="shop.html?filter=rice">View rice →</a>`,
-  "millet": `Verified insight: Millet varieties are listed. <a href="shop.html?filter=millet">Explore millet →</a>`,
-  "supplier lud-21": `Supplier #LUD-21 was verified for ritual compliance on Oct 14.`,
-  "expired certificate": `Aliya flagged an expired certificate on Oct 12. Please review the scan log.`,
-  "what is grains hub": `Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance.`,
-  "pesticide audit": `Hub audit of Oct 11 passed pesticide scan. No residue detected.`,
-  "monarch capital": `Monarch Capital is enabled for verified trade routes.`,
-  "verify supplier": `Checking supplier verification...` // triggers backend
+  // Compliance & Verification
+  "certificate": `Verified certificate protocols are in place. Please refer to the Trust & Compliance page.`,
+  "audit": `Latest audit logs are available. <a href="trust.html#scan-log">View scan log →</a>`,
+  "batch": `Batch tracking is enabled. You may request verification for specific batch IDs.`,
+  "origin": `Origin data is verified across borders. Dubai and Lahore hubs are synced.`,
+  "ritual": `Ritual compliance verified for select suppliers. See scan log for details.`,
+  "residue": `No pesticide residue detected in recent audits. <a href="trust.html#scan-log">View report →</a>`,
+  "flag": `Expired flags are listed in the Trust section. <a href="trust.html#flags">Review flags →</a>`,
+  "trust": `Grains Hub is built on verified trust. <a href="trust.html">Explore trust protocols →</a>`,
+  "compliance": `Compliance audits are conducted weekly. <a href="trust.html">View compliance →</a>`,
+  "export": `Export routes are verified. Contact <a href="mailto:trust@grains.ae">trust@grains.ae</a> for documentation.`,
+  "verified routes": `Verified trade routes include Dubai–Lahore and Alras–Karachi.`,
+
+  // Location & Hubs
+  "dubai": `Dubai Hub is active and verified. Alliya monitors supplier scans daily.`,
+  "lahore": `Lahore Hub is synced with Dubai for cross-border compliance.`,
+  "alras": `Alras terminal is enabled for Sella and Basmati shipments.`,
+
+  // Products & Varieties
+  "lentil": `Lentil stock is available. <a href="shop.html?filter=lentil">View lentils →</a>`,
+  "black pepper": `Black pepper is listed under verified spice category.`,
+  "sella": `Sella rice is available in 1121 and 1509 variants.`,
+  "sella 1121": `Sella 1121 is in verified stock. <a href="shop.html?filter=sella1121">View →</a>`,
+  "basmati rice": `Basmati Rice is available in 1121 and 1509 grades.`,
+  "irri 6": `Irri 6 is listed under verified Pakistani grains.`,
+  "irri": `Irri varieties include Irri 6 and Irri 9. <a href="shop.html?filter=irri">Explore →</a>`,
+  "1121": `1121 grade is available in Sella and Basmati formats.`,
+  "1509": `1509 is a premium long-grain variant. <a href="shop.html?filter=1509">View →</a>`,
+  "india": `Indian-origin grains are verified for ritual and pesticide compliance.`,
+  "pakistan": `Pakistani grains are scanned weekly. Irri and Basmati are available.`,
+
+  // Availability & Booking
+  "available stock": `Stock availability is updated daily. Type a product name for details.`,
+  "available": `Verified stock is available. You may request booking.`,
+  "stock": `Stock logs are maintained in real-time. <a href="shop.html">Visit shop →</a>`,
+  "booking": `Booking is open for verified batches. Contact <a href="mailto:booking@grains.ae">booking@grains.ae</a>.`
 };
+
 
 // ✅ Main Response Logic
 function simulateResponse() {
