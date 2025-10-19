@@ -44,10 +44,21 @@ function verifySupplier() {
     });
 }
 
-function showVerifiedBadge(supplierName) {
-  const responseBox = document.getElementById('ai-response');
-  const badge = document.createElement("div");
-  badge.className = "verified-badge";
-  badge.innerText = `✅ Verified: ${supplierName}`;
-  responseBox.appendChild(badge);
+function verifySupplier() {
+  fetch("https://grains-backend.onrender.com/api/verify-supplier")
+    .then(res => res.json())
+    .then(data => {
+      const responseBox = document.getElementById('ai-response');
+
+      if (data.verified && data.supplier) {
+        responseBox.innerHTML = `✅ Verified: ${data.supplier}`;
+      } else {
+        responseBox.innerHTML = `⚠️ Supplier could not be verified.`;
+      }
+    })
+    .catch(error => {
+      console.error("Verification failed:", error);
+      const responseBox = document.getElementById('ai-response');
+      responseBox.innerHTML = `❌ Verification error. Please try again later.`;
+    });
 }
