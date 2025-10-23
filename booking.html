@@ -1,0 +1,6 @@
+fetch("https://grains-backend.onrender.com/api/booking")
+  .then(res => res.json())
+  .then(data => {
+    // Render booking entries here
+    console.log(data);
+  });
