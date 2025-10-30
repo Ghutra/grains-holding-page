@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(express.static('public')); // serve HTML, CSS, etc.
 
 // 3. API endpoint for Alliya
-app.post('/api/alliya-response', (req, res) => {
+app.use('/api/alliya', require('./routes/alliya'));
   const query = req.body.query;
   const reply = `Verified insight: "${query}" aligns with UAE compliance standards.`;
   res.json({ reply });
