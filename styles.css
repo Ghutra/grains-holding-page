@@ -237,3 +237,16 @@ ul li::before {
 }
 
 }
+header img {
+  width: 140px; /* was 120px */
+  margin-bottom: 10px;
+}
+.alliya-box {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: left; /* Align content left */
+}
