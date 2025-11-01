@@ -250,3 +250,7 @@ header img {
   border-radius: 6px;
   text-align: left; /* Align content left */
 }
+header img {
+  width: 140px; /* was 120px */
+  margin-bottom: 10px;
+}
