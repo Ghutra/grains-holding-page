@@ -129,6 +129,21 @@
 <div id="alliya-chatbot"></div>
 <script src="allyia.js"></script>
   </div>
+    async function askAlliya() {
+  const query = document.getElementById('queryInput').value;
+  const replyBox = document.getElementById('replyBox');
+
+  replyBox.innerHTML = "Verifying...";
+
+  try {
+    const response = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(query)}`);
+    const data = await response.json();
+    replyBox.innerHTML = data.reply;
+  } catch (error) {
+    replyBox.innerHTML = "Alliya couldn’t connect. Try again or message us on WhatsApp.";
+  }
+}
+
 <script>
   function toggleChat() {
     document.getElementById('chat-box').classList.toggle('hidden');
