@@ -93,7 +93,12 @@
   <img src="alliya-icon.ico" alt="Alliya" style="width:24px; height:24px; vertical-align:middle;" />
   <span>Ask Alliya</span>
 </div>
-
+<div style="max-width:600px;margin:auto;padding:20px;">
+  <h2>Ask Alliya</h2>
+  <input type="text" id="queryInput" placeholder="Type your grain query..." style="width:100%;padding:10px;">
+  <button onclick="askAlliya()" style="margin-top:10px;padding:10px 20px;">Verify</button>
+  <div id="replyBox" style="margin-top:20px;font-family:serif;color:#333;"></div>
+</div>
 <div id="chat-box" class="hidden">
   <h3>Quiet support. Verified answers.</h3>
   <p>Try typing: <em>irri 6 broken 5</em>, <em>zia international</em>, or <em>1509 creamy sella</em></p>
