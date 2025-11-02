@@ -10,7 +10,7 @@ body {
 header img {
   width: 160px; /* Increased from 120px */
   margin-bottom: 12px;
-}
+
 header {
   padding: 40px 20px 20px;
   display: flex;
