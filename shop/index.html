@@ -5,56 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Grains Shop | Grains Hub</title>
   <meta name="description" content="Specialist picks. Verified sources. Dubai’s trusted B2B grain shop with compliance-first listings and poetic restraint." />
-  <link rel="icon" href="favicon.ico" />
+  <meta name="keywords" content="Grains Hub, grain shop, Dubai B2B, verified grains, compliance-first listings" />
+  <meta name="author" content="Shahid Bashir" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdf9;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #222;
       margin: 0;
       padding: 0;
-      background: #fdfdf9;
-      color: #222;
-    }
-    header {
-      background: #e6d7b0;
-      padding: 2rem;
       text-align: center;
     }
-    section {
-      padding: 2rem;
-      border-bottom: 1px solid #ddd;
+    header {
+      padding: 40px 20px 20px;
     }
-    h1, h2, h3 {
+    header img {
+      width: 160px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 10px;
       color: #a07c3b;
-      margin-bottom: 0.5rem;
     }
-    p {
-      margin: 0.5rem 0 1rem;
+    nav {
+      background-color: #C1A875;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-weight: bold;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    section {
+      padding: 30px 20px;
+      border-bottom: 1px solid #ddd;
+      max-width: 900px;
+      margin: auto;
     }
     ul {
-      padding-left: 1.2rem;
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
     }
-    .product-card {
-      background: #fffdf6;
-      border: 1px solid #e0d8c0;
-      padding: 1.5rem;
-      margin: 1rem auto;
-      max-width: 600px;
-      box-shadow: 0 2px 4px rgba(160, 124, 59, 0.1);
-      border-radius: 6px;
-    }
-    .product-card p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
+    ul li {
+      margin-bottom: 10px;
+      font-size: 15px;
     }
     #filters {
       background: #f8f5ec;
-      padding: 2rem;
-      border-bottom: 1px solid #ddd;
+      padding: 30px 20px;
     }
     #filters form {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      justify-content: center;
     }
     #filters label {
       font-weight: bold;
@@ -73,32 +86,52 @@
       gap: 20px;
       margin-top: 1rem;
     }
-    .card {
+    .card, .product-card {
       background: #fffdf6;
       border: 1px solid #e0d8c0;
       padding: 1rem;
       border-radius: 6px;
       box-shadow: 0 2px 4px rgba(160, 124, 59, 0.05);
+      text-align: left;
+    }
+    .product-card p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
     }
     footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
     }
-    a {
-      color: #a07c3b;
-      text-decoration: none;
+    .badge {
+      background-color: #C1A875;
+      color: #fff;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
   <header>
+    <img src="/grains-logo.png" alt="Grains Hub Logo" />
     <h1>🛒 The Grains Shop</h1>
     <p><em>Specialist picks. Verified sources.</em></p>
     <p>Every product reflects our compliance-first ethos and poetic restraint.</p>
   </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/why">Why Grains Hub</a>
+    <a href="/trust">Trust & Compliance</a>
+    <a href="/about">About Us</a>
+    <a href="/shop">Visit the Shop</a>
+  </nav>
 
   <section>
     <ul>
@@ -147,8 +180,17 @@
     </div>
   </section>
 
-  <!-- ✅ Dynamic Available Stock -->
   <section>
     <h2>📦 Available Stock</h2>
-    <div id="stock-grid" class="grid">
-<script src="shop.js"></script>
+    <div id="stock-grid" class="grid"></div>
+    <script src="shop.js"></script>
+  </section>
+
+  <footer>
+    <div class="badge">Microsoft Copilot Enabled</div><br>
+    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <p>© 2025 Grains Hub. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
