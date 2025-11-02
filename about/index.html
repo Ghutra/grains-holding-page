@@ -7,15 +7,36 @@
   <meta name="keywords" content="Grains Hub, About Us, Dubai B2B, grain trade, compliance, trust portal" />
   <meta name="author" content="Shahid Bashir" />
   <title>About Grains Hub</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+
   <header>
+    <img src="/grains-logo.png" alt="Grains Hub Logo" />
     <h1>About Grains Hub</h1>
-    <p><em>A signal of trust. Built with restraint.</em></p>
+    <p class="quote">“Built with restraint. Trusted across borders.”</p>
+    <p class="founder">— Shahid Bashir, Founder</p>
+    <div id="hamburger" onclick="toggleMenu()">☰</div>
   </header>
 
-  <section>
+  <nav class="desktop-nav">
+    <a href="/">Home</a>
+    <a href="/why">Why Grains Hub</a>
+    <a href="/trust">Trust & Compliance</a>
+    <a href="/about">About Us</a>
+    <a href="/shop">Visit the Shop</a>
+  </nav>
+
+  <div id="mobileMenu" class="hidden">
+    <a href="/">Home</a>
+    <a href="/why">Why Grains Hub</a>
+    <a href="/trust">Trust & Compliance</a>
+    <a href="/about">About Us</a>
+    <a href="/shop">Visit the Shop</a>
+  </div>
+
+  <section class="intro">
     <h2>Founder’s Story</h2>
     <blockquote>
       <p>“We didn’t chase scale. We earned trust. Grains Hub is a signal—verified across borders.”</p>
@@ -49,9 +70,19 @@
   </section>
 
   <footer>
-    <p>Powered with AI precision. <span class="copilot-badge">Microsoft Copilot Enabled</span></p>
-    <p><strong>Alliya</strong> is live — quiet support, verified answers.</p>
+    <div class="badge">Microsoft Copilot Enabled</div><br>
+    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+  </script>
+
 </body>
 </html>
