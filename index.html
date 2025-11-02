@@ -4,57 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grains Hub – Dubai’s Trusted B2B Portal</title>
-  <meta name="description" content="Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance. Built with restraint. Trusted across borders.">
-  <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, compliance, trusted portal, cross-border trade">
-  <meta name="author" content="Shahid Bashir">
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
 
   <header>
-    <div class="top-bar">
-      <img src="/grains-logo.png" alt="Grains Hub Logo" class="logo" />
-      <div id="hamburger" onclick="toggleMenu()">☰</div>
-    </div>
+    <img src="grains-logo.png" alt="Grains Hub Logo" class="logo" />
+    <div class="tagline">Dubai’s trusted B2B portal for grains, trade, and compliance</div>
     <nav class="desktop-nav">
       <a href="/">Home</a>
       <a href="/shop">Shop</a>
       <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </nav>
+    <div id="hamburger" onclick="toggleMenu()">☰</div>
     <div id="mobileMenu" class="hidden">
       <a href="/">Home</a>
       <a href="/shop">Shop</a>
       <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </div>
-    <h1>Grains Hub</h1>
-    <p class="quote">“Built with restraint. Trusted across borders.”</p>
-    <p class="founder">— Shahid Bashir, Founder</p>
   </header>
 
   <main>
     <section class="intro">
+      <h1>Grains Hub</h1>
       <p>Grains Hub is more than a portal—it’s a signal of trust.<br>
       Rooted in Dubai’s trade legacy, built with digital precision.<br>
-      We serve specialists, not generalists.<br>
-      Our infrastructure is clean. Our tone is quiet.<br>
-      We believe in compliance, clarity, and cross-border confidence.</p>
+      We serve specialists, not generalists.</p>
+    </section>
+
+    <section class="quote-block">
+      <p class="quote">“Built with restraint. Trusted across borders.”</p>
+      <p class="founder">— Shahid Bashir, Founder</p>
     </section>
 
     <section class="alliya-box">
-      <h2>Ask Alliya</h2>
+      <h2><img src="alliya-icon.ico" alt="Alliya" class="icon" /> Ask Alliya</h2>
       <input type="text" id="queryInput" placeholder="Type your grain query..." />
       <button onclick="askAlliya()">Verify</button>
       <div id="replyBox" class="reply"></div>
-      <div class="verified-badge hidden" id="verifiedBadge">✅ Verified by Alliya</div>
+      <p>
+        <a href="https://wa.me/971585521976" target="_blank" class="whatsapp">Message Grains Hub on WhatsApp</a><br>
+        <a href="https://copilot.microsoft.com" target="_blank" class="copilot">Ask Copilot for deeper help</a>
+      </p>
     </section>
   </main>
 
   <footer>
-    <div class="copilot-badge">Microsoft Copilot Enabled</div><br>
-    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <div class="badge">Microsoft Copilot Enabled</div>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
@@ -66,15 +65,11 @@
     async function askAlliya() {
       const query = document.getElementById('queryInput').value;
       const replyBox = document.getElementById('replyBox');
-      const badge = document.getElementById('verifiedBadge');
-      replyBox.innerHTML = "<div class='dots'><span>.</span><span>.</span><span>.</span></div>";
-      badge.classList.add('hidden');
-
+      replyBox.innerHTML = "Verifying...";
       try {
         const response = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(query)}`);
         const data = await response.json();
         replyBox.innerHTML = data.reply;
-        badge.classList.remove('hidden');
       } catch (error) {
         replyBox.innerHTML = "Alliya couldn’t connect. Try again or message us on WhatsApp.";
       }
