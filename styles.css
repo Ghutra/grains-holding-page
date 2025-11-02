@@ -8,8 +8,9 @@ body {
 }
 
 header img {
-  width: 160px; /* Increased from 120px */
+  width: 160px;
   margin-bottom: 12px;
+}
 
 header {
   padding: 40px 20px 20px;
@@ -17,6 +18,7 @@ header {
   flex-direction: column;
   align-items: center;
 }
+
 
 
 header h1 {
