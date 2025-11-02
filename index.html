@@ -4,68 +4,157 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grains Hub – Dubai’s Trusted B2B Portal</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance. Built with restraint. Trusted across borders.">
+  <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, compliance, trusted portal, cross-border trade">
+  <meta name="author" content="Shahid Bashir">
   <link rel="icon" href="favicon.png" type="image/png" />
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px 20px;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    nav {
+      background-color: #C1A875;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-weight: bold;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .intro {
+      padding: 30px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    .intro p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .founder {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .alliya-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      max-width: 600px;
+      margin: 30px auto;
+      border-radius: 6px;
+    }
+    .alliya-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .alliya-box button {
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .reply {
+      margin-top: 20px;
+      font-family: serif;
+      color: #333;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+    .badge {
+      background-color: #C1A875;
+      color: #fff;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <img src="grains-logo.png" alt="Grains Hub Logo" class="logo" />
-    <div class="tagline">Dubai’s trusted B2B portal for grains, trade, and compliance</div>
-    <nav class="desktop-nav">
-      <a href="/">Home</a>
-      <a href="/shop">Shop</a>
-      <a href="/trust">Trust</a>
-      <a href="/about">About</a>
-    </nav>
-    <div id="hamburger" onclick="toggleMenu()">☰</div>
-    <div id="mobileMenu" class="hidden">
-      <a href="/">Home</a>
-      <a href="/shop">Shop</a>
-      <a href="/trust">Trust</a>
-      <a href="/about">About</a>
-    </div>
+    <img src="grains-logo.png" alt="Grains Hub Logo" />
+    <h1>Grains Hub</h1>
+    <p class="quote">“Built with restraint. Trusted across borders.”</p>
+    <p class="founder">— Shahid Bashir, Founder</p>
   </header>
 
-  <main>
-    <section class="intro">
-      <h1>Grains Hub</h1>
-      <p>Grains Hub is more than a portal—it’s a signal of trust.<br>
-      Rooted in Dubai’s trade legacy, built with digital precision.<br>
-      We serve specialists, not generalists.</p>
-    </section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="why.html">Why Grains Hub</a>
+    <a href="trust.html">Trust & Compliance</a>
+    <a href="about.html">About Us</a>
+    <a href="shop.html">Visit the Shop</a>
+  </nav>
 
-    <section class="quote-block">
-      <p class="quote">“Built with restraint. Trusted across borders.”</p>
-      <p class="founder">— Shahid Bashir, Founder</p>
-    </section>
+  <section class="intro">
+    <p>Grains Hub is more than a portal—it’s a signal of trust.<br>
+    Rooted in Dubai’s trade legacy, built with digital precision.<br>
+    We serve specialists, not generalists.<br>
+    Our infrastructure is clean. Our tone is quiet.<br>
+    We believe in compliance, clarity, and cross-border confidence.</p>
+  </section>
 
-    <section class="alliya-box">
-      <h2><img src="alliya-icon.ico" alt="Alliya" class="icon" /> Ask Alliya</h2>
-      <input type="text" id="queryInput" placeholder="Type your grain query..." />
-      <button onclick="askAlliya()">Verify</button>
-      <div id="replyBox" class="reply"></div>
-      <p>
-        <a href="https://wa.me/971585521976" target="_blank" class="whatsapp">Message Grains Hub on WhatsApp</a><br>
-        <a href="https://copilot.microsoft.com" target="_blank" class="copilot">Ask Copilot for deeper help</a>
-      </p>
-    </section>
-  </main>
+  <section class="alliya-box">
+    <h2>Ask Alliya</h2>
+    <input type="text" id="queryInput" placeholder="Type your grain query..." />
+    <button onclick="askAlliya()">Verify</button>
+    <div id="replyBox" class="reply"></div>
+  </section>
 
   <footer>
-    <div class="badge">Microsoft Copilot Enabled</div>
+    <div class="badge">Microsoft Copilot Enabled</div><br>
+    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    }
-
     async function askAlliya() {
       const query = document.getElementById('queryInput').value;
       const replyBox = document.getElementById('replyBox');
       replyBox.innerHTML = "Verifying...";
+
       try {
         const response = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(query)}`);
         const data = await response.json();
