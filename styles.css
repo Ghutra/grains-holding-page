@@ -299,3 +299,16 @@ footer {
     display: flex;
   }
 }
+#hamburger {
+  font-size: 24px;
+  background-color: #C1A875;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
