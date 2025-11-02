@@ -7,35 +7,32 @@
   <meta name="description" content="Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance. Built with restraint. Trusted across borders.">
   <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, compliance, trusted portal, cross-border trade">
   <meta name="author" content="Shahid Bashir">
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
   <header>
-  <div class="top-bar">
-    <img src="/grains-logo.png" alt="Grains Hub Logo" class="logo" />
-    <div id="hamburger" onclick="toggleMenu()">☰</div>
-  </div>
-
-  <nav class="desktop-nav">
-    <a href="/">Home</a>
-    <a href="/shop">Shop</a>
-    <a href="/trust">Trust</a>
-    <a href="/about">About</a>
-  </nav>
-
-  <div id="mobileMenu" class="hidden">
-    <a href="/">Home</a>
-    <a href="/shop">Shop</a>
-    <a href="/trust">Trust</a>
-    <a href="/about">About</a>
-  </div>
-
-  <p class="quote">“Built with restraint. Trusted across borders.”</p>
-  <p class="founder">— Shahid Bashir, Founder</p>
-</header>
-
+    <div class="top-bar">
+      <img src="/grains-logo.png" alt="Grains Hub Logo" class="logo" />
+      <div id="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+    <nav class="desktop-nav">
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </nav>
+    <div id="mobileMenu" class="hidden">
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </div>
+    <h1>Grains Hub</h1>
+    <p class="quote">“Built with restraint. Trusted across borders.”</p>
+    <p class="founder">— Shahid Bashir, Founder</p>
+  </header>
 
   <main>
     <section class="intro">
@@ -47,15 +44,11 @@
     </section>
 
     <section class="alliya-box">
-      <h2><img src="/alliya-icon.ico" alt="Alliya" class="icon" /> Ask Alliya</h2>
+      <h2>Ask Alliya</h2>
       <input type="text" id="queryInput" placeholder="Type your grain query..." />
       <button onclick="askAlliya()">Verify</button>
       <div id="replyBox" class="reply"></div>
       <div class="verified-badge hidden" id="verifiedBadge">✅ Verified by Alliya</div>
-      <p>
-        <a href="https://wa.me/971585521976" target="_blank" class="whatsapp">Message Grains Hub on WhatsApp</a><br>
-        <a href="https://copilot.microsoft.com" target="_blank" class="copilot">Ask Copilot for deeper help</a>
-      </p>
     </section>
   </main>
 
@@ -87,11 +80,6 @@
       }
     }
   </script>
-<script>
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  }
-</script>
 
 </body>
 </html>
