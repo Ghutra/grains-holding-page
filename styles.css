@@ -254,3 +254,38 @@ header img {
   width: 140px; /* was 120px */
   margin-bottom: 10px;
 }
+#hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  #hamburger {
+    display: block;
+  }
+  #mobileMenu {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    z-index: 1000;
+  }
+  #mobileMenu a {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #0056B3;
+  }
+}
