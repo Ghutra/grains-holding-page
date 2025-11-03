@@ -100,17 +100,6 @@ function renderNewsFeed() {
   feed.appendChild(container);
 }
 
-// 📰 News Feed Scroll
-function renderNewsFeed() {
-  const feed = document.getElementById("news-feed");
-  newsFeed.forEach(item => {
-    const span = document.createElement("span");
-    span.textContent = item;
-    span.style.marginRight = "40px";
-    feed.appendChild(span);
-  });
-}
-
 // 🧩 Initialize
 document.addEventListener("DOMContentLoaded", () => {
   renderTable("All");
