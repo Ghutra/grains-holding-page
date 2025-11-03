@@ -73,6 +73,28 @@
       color: #555;
       margin-top: 30px;
     }
+    .tab-button {
+      padding: 8px 16px;
+      margin: 5px;
+      background-color: #C1A875;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .tab-button:hover {
+      background-color: #a07c3b;
+    }
+    #news-feed {
+      white-space: nowrap;
+      overflow-x: auto;
+      padding: 10px;
+      background: #f8f5ec;
+      font-size: 14px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
     footer {
       margin-top: 60px;
       padding: 20px;
@@ -100,7 +122,8 @@
     <p>Updated daily from AI, Ras, trends, and supplier signals.</p>
     <p><strong>Last updated:</strong> 18 Sept 2023, 07:05 GST</p>
   </header>
-<div id="news-feed" style="white-space: nowrap; overflow-x: auto; padding: 10px; background: #f8f5ec; font-size: 14px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;"></div>
+
+  <div id="news-feed"></div>
 
   <nav>
     <a href="/">Home</a>
@@ -112,53 +135,25 @@
   </nav>
 
   <section class="intro">
+    <div style="margin: 20px;">
+      <button class="tab-button" data-filter="All">All</button>
+      <button class="tab-button" data-filter="India">By Origin: India</button>
+      <button class="tab-button" data-filter="Pakistan">By Origin: Pakistan</button>
+    </div>
+
     <table>
-      <tr>
-        <th>Product</th>
-        <th>Pulse</th>
-        <th>Price (CSF/MT)</th>
-        <th>Trends</th>
-        <th>By Origin</th>
-        <th>By Supplier</th>
-      </tr>
-      <tr>
-        <td>Pakistani 1121 Sella</td>
-        <td>Pakistan</td>
-        <td>$1,120</td>
-        <td>Stable</td>
-        <td>Stable</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>Pakistani 1121 Steam</td>
-        <td>Pakistan</td>
-        <td>$1,180</td>
-        <td>Stable</td>
-        <td>Stable</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>Indian 1121 Sella</td>
-        <td>India</td>
-        <td>$980</td>
-        <td>Stable</td>
-        <td>Stable</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td>Indian Creamy Sella 1503 Rice</td>
-        <td>Indian Creamy Sella</td>
-        <td>$780</td>
-        <td>Stable</td>
-        <td>Stock</td>
-        <td>—</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Origin</th>
+          <th>Price</th>
+          <th>Trend</th>
+          <th>Supplier</th>
+        </tr>
+      </thead>
+      <tbody id="pulse-table"></tbody>
     </table>
-<div style="margin: 20px;">
-  <button class="tab-button" data-filter="All">All</button>
-  <button class="tab-button" data-filter="India">By Origin: India</button>
-  <button class="tab-button" data-filter="Pakistan">By Origin: Pakistan</button>
-</div>
+
     <p class="footer-note">Available Stock: 40KG. Trade slows in a Friday. Market steadies.</p>
   </section>
 
@@ -168,6 +163,8 @@
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
+  <!-- ✅ Script call for dynamic updates -->
+  <script src="pulse.js"></script>
+
 </body>
 </html>
-
