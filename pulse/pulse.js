@@ -87,6 +87,18 @@ function renderTable(filter = "All") {
     grid.appendChild(row);
   });
 }
+function renderNewsFeed() {
+  const feed = document.getElementById("news-feed");
+  const container = document.createElement("div");
+
+  newsFeed.forEach(item => {
+    const span = document.createElement("span");
+    span.textContent = item;
+    container.appendChild(span);
+  });
+
+  feed.appendChild(container);
+}
 
 // 📰 News Feed Scroll
 function renderNewsFeed() {
