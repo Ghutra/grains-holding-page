@@ -308,3 +308,28 @@ footer {
     display: flex;
   }
 }
+#news-feed {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 10px;
+  background: #f8f5ec;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+#news-feed span {
+  display: inline-block;
+  padding-right: 40px;
+  animation: scrollFeed 30s linear infinite;
+}
+
+#news-feed:hover span {
+  animation-play-state: paused;
+}
+
+@keyframes scrollFeed {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
