@@ -8,36 +8,126 @@
   <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, compliance, trusted portal, cross-border trade">
   <meta name="author" content="Shahid Bashir">
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px 20px;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    nav {
+      background-color: #C1A875;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-weight: bold;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .intro {
+      padding: 30px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    .intro p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .founder {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .alliya-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      max-width: 600px;
+      margin: 30px auto;
+      border-radius: 6px;
+    }
+    .alliya-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .alliya-box button {
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .reply {
+      margin-top: 20px;
+      font-family: serif;
+      color: #333;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+    .badge {
+      background-color: #C1A875;
+      color: #fff;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <img src="grains-logo.png" alt="Grains Hub Logo" />
+    <h1>Grains Hub</h1>
+    <p class="quote">“Built with restraint. Trusted across borders.”</p>
+    <p class="founder">— Shahid Bashir, Founder</p>
   </header>
 
-  <!-- Hamburger for mobile -->
-  <button id="hamburger" onclick="toggleMenu()">☰</button>
-
-  <!-- Desktop Navigation -->
-  <nav class="desktop-nav">
-    <a href="/">Home</a>
-    <a href="/why">Why Grains Hub</a>  
-    <a href="/pulse/index.html">Market Pulse</a>
-    <a href="/trust">Trust & Compliance</a>
-    <a href="/about">About Us</a>
-    <a href="/shop">Visit the Shop</a>
-  </nav>
-
-  <!-- Mobile Navigation -->
-  <div id="mobileMenu">
-    <a href="/">Home</a>
-    <a href="/why">Why Grains Hub</a>  
-    <a href="/pulse/index.html">Market Pulse</a>
-    <a href="/trust">Trust & Compliance</a>
-    <a href="/about">About Us</a>
-    <a href="/shop">Visit the Shop</a>
-  </div>
+  <nav>
+  <a href="/">Home</a>
+  <a href="/why">Why Grains Hub</a>  
+  <a href="/pulse/index.html">Market Pulse</a>
+  <a href="/trust">Trust & Compliance</a>
+  <a href="/about">About Us</a>
+  <a href="/shop">Visit the Shop</a>
+</nav>
 
   <section class="intro">
     <p>Grains Hub is more than a portal—it’s a signal of trust.<br>
@@ -45,30 +135,22 @@
     We serve specialists, not generalists.<br>
     Our infrastructure is clean. Our tone is quiet.<br>
     We believe in compliance, clarity, and cross-border confidence.</p>
- 
-    <p class="quote">“Built with restraint. Trusted across borders.”</p>
-    <p class="founder">— Shahid Bashir, Founder</p>
   </section>
 
   <section class="alliya-box">
-    <h2><img src="alliya-icon.ico" alt="Alliya Unicorn" style="width:24px; vertical-align:middle; margin-right:8px;" /> Ask Alliya</h2>
+   <h2><img src="alliya-icon.ico" alt="Alliya Unicorn" style="width:24px; vertical-align:middle; margin-right:8px;" /> Ask Alliya</h2>
     <input type="text" id="queryInput" placeholder="Type your grain query..." />
     <button onclick="askAlliya()">Verify</button>
     <div id="replyBox" class="reply"></div>
   </section>
 
   <footer>
-    <div class="copilot-badge">Microsoft Copilot Enabled</div><br>
+    <div class="badge">Microsoft Copilot Enabled</div><br>
     Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-
     async function askAlliya() {
       const query = document.getElementById('queryInput').value;
       const replyBox = document.getElementById('replyBox');
@@ -86,3 +168,4 @@
 
 </body>
 </html>
+
