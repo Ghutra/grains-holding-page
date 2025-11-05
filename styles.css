@@ -340,3 +340,10 @@ h1 {
     margin: 0.5rem 0;
   }
 }
+#nav-menu {
+  display: none;
+}
+
+#nav-menu.active {
+  display: block;
+}
