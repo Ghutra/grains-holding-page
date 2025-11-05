@@ -317,3 +317,10 @@ h1 {
 .container {
   padding: 1.5rem;
 }
+#nav-menu {
+  display: none;
+}
+
+#nav-menu.active {
+  display: block;
+}
