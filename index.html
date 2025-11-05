@@ -296,7 +296,18 @@
     <button onclick="askAlliya()">Verify</button>
     <div id="replyBox" class="reply"></div>
   </section>
+<!-- Floating Alliya Button (Bottom Right) -->
+<div class="alliya-float" onclick="openAlliya()">
+  <img src="alliya-icon.ico" alt="Alliya"> Ask Alliya
+</div>
 
+<!-- Modal -->
+<div id="alliyaModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAlliya()">×</span>
+    <div class="alliya-box">...</div>
+  </div>
+</div>
   <!-- Footer -->
   <footer>
     <div class="badge">Microsoft Copilot Enabled</div><br>
