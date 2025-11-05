@@ -120,7 +120,8 @@
 
   <nav>
     <a href="/">Home</a>
-<a href="/why">Why Grains Hub</a>      <!-- if /why/index.html exists -->
+<a href="/why">Why Grains Hub</a>  
+ <li><a href="/pulse/index.html">Market Pulse</a></li>
 <a href="/trust">Trust & Compliance</a>
 <a href="/about">About Us</a>
 <a href="/shop">Visit the Shop</a>
@@ -136,7 +137,7 @@
    <p class="quote">“Built with restraint. Trusted across borders.”</p>
     <p class="founder">— Shahid Bashir, Founder</p>
   </section>
-
+<button class="hamburger" onclick="toggleMenu()">☰</button>
   <section class="alliya-box">
    <h2><img src="alliya-icon.ico" alt="Alliya Unicorn" style="width:24px; vertical-align:middle; margin-right:8px;" /> Ask Alliya</h2>
     <input type="text" id="queryInput" placeholder="Type your grain query..." />
@@ -165,6 +166,9 @@
       }
     }
   </script>
+function toggleMenu() {
+  document.getElementById("nav-menu").classList.toggle("active");
+}
 
 </body>
 </html>
