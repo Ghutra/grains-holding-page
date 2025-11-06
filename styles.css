@@ -347,3 +347,13 @@ h1 {
 #nav-menu.active {
   display: block;
 }
+.cta {
+  background: linear-gradient(135deg, #C1A875, #e8d5a3);
+  color: white; padding: 50px 20px; margin: 60px 0;
+}
+.btn-primary {
+  background: white; color: #C1A875; padding: 14px 28px;
+  border-radius: 8px; font-weight: bold; text-decoration: none;
+  display: inline-block; margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
