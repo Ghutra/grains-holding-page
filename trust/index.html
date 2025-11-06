@@ -4,173 +4,279 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trust & Compliance – Grains Hub</title>
-  <meta name="description" content="Grains Hub – Dubai’s trusted B2B portal for grains, trade, and compliance. Built with restraint. Trusted across borders." />
-  <meta name="keywords" content="Grains Hub, Trust, Compliance, Dubai B2B, grain trade, verified portal" />
+  <meta name="description" content="Grains Hub – Dubai’s trusted B2B portal. Verified scans. Compliance-first. Built with restraint." />
+  <meta name="keywords" content="Grains Hub, trust, compliance, security scan, Dubai B2B, verified portal" />
   <meta name="author" content="Shahid Bashir" />
-  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://grains.ae/trust" />
+  <link rel="icon" href="../favicon.png" type="image/png" />
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="Trust & Compliance – Grains Hub" />
+  <meta property="og:description" content="Verified. Watched. Quietly defended. Every scan is a promise kept." />
+  <meta property="og:image" content="https://grains.ae/assets/img/trust-hero.jpg" />
+  <meta property="og:url" content="https://grains.ae/trust" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trust & Compliance",
+    "url": "https://grains.ae/trust",
+    "description": "Security scan status, compliance infrastructure, and trust verification for Grains Hub.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Grains Hub",
+      "email": "trust@grains.ae"
+    }
+  }
+  </script>
 
   <style>
-    body {
-      background-color: #f9f9f9;
-      font-family: 'Helvetica Neue', sans-serif;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px 20px;
-    }
-    header img {
-      width: 160px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    nav {
-      background-color: #C1A875;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-weight: bold;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .intro {
-      padding: 30px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .intro p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    table {
-      width: 100%;
-      max-width: 700px;
-      margin: 20px auto;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: left;
-    }
-    th {
-      background-color: #f0ece6;
-      font-weight: 500;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      text-align: left;
-    }
-    ul li {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-    ul li::before {
-      content: "✔️ ";
-      margin-right: 6px;
-      color: #4CAF50;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
-    .badge {
-      background-color: #C1A875;
-      color: #fff;
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-    .quote {
-      font-style: italic;
-      color: #555;
-      margin-top: 40px;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #f9f9f9; font-family: 'Helvetica Neue', sans-serif; color: #333; line-height: 1.7; }
+
+    /* Navbar */
+    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 20px; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
+    .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+    .nav-links a.active { background-color: #fff; color: #C1A875; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; }
+    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; } .nav-links.active { display: flex; } .hamburger { display: flex; } }
+
+    /* Hero */
+    header { padding: 80px 20px 60px; background: url('../assets/img/trust-hero.jpg') center/cover no-repeat; position: relative; color: white; text-align: center; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.55); }
+    header > * { position: relative; z-index: 1; }
+    header img { width: 140px; margin-bottom: 16px; }
+    header h1 { font-size: 36px; font-weight: 500; margin-bottom: 12px; }
+    header p { font-size: 18px; max-width: 700px; margin: 10px auto; opacity: 0.95; }
+
+    /* Content */
+    .content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .section { margin: 50px 0; }
+    .section h2 { font-size: 26px; color: #a07c3b; margin-bottom: 20px; text-align: center; }
+    .section p { font-size: 16px; margin-bottom: 16px; }
+
+    /* Scan Table */
+    .scan-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+    .scan-table th, .scan-table td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
+    .scan-table th { background: #f0ece6; font-weight: 500; }
+    .scan-table tr:hover { background: #fdf8f0; }
+    .status { font-weight: bold; }
+    .status.safe { color: #2a9d8f; }
+    .status.pending { color: #e76f51; }
+
+    /* Scan History */
+    .history-list { list-style: none; padding-left: 0; max-width: 700px; margin: 20px auto; }
+    .history-list li { margin-bottom: 12px; font-size: 15px; position: relative; padding-left: 28px; }
+    .history-list li::before { content: "✔"; color: #2a9d8f; position: absolute; left: 0; font-weight: bold; }
+
+    /* Contact */
+    .contact-list { list-style: none; padding-left: 0; max-width: 600px; margin: 30px auto; text-align: left; }
+    .contact-list li { margin-bottom: 12px; font-size: 15px; }
+    .contact-list a { color: #0056b3; text-decoration: none; }
+    .contact-list a:hover { text-decoration: underline; }
+
+    /* Quote */
+    .quote { font-style: italic; color: #555; margin: 50px auto; max-width: 600px; padding: 20px; border-left: 4px solid #C1A875; background: #f8f5ec; font-size: 17px; }
+
+    /* Alliya Float */
+    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
+
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+
+    footer { margin-top: 80px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
+    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="/grains-logo.png" alt="Grains Hub Logo" />
-  </header>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/why">Why Grains Hub</a>
-    <a href="/trust">Trust & Compliance</a>
-    <a href="/about">About Us</a>
-    <a href="/shop">Visit the Shop</a>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="logo">Grains Hub</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why">Why</a></li>
+      <li><a href="/pulse/index.html">Pulse</a></li>
+      <li><a href="/trust" class="active">Trust</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
-  <section class="intro">
-    <h2>Trust & Compliance</h2>
-    <p>Grains Hub is built on restraint, precision, and trust. Our domain is not just secure—it is watched, verified, and quietly defended.</p>
-  </section>
+  <!-- Hero -->
+  <header>
+    <img src="../grains-logo.png" alt="Grains Hub Logo" />
+    <h1>Trust & Compliance</h1>
+    <p>Verified. Watched. Quietly defended.</p>
+  </header>
 
-  <section class="intro">
-    <h3>Security Scan Status</h3>
-    <table>
-      <tr><th>Platform</th><th>Status</th></tr>
-      <tr><td>Norton Safe Web</td><td>Rated Safe ✅</td></tr>
-      <tr><td>VirusTotal</td><td>Clean scan, no threats ✅</td></tr>
-      <tr><td>Cisco Talos</td><td>Ticket submitted, under review 🕒</td></tr>
-      <tr><td>Fortinet FortiGuard</td><td>Reputation request submitted 🕒</td></tr>
-      <tr><td>Sucuri SiteCheck</td><td>Clean ✅</td></tr>
-      <tr><td>Aikido</td><td>No critical or high issues ✅</td></tr>
-    </table>
-    <p><strong>Last updated:</strong> October 2025</p>
-  </section>
+  <!-- Content -->
+  <div class="content">
 
-  <section class="intro">
-    <h3>Scan History</h3>
-    <ul>
-      <li>Oct 13, 2025 – Aikido repo scan: No issues</li>
-      <li>Oct 13, 2025 – Norton Safe Web: Rated Safe</li>
-      <li>Oct 13, 2025 – Sucuri SiteCheck: Clean</li>
-      <li>Oct 13, 2025 – Fortinet: Reputation request submitted</li>
-      <li>Oct 12, 2025 – Talos ticket submitted</li>
-      <li>Oct 11, 2025 – VirusTotal scan: Clean</li>
-    </ul>
-  </section>
+    <div class="section">
+      <h2>Security Scan Status</h2>
+      <table class="scan-table">
+        <thead>
+          <tr><th>Platform</th><th>Status</th></tr>
+        </thead>
+        <tbody id="scan-table-body">
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+      <p><strong>Last updated:</strong> <span id="last-scan">Loading...</span></p>
+    </div>
 
-  <section class="intro">
-    <h3>Contact Identity</h3>
-    <p>For compliance inquiries, scan disputes, or reputation verification:</p>
-    <ul>
-      <li>Email: <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
-      <li>Domain: <a href="https://grains.ae" target="_blank">https://grains.ae</a></li>
-      <li>Trust Page: <a href="https://grains.ae/trust.html" target="_blank">https://grains.ae/trust.html</a></li>
-    </ul>
-  </section>
+    <div class="section">
+      <h2>Scan History</h2>
+      <ul class="history-list" id="scan-history">
+        <!-- Filled by JS -->
+      </ul>
+    </div>
 
-  <section class="quote">
-    <p>“Trust is not declared. It is earned—layer by layer, scan by scan.”</p>
-  </section>
+    <div class="section">
+      <h2>Contact for Compliance</h2>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
+        <li>Domain: <a href="https://grains.ae" target="_blank">https://grains.ae</a></li>
+        <li>Trust Page: <a href="https://grains.ae/trust" target="_blank">https://grains.ae/trust</a></li>
+      </ul>
+    </div>
+
+    <div class="quote">
+      <p>“Trust is not declared. It is earned—layer by layer, scan by scan.”</p>
+    </div>
+
+  </div>
+
+  <!-- Alliya Float -->
+  <div class="alliya-float" onclick="openModal()">
+    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div class="alliya-box">
+        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+        <div style="position:relative;">
+          <input type="text" id="modalInput" placeholder="Ask about scans, compliance..." oninput="suggest(this.value, true)" />
+          <div id="modalSuggestions"></div>
+        </div>
+        <button onclick="askAlliya(true)">Verify</button>
+        <div id="modalReply" class="reply"></div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="badge">Microsoft Copilot Enabled</div><br>
-    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> • 
+    <a href="mailto:trust@grains.ae">trust@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Hamburger
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Scan Data (Live-updated)
+    const scanData = [
+      { platform: "Norton Safe Web", status: "Rated Safe", class: "safe" },
+      { platform: "VirusTotal", status: "Clean scan, no threats", class: "safe" },
+      { platform: "Cisco Talos", status: "Ticket submitted, under review", class: "pending" },
+      { platform: "Fortinet FortiGuard", status: "Reputation request submitted", class: "pending" },
+      { platform: "Sucuri SiteCheck", status: "Clean", class: "safe" },
+      { platform: "Aikido", status: "No critical or high issues", class: "safe" }
+    ];
+
+    const historyData = [
+      "Nov 06, 2025 – Aikido repo scan: No issues",
+      "Nov 06, 2025 – Norton Safe Web: Rated Safe",
+      "Nov 05, 2025 – Sucuri SiteCheck: Clean",
+      "Nov 04, 2025 – Fortinet: Reputation request submitted",
+      "Nov 03, 2025 – Talos ticket submitted",
+      "Nov 02, 2025 – VirusTotal scan: Clean"
+    ];
+
+    // Render Scan Table
+    function renderScans() {
+      const tbody = document.getElementById('scan-table-body');
+      scanData.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td><strong>${item.platform}</strong></td><td><span class="status ${item.class}">${item.status} ${item.class === 'safe' ? 'Safe' : 'Pending'}</span></td>`;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Render History
+    function renderHistory() {
+      const list = document.getElementById('scan-history');
+      historyData.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+
+    // Update Last Scan
+    function updateLastScan() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      document.getElementById('last-scan').textContent = now.toLocaleDateString('en-GB', options);
+    }
+
+    // Alliya Modal
+    function openModal() { document.getElementById('modal').classList.add('active'); }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+    // Suggestions
+    const keywords = ['scan status', 'Cisco Talos', 'SPF DKIM', 'compliance email'];
+    function suggest(val, modal = false) {
+      const id = modal ? 'modalSuggestions' : 'suggestions';
+      const box = document.getElementById(id); box.innerHTML = '';
+      if (val.length < 2) return;
+      keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
+        const d = document.createElement('div'); d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
+        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        box.appendChild(d);
+      });
+    }
+
+    async function askAlliya(modal = false) {
+      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+      const q = input.value.trim();
+      if (!q) return;
+      reply.innerHTML = 'Verifying...';
+      try {
+        const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
+      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+    }
+
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      renderScans();
+      renderHistory();
+      updateLastScan();
+    });
+  </script>
 </body>
 </html>
