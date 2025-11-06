@@ -4,193 +4,198 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Market Pulse – Dubai Grains Market</title>
-  <meta name="description" content="Daily grain prices and trends from Dubai. Verified by AI, Ras, and supplier signals. Built with restraint." />
+  <meta name="description" content="Real-time grain prices from Jebel Ali, Al Ras & verified suppliers. Daily trends, origin filters, AI-powered insights." />
   <meta name="author" content="Shahid Bashir" />
-  <link rel="icon" href="/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://grains.ae/pulse" />
+  <link rel="icon" href="../favicon.png" type="image/png" />
 
   <style>
-    body {
-      background-color: #fdfdf9;
-      font-family: 'Helvetica Neue', sans-serif;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px 20px;
-    }
-    header img {
-      width: 160px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 10px;
-      color: #a07c3b;
-    }
-    nav {
-      background-color: #C1A875;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-weight: bold;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .intro {
-      padding: 30px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .intro p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    table {
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: left;
-    }
-    th {
-      background-color: #f0ece6;
-      font-weight: 500;
-    }
-    .footer-note {
-      font-style: italic;
-      color: #555;
-      margin-top: 30px;
-    }
-    .tab-button {
-      padding: 8px 16px;
-      margin: 5px;
-      background-color: #C1A875;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .tab-button:hover {
-      background-color: #a07c3b;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #fdfdf9; font-family: 'Helvetica Neue', sans-serif; color: #333; line-height: 1.6; }
+    
+    /* Navbar (consistent with site) */
+    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 20px; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
+    .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+    .nav-links a.active { background-color: #fff; color: #C1A875; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; }
+    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; } .nav-links.active { display: flex; } .hamburger { display: flex; } }
+
+    /* Hero Header */
+    header { padding: 60px 20px 40px; background: url('../assets/img/pulse-hero.jpg') center/cover no-repeat; position: relative; color: white; text-align: center; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+    header > * { position: relative; z-index: 1; }
+    header img { width: 140px; margin-bottom: 12px; }
+    header h1 { font-size: 32px; font-weight: 500; margin-bottom: 10px; color: #fff; }
+    header p { font-size: 16px; max-width: 700px; margin: 8px auto; opacity: 0.95; }
+
+    /* News Ticker */
     #news-feed {
-      white-space: nowrap;
-      overflow-x: auto;
-      padding: 10px;
-      background: #f8f5ec;
-      font-size: 14px;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
+      white-space: nowrap; overflow: hidden; padding: 12px 20px; background: #f8f5ec; font-size: 14px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; position: relative;
     }
-    #news-feed {
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 10px;
-  background: #f8f5ec;
-  font-size: 14px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  position: relative;
-}
+    #news-feed span { display: inline-block; padding-right: 60px; animation: scroll 35s linear infinite; }
+    #news-feed:hover span { animation-play-state: paused; }
+    @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-#news-feed span {
-  display: inline-block;
-  padding-right: 40px;
-  animation: scrollFeed 30s linear infinite;
-}
+    /* Tabs */
+    .tabs { text-align: center; margin: 30px 0; }
+    .tab-button { padding: 10px 18px; margin: 5px; background: #C1A875; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; }
+    .tab-button.active, .tab-button:hover { background: #a07c3b; }
 
-#news-feed:hover span {
-  animation-play-state: paused;
-}
+    /* Table */
+    .table-container { max-width: 900px; margin: 0 auto 40px; padding: 0 20px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+    th, td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #f0ece6; font-weight: 500; }
+    tr:hover { background: #fdf8f0; }
+    .trend { font-weight: bold; }
+    .trend.up { color: #e76f51; }
+    .trend.down { color: #2a9d8f; }
 
-@keyframes scrollFeed {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+    /* Alliya Float */
+    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
 
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
-    .badge {
-      background-color: #C1A875;
-      color: #fff;
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+
+    footer { margin-top: 60px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
+    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="/grains-logo.png" alt="Grains Hub Logo" />
-    <h1>Market Pulse – Dubai Grains Market</h1>
-    <p><em>Trade news, at a glance. Today’s prices and trends, live from Dubai.</em></p>
-    <p>Updated daily from AI, Ras, trends, and supplier signals.</p>
-    <p><strong>Last updated:</strong> 18 Sept 2023, 07:05 GST</p>
-  </header>
-
-  <div id="news-feed"></div>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/why">Why Grains Hub</a>
-    <a href="/trust">Trust & Compliance</a>
-    <a href="/about">About Us</a>
-    <a href="/shop">Visit the Shop</a>
-    <a href="/pulse">Market Pulse</a>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="logo">Grains Hub</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why">Why</a></li>
+      <li><a href="/pulse/index.html" class="active">Pulse</a></li>
+      <li><a href="/trust">Trust</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
-  <section class="intro">
-    <div style="margin: 20px;">
-      <button class="tab-button" data-filter="All">All</button>
-      <button class="tab-button" data-filter="India">By Origin: India</button>
-      <button class="tab-button" data-filter="Pakistan">By Origin: Pakistan</button>
-    </div>
+  <!-- Hero -->
+  <header>
+    <img src="../grains-logo.png" alt="Grains Hub Logo" />
+    <h1>Market Pulse</h1>
+    <p>Real-time grain prices from Jebel Ali, Al Ras & verified suppliers.</p>
+    <p><strong>Last updated:</strong> <span id="last-updated">Loading...</span></p>
+  </header>
 
+  <!-- News Ticker -->
+  <div id="news-feed"><span id="ticker-text">Loading market signals...</span></div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-button active" data-filter="All">All</button>
+    <button class="tab-button" data-filter="India">India</button>
+    <button class="tab-button" data-filter="Pakistan">Pakistan</button>
+    <button class="tab-button" data-filter="Thailand">Thailand</button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-container">
     <table>
       <thead>
         <tr>
           <th>Product</th>
           <th>Origin</th>
-          <th>Price</th>
+          <th>Price (AED/kg)</th>
           <th>Trend</th>
           <th>Supplier</th>
         </tr>
       </thead>
       <tbody id="pulse-table"></tbody>
     </table>
+  </div>
 
-    <p class="footer-note">Available Stock: 40KG. Trade slows in a Friday. Market steadies.</p>
-  </section>
+  <!-- Alliya Float -->
+  <div class="alliya-float" onclick="openModal()">
+    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div class="alliya-box">
+        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+        <div style="position:relative;">
+          <input type="text" id="modalInput" placeholder="Ask about prices, trends..." oninput="suggest(this.value, true)" />
+          <div id="modalSuggestions"></div>
+        </div>
+        <button onclick="askAlliya(true)">Verify</button>
+        <div id="modalReply" class="reply"></div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="badge">Microsoft Copilot Enabled</div><br>
-    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
-  <!-- ✅ Script call for dynamic updates -->
+  <!-- pulse.js -->
   <script src="pulse.js"></script>
 
+  <script>
+    // Hamburger
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Tab Filtering
+    document.querySelectorAll('.tab-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        window.filterPulse && window.filterPulse(filter);
+      });
+    });
+
+    // Alliya Modal
+    function openModal() { document.getElementById('modal').classList.add('active'); }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+    // Alliya Suggestions
+    const keywords = ['basmati price today', 'Thai white trend', 'FCL cost India', 'Jebel Ali arrivals'];
+    function suggest(val, modal = false) {
+      const id = modal ? 'modalSuggestions' : 'suggestions';
+      const box = document.getElementById(id); box.innerHTML = '';
+      if (val.length < 2) return;
+      keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
+        const d = document.createElement('div'); d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
+        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        box.appendChild(d);
+      });
+    }
+
+    async function askAlliya(modal = false) {
+      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+      const q = input.value.trim();
+      if (!q) return;
+      reply.innerHTML = 'Verifying...';
+      try {
+        const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
+      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+    }
+  </script>
 </body>
 </html>
