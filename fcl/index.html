@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FCL Booking – Grains Hub</title>
+  <meta name="description" content="Book full container loads (FCL) from India, Pakistan, Thailand. 20ft & 40ft. Verified logistics." />
+  <link rel="canonical" href="https://grains.ae/fcl" />
+  <link rel="icon" href="../favicon.png" type="image/png" />
 
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #f9f9f9; font-family: 'Helvetica Neue', sans-serif; color: #333; line-height: 1.6; }
+    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 20px; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
+    .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+    .nav-links a.active { background-color: #fff; color: #C1A875; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; }
+    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; } .nav-links.active { display: flex; } .hamburger { display: flex; } }
+
+    header { padding: 60px 20px 40px; background: url('../assets/img/container.jpg') center/cover no-repeat; position: relative; color: white; text-align: center; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+    header > * { position: relative; z-index: 1; }
+    header h1 { font-size: 32px; margin-bottom: 10px; }
+    header p { font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+    .container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
+
+    .booking-form { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .step { display: none; }
+    .step.active { display: block; }
+    label { display: block; margin: 15px 0 8px; font-weight: bold; }
+    select, input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
+    button { margin-top: 20px; padding: 12px 20px; background: #C1A875; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
+    button:hover { background: #b89a65; }
+
+    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+
+    footer { margin-top: 80px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
+    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="logo">Grains Hub</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why">Why</a></li>
+      <li><a href="/pulse/index.html">Pulse</a></li>
+      <li><a href="/trust">Trust</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <header>
+    <h1>FCL Booking</h1>
+    <p>Full container loads from verified origins. 20ft (24MT) • 40ft (48MT). Dubai delivery in 7–10 days.</p>
+  </header>
+
+  <div class="container">
+    <div class="booking-form">
+      <div class="step active" id="step1">
+        <label>Origin</label>
+        <select id="origin">
+          <option>India</option>
+          <option>Pakistan</option>
+          <option>Thailand</option>
+        </select>
+        <button onclick="nextStep(2)">Next</button>
+      </div>
+      <div class="step" id="step2">
+        <label>Container Type</label>
+        <select id="container">
+          <option>20ft (24MT)</option>
+          <option>40ft (48MT)</option>
+        </select>
+        <button onclick="nextStep(3)">Next</button>
+      </div>
+      <div class="step" id="step3">
+        <label>Grain Type</label>
+        <input id="grain" type="text" placeholder="e.g., Basmati 1121" />
+        <button onclick="submitFCL()">Book via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="alliya-float" onclick="openModal()">
+    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div class="alliya-box">
+        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+        <div style="position:relative;">
+          <input type="text" id="modalInput" placeholder="Ask about FCL..." oninput="suggest(this.value, true)" />
+          <div id="modalSuggestions"></div>
+        </div>
+        <button onclick="askAlliya(true)">Verify</button>
+        <div id="modalReply" class="reply"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="badge">Microsoft Copilot Enabled</div><br>
+    <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <p>© 2025 Grains Hub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    function nextStep(n) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step${n}`).classList.add('active');
+    }
+
+    function submitFCL() {
+      const origin = document.getElementById('origin').value;
+      const container = document.getElementById('container').value;
+      const grain = document.getElementById('grain').value || 'Any';
+      const msg = `FCL Booking:\nOrigin: ${origin}\nContainer: ${container}\nGrain: ${grain}`;
+      window.location.href = `https://wa.me/971501234567?text=${encodeURIComponent(msg)}`;
+    }
+
+    // Alliya Modal & Suggestions (same as home)
+    const keywords = ['FCL 20ft cost', 'India basmati FCL', 'Thailand white rice 40ft', 'lead time Jebel Ali'];
+    function suggest(val, modal = false) {
+      const id = modal ? 'modalSuggestions' : 'suggestions';
+      const box = document.getElementById(id); box.innerHTML = '';
+      if (val.length < 2) return;
+      keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
+        const d = document.createElement('div'); d.textContent = k;
+        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        box.appendChild(d);
+      });
+    }
+
+    async function askAlliya(modal = false) {
+      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+      const q = input.value.trim();
+      if (!q) return;
+      reply.innerHTML = 'Verifying...';
+      try {
+        const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
+      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+    }
+
+    function openModal() { document.getElementById('modal').classList.add('active'); }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); }
+  </script>
+</body>
+</html>
