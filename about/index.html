@@ -5,142 +5,224 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Grains Hub</title>
   <meta name="description" content="About Grains Hub: A signal of trust. Built with restraint. Dubai’s trusted B2B portal for grains, trade, and compliance." />
-  <meta name="keywords" content="Grains Hub, About Us, Dubai B2B, grain trade, compliance, trust portal" />
+  <meta name="keywords" content="Grains Hub, about us, Dubai B2B, grain trade, compliance, Shahid Bashir" />
   <meta name="author" content="Shahid Bashir" />
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="canonical" href="https://grains.ae/about" />
+  <link rel="icon" href="../favicon.png" type="image/png" />
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="About Grains Hub – A Signal of Trust" />
+  <meta property="og:description" content="We didn’t chase scale. We earned trust. Rooted in Dubai. Verified globally." />
+  <meta property="og:image" content="https://grains.ae/assets/img/about-hero.jpg" />
+  <meta property="og:url" content="https://grains.ae/about" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Grains Hub",
+    "url": "https://grains.ae",
+    "logo": "https://grains.ae/grains-logo.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Shahid Bashir",
+      "email": "letstalk@grains.ae"
+    },
+    "sameAs": ["https://x.com/shahidrana32"],
+    "description": "Dubai's trusted B2B grain portal. Built with restraint. Verified across borders.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai",
+      "addressCountry": "AE"
+    },
+    "contactPoint": [
+      { "@type": "ContactPoint", "email": "letstalk@grains.ae", "contactType": "Customer Service" },
+      { "@type": "ContactPoint", "email": "trust@grains.ae", "contactType": "Compliance" }
+    ]
+  }
+  </script>
 
   <style>
-    body {
-      background-color: #f9f9f9;
-      font-family: 'Helvetica Neue', sans-serif;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      padding: 40px 20px 20px;
-    }
-    header img {
-      width: 160px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    nav {
-      background-color: #C1A875;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-weight: bold;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .intro {
-      padding: 30px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-    .intro p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .quote {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 10px;
-    }
-    .founder {
-      font-weight: bold;
-      margin-bottom: 30px;
-    }
-    section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto 30px;
-      max-width: 600px;
-      text-align: left;
-    }
-    section ul li {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
-    .badge {
-      background-color: #C1A875;
-      color: #fff;
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #f9f9f9; font-family: 'Helvetica Neue', sans-serif; color: #333; line-height: 1.7; }
+
+    /* Navbar */
+    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 20px; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
+    .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+    .nav-links a.active { background-color: #fff; color: #C1A875; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; }
+    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; } .nav-links.active { display: flex; } .hamburger { display: flex; } }
+
+    /* Hero */
+    header { padding: 80px 20px 60px; background: url('../assets/img/about-hero.jpg') center/cover no-repeat; position: relative; color: white; text-align: center; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+    header > * { position: relative; z-index: 1; }
+    header img { width: 140px; margin-bottom: 16px; }
+    header h1 { font-size: 36px; font-weight: 500; margin-bottom: 12px; }
+    header p { font-size: 18px; max-width: 700px; margin: 10px auto; opacity: 0.95; }
+
+    /* Content */
+    .content { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .section { margin: 60px 0; text-align: left; }
+    .section h2 { font-size: 26px; color: #a07c3b; margin-bottom: 18px; text-align: center; }
+    .section p { font-size: 16px; margin-bottom: 16px; }
+
+    /* Founder Section */
+    .founder-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-align: center; margin: 40px auto; max-width: 600px; }
+    .founder-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 4px solid #C1A875; }
+    .quote { font-style: italic; color: #555; margin: 20px 0; font-size: 17px; }
+    .founder { font-weight: bold; color: #a07c3b; font-size: 15px; }
+
+    /* Lists */
+    .team-list, .infra-list { list-style: none; padding-left: 0; max-width: 600px; margin: 20px auto; }
+    .team-list li, .infra-list li { margin-bottom: 14px; font-size: 15px; position: relative; padding-left: 28px; }
+    .team-list li::before { content: "Person"; color: #C1A875; position: absolute; left: 0; font-weight: bold; }
+    .infra-list li::before { content: "Checkmark"; color: #2a9d8f; position: absolute; left: 0; font-weight: bold; }
+
+    /* Alliya Float */
+    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
+
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+
+    footer { margin-top: 80px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
+    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="/grains-logo.png" alt="Grains Hub Logo" />
-  </header>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/why">Why Grains Hub</a>
-    <a href="/trust">Trust & Compliance</a>
-    <a href="/about">About Us</a>
-    <a href="/shop">Visit the Shop</a>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="logo">Grains Hub</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why">Why</a></li>
+      <li><a href="/pulse/index.html">Pulse</a></li>
+      <li><a href="/trust">Trust</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
-  <section class="intro">
-    <h2>Founder’s Story</h2>
-    <p class="quote">“We didn’t chase scale. We earned trust. Grains Hub is a signal—verified across borders.”</p>
-    <p class="founder">— Shahid Bashir, Founder</p>
-    <p>Grains Hub was born from Dubai’s trade legacy and shaped through quiet precision. From domain troubleshooting to poetic messaging, every layer reflects a commitment to trust, compliance, and emotional discipline.</p>
-  </section>
+  <!-- Hero -->
+  <header>
+    <img src="../grains-logo.png" alt="Grains Hub Logo" />
+    <h1>About Grains Hub</h1>
+    <p>A signal of trust. Built with restraint. Rooted in Dubai.</p>
+  </header>
 
-  <section class="intro">
-    <h2>Philosophy of Restraint</h2>
-    <p>We serve specialists, not generalists. Our tone is quiet. Our infrastructure is clean. We believe in clarity, compliance, and cross-border confidence.</p>
-  </section>
+  <!-- Content -->
+  <div class="content">
 
-  <section class="intro">
-    <h2>Team Signatures</h2>
-    <ul>
-      <li><strong>Customer Support Team</strong> — <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a></li>
-      <li><strong>Trust Desk – Grains Hub</strong> — <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
-      <li><strong>Alliya – AI Ambassador</strong> — Quiet support. Verified answers.</li>
-    </ul>
-  </section>
+    <!-- Founder Card -->
+    <div class="founder-card">
+      <img src="../assets/img/shahid-bashir.jpg" alt="Shahid Bashir – Founder" />
+      <p class="quote">“We didn’t chase scale. We earned trust. Grains Hub is a signal—verified across borders.”</p>
+      <p class="founder">— Shahid Bashir, Founder</p>
+      <p>From domain troubleshooting to poetic messaging, every layer reflects a commitment to trust, compliance, and emotional discipline.</p>
+    </div>
 
-  <section class="intro">
-    <h2>Infrastructure & Compliance</h2>
-    <ul>
-      <li>Hosted on GitHub Pages</li>
-      <li>SPF, DKIM, DMARC configured</li>
-      <li>Verified by Cisco Talos</li>
-      <li>Scan logs available</li>
-    </ul>
-  </section>
+    <div class="section">
+      <h2>Philosophy of Restraint</h2>
+      <p>We serve specialists, not generalists. Our tone is quiet. Our infrastructure is clean. We believe in clarity, compliance, and cross-border confidence.</p>
+    </div>
+
+    <div class="section">
+      <h2>Team Signatures</h2>
+      <ul class="team-list">
+        <li><strong>Customer Support Team</strong> — <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a></li>
+        <li><strong>Trust Desk – Grains Hub</strong> — <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
+        <li><strong>Alliya – AI Ambassador</strong> — Quiet support. Verified answers.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Infrastructure & Compliance</h2>
+      <ul class="infra-list">
+        <li>Hosted on GitHub Pages with auto-deploy</li>
+        <li>SPF, DKIM, DMARC configured</li>
+        <li>Verified by Cisco Talos, Norton, Sucuri</li>
+        <li>Scan logs available on request</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Alliya Float -->
+  <div class="alliya-float" onclick="openModal()">
+    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div class="alliya-box">
+        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+        <div style="position:relative;">
+          <input type="text" id="modalInput" placeholder="Ask about founder, philosophy..." oninput="suggest(this.value, true)" />
+          <div id="modalSuggestions"></div>
+        </div>
+        <button onclick="askAlliya(true)">Verify</button>
+        <div id="modalReply" class="reply"></div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="badge">Microsoft Copilot Enabled</div><br>
-    Contact us at <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> • 
+    <a href="mailto:trust@grains.ae">trust@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Hamburger
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Alliya Modal
+    function openModal() { document.getElementById('modal').classList.add('active'); }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+    // Suggestions
+    const keywords = ['founder story', 'philosophy', 'Alliya AI', 'compliance'];
+    function suggest(val, modal = false) {
+      const id = modal ? 'modalSuggestions' : 'suggestions';
+      const box = document.getElementById(id); box.innerHTML = '';
+      if (val.length < 2) return;
+      keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
+        const d = document.createElement('div'); d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
+        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        box.appendChild(d);
+      });
+    }
+
+    async function askAlliya(modal = false) {
+      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+      const q = input.value.trim();
+      if (!q) return;
+      reply.innerHTML = 'Verifying...';
+      try {
+        const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
+      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+    }
+  </script>
 </body>
 </html>
