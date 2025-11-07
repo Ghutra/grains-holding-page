@@ -25,152 +25,68 @@
     "name": "Grains Hub",
     "url": "https://grains.ae",
     "logo": "https://grains.ae/grains-logo.png",
-    "founder": { "@type": "Person", "name": "Shahid Bashir" },
+    "founder": {
+      "@type": "Person",
+      "name": "Shahid Bashir"
+    },
     "description": "Dubai's trusted B2B grain portal. Built with restraint. Verified across borders.",
-    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai",
+      "addressCountry": "AE"
+    }
   }
   </script>
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:#f9f9f9; font-family:'Helvetica Neue',sans-serif; color:#333; line-height:1.7; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #f9f9f9; font-family: 'Helvetica Neue', sans-serif; color: #333; line-height: 1.7; }
 
-    /* ---------- NAVBAR (HIGH-CONTRAST, INSTANT HOVER) ---------- */
-.navbar {
-  background:#C1A875; padding:10px 20px; position:sticky; top:0; z-index:1000;
-  display:flex; justify-content:space-between; align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-.nav-center { display:flex; align-items:center; gap:30px; }
-.logo { color:#fff; font-weight:bold; font-size:1.1rem; text-decoration:none; }
+    /* Navbar */
+    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 20px; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
+    .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+    .nav-links a.active { background-color: #fff; color: #C1A875; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; }
+    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; } .nav-links.active { display: flex; } .hamburger { display: flex; } }
 
-.nav-links { display:flex; list-style:none; gap:20px; }
-.nav-links a {
-  color:#fff !important;
-  text-decoration:none; font-size:14px; font-weight:bold;
-  padding:8px 12px; border-radius:4px;
-  transition:background 0.2s ease, color 0.2s ease; /* Faster */
-}
-.nav-links a:hover {
-  background:#fff !important;
-  color:#C1A875 !important;
-}
-.nav-links a.active {
-  background:#fff !important;
-  color:#C1A875 !important;
-}
+    /* Hero */
+    header { padding: 80px 20px 60px; background: url('../assets/img/why-hero.jpg') center/cover no-repeat; position: relative; color: white; text-align: center; }
+    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+    header > * { position: relative; z-index: 1; }
+    header img { width: 140px; margin-bottom: 16px; }
+    header h1 { font-size: 36px; font-weight: 500; margin-bottom: 12px; }
+    header p { font-size: 18px; max-width: 700px; margin: 10px auto; opacity: 0.95; }
 
-.hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-.hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
+    /* Content */
+    .content { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .section { margin: 50px 0; text-align: left; }
+    .section h2 { font-size: 24px; color: #a07c3b; margin-bottom: 16px; text-align: center; }
+    .section p { font-size: 16px; margin-bottom: 16px; }
+    blockquote { font-style: italic; color: #555; margin: 30px auto; max-width: 600px; padding: 20px; border-left: 4px solid #C1A875; background: #f8f5ec; }
+    blockquote p { margin: 0; font-size: 17px; }
+    blockquote footer { font-weight: bold; margin-top: 12px; text-align: right; color: #a07c3b; }
+    ul { list-style: none; padding-left: 0; max-width: 600px; margin: 20px auto; }
+    ul li { margin-bottom: 12px; font-size: 15px; position: relative; padding-left: 24px; }
+    ul li::before { content: "✓"; color: #C1A875; position: absolute; left: 0; font-weight: bold; }
+    .cta { text-align: center; margin: 40px 0; }
+    .btn { display: inline-block; padding: 12px 28px; background: #0056b3; color: white; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 15px; }
+    .btn:hover { background: #004494; }
 
-@media (max-width:768px) {
-  .hamburger { display:flex; }
-  .nav-center { justify-content:flex-end; }
-  .nav-links {
-    position:absolute; top:100%; left:0; right:0; background:#C1A875;
-    flex-direction:column; padding:10px 0; display:none;
-  }
-  .nav-links.active { display:flex; }
-  .nav-links a {
-    color:#fff !important;
-    text-align:center;
-  }
-  .nav-links a:hover,
-  .nav-links a.active {
-    background:#fff !important;
-    color:#C1A875 !important;
-  }
-}
-@media (min-width:769px) {
-  .navbar { justify-content:center; }
-}
+    /* Alliya Float */
+    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
 
-    /* ---------- HERO ---------- */
-    header {
-      padding:80px 20px 60px;
-      background:url('../assets/img/why-hero.jpg') center/cover no-repeat;
-      position:relative; color:#fff; text-align:center;
-    }
-    header::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,.5); }
-    header > * { position:relative; z-index:1; }
-    header img { width:140px; margin-bottom:16px; }
-    header h1 { font-size:36px; font-weight:500; margin-bottom:12px; }
-    header p { font-size:18px; max-width:700px; margin:10px auto; opacity:.95; }
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
 
-    /* ---------- CONTENT ---------- */
-    .content { max-width:800px; margin:0 auto; padding:0 20px; }
-    .section { margin:50px 0; text-align:left; }
-    .section h2 { font-size:24px; color:#a07c3b; margin-bottom:16px; text-align:center; }
-    .section p { font-size:16px; margin-bottom:16px; }
-
-    blockquote {
-      font-style:italic; color:#555; margin:30px auto; max-width:600px;
-      padding:20px; border-left:4px solid #C1A875; background:#f8f5ec;
-    }
-    blockquote p { margin:0; font-size:17px; }
-    blockquote footer { font-weight:bold; margin-top:12px; text-align:right; color:#a07c3b; }
-
-    ul { list-style:none; padding-left:0; max-width:600px; margin:20px auto; }
-    ul li {
-      margin-bottom:12px; font-size:15px;
-      position:relative; padding-left:24px;
-    }
-    ul li::before { content:"Checkmark"; color:#C1A875; position:absolute; left:0; font-weight:bold; }
-
-    .cta { text-align:center; margin:40px 0; }
-    .btn {
-      display:inline-block; padding:12px 28px; background:#0056b3; color:#fff;
-      border-radius:6px; text-decoration:none; font-weight:bold; font-size:15px;
-    }
-    .btn:hover { background:#004494; }
-
-    /* ---------- ALLIYA MODAL ---------- */
-    .modal {
-      display:none; position:fixed; inset:0; background:rgba(0,0,0,.5);
-      z-index:1000; justify-content:center; align-items:center; padding:20px;
-    }
-    .modal.active { display:flex; }
-    .modal-content {
-      background:#fff; border-radius:12px; width:90%; max-width:500px;
-      padding:20px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.2);
-    }
-    .close { position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer; color:#aaa; }
-    .close:hover { color:#000; }
-
-    .alliya-box h2 { display:flex; align-items:center; gap:8px; margin-bottom:16px; color:#a07c3b; }
-    .alliya-box input { width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-size:15px; }
-    .alliya-box button {
-      margin-top:10px; padding:10px 20px; background:#C1A875; color:#fff;
-      border:none; border-radius:6px; cursor:pointer; font-weight:bold;
-    }
-    .alliya-box button:hover { background:#a07c3b; }
-
-    .suggestions {
-      position:absolute; inset:100% 0 auto 0; background:#fff; border:1px solid #eee;
-      border-radius:6px; max-height:150px; overflow-y:auto; z-index:10;
-    }
-    .suggestions div { padding:10px; cursor:pointer; border-bottom:1px solid #f0f0f0; }
-    .suggestions div:hover { background:#f8f5ec; }
-
-    .reply { margin-top:16px; padding:12px; background:#f8f5ec; border-radius:6px; font-size:14px; }
-    .reply a { color:#25D366; font-weight:bold; }
-
-    /* ---------- ALLIYA FLOAT (same as About) ---------- */
-    .alliya-float {
-      position:fixed; right:20px; background:#C1A875; color:#fff;
-      padding:12px 18px; border-radius:30px; cursor:pointer;
-      box-shadow:0 4px 16px rgba(0,0,0,.2);
-      display:flex; align-items:center; gap:8px; font-weight:bold;
-      z-index:999; font-size:14px;
-      transition:transform .3s, background .3s;
-    }
-    .alliya-float:hover { background:#a07c3b; transform:scale(1.05); }
-
-    @media (max-width:768px) { .alliya-float { bottom:80px; } }
-    @media (min-width:769px) { .alliya-float { bottom:20px; } }
-
-    footer { margin-top:80px; padding:20px; font-size:14px; color:#777; text-align:center; }
-    .badge { background:#C1A875; color:#fff; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:.9rem; }
+    footer { margin-top: 80px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
+    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -178,19 +94,15 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/" class="logo">Grains Hub</a>
-
-    <div class="nav-center">
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/why" class="active">Why</a></li>
-        <li><a href="/pulse/index.html">Pulse</a></li>
-        <li><a href="/trust">Trust</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/shop">Shop</a></li>
-      </ul>
-    </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why" class="active">Why</a></li>
+      <li><a href="/pulse/index.html">Pulse</a></li>
+      <li><a href="/trust">Trust</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+    <div class="hamburger">
       <span></span><span></span><span></span>
     </div>
   </nav>
@@ -235,28 +147,28 @@
 
     <div class="section cta">
       <p><strong>Cross-Border Confidence</strong><br>Trusted across borders. Verified in Dubai, Lahore, and beyond.</p>
-      <a href="/trust" class="btn">View Trust &amp; Compliance</a>
+      <a href="/trust" class="btn">View Trust & Compliance</a>
     </div>
 
   </div>
 
-  <!-- Alliya Float (single) -->
+  <!-- Alliya Float -->
   <div class="alliya-float" onclick="openModal()">
-    <img src="../assets/img/alliya-icon.ico" alt="Alliya Icon" width="24"> Ask Alliya
+    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
   </div>
 
-  <!-- Alliya Modal (single) -->
-  <div id="alliya-modal" class="modal">
+  <!-- Modal -->
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">x</span>
+      <span class="close" onclick="closeModal()">×</span>
       <div class="alliya-box">
-        <h2><img src="../assets/img/alliya-icon.ico" alt="Alliya Icon" width="24"> Ask Alliya</h2>
+        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
         <div style="position:relative;">
-          <input type="text" id="alliya-input" placeholder="Ask about trust, compliance..." oninput="showSuggestions(this.value)" />
-          <div id="suggestions" class="suggestions"></div>
+          <input type="text" id="modalInput" placeholder="Ask about trust, compliance..." oninput="suggest(this.value, true)" />
+          <div id="modalSuggestions"></div>
         </div>
-        <button onclick="askAlliya()">Verify</button>
-        <div id="alliya-reply" class="reply"></div>
+        <button onclick="askAlliya(true)">Verify</button>
+        <div id="modalReply" class="reply"></div>
       </div>
     </div>
   </div>
@@ -268,52 +180,40 @@
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
-  <!-- Global JS (if you have a shared app.js) -->
-  <script src="../assets/js/app.js"></script>
-
   <script>
-    /* ---------- HAMBURGER MENU ---------- */
-    function toggleMenu() {
+    // Hamburger
+    document.querySelector('.hamburger').addEventListener('click', () => {
       document.querySelector('.nav-links').classList.toggle('active');
-    }
-    // Keep original listener (works even if script loads later)
-    document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+    });
 
-    /* ---------- ALLIYA MODAL ---------- */
-    function openModal() { document.getElementById('alliya-modal').classList.add('active'); }
-    function closeModal() { document.getElementById('alliya-modal').classList.remove('active'); }
+    // Alliya Modal
+    function openModal() { document.getElementById('modal').classList.add('active'); }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); }
 
-    /* ---------- SUGGESTIONS ---------- */
+    // Suggestions
     const keywords = ['compliance scan', 'SPF DKIM', 'founder philosophy', 'Dubai trade'];
-    function showSuggestions(val) {
-      const box = document.getElementById('suggestions'); box.innerHTML = '';
+    function suggest(val, modal = false) {
+      const id = modal ? 'modalSuggestions' : 'suggestions';
+      const box = document.getElementById(id); box.innerHTML = '';
       if (val.length < 2) return;
       keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
-        const d = document.createElement('div');
-        d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
-        d.onclick = () => {
-          document.getElementById('alliya-input').value = k;
-          box.innerHTML = '';
-          askAlliya();
-        };
+        const d = document.createElement('div'); d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
+        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
         box.appendChild(d);
       });
     }
 
-    /* ---------- ASK ALLIYA ---------- */
-    async function askAlliya() {
-      const input = document.getElementById('alliya-input');
-      const reply = document.getElementById('alliya-reply');
+    async function askAlliya(modal = false) {
+      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
       const q = input.value.trim();
       if (!q) return;
       reply.innerHTML = 'Verifying...';
       try {
         const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
         const data = await res.json();
-        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${encodeURIComponent(q)}">Message Us</a>`;
-      } catch {
-        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>';
-      }
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
+      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
     }
   </script>
 </body>
