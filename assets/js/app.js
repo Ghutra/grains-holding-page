@@ -80,3 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('alliya-input')?.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') askAlliya();
 });
+// === Alliya Float (Single Instance) ===
+if (!document.querySelector('.alliya-float')) {
+  const float = document.createElement('div');
+  float.className = 'alliya-float';
+  float.innerHTML = '<img src="/assets/img/alliya-icon.ico" alt="Alliya" width="20"> Ask Alliya';
+  float.onclick = openModal;
+  document.body.appendChild(float);
+}
