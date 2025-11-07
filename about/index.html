@@ -82,40 +82,34 @@
     /* Lists */
     .team-list, .infra-list { list-style: none; padding-left: 0; max-width: 600px; margin: 20px auto; }
     .team-list li, .infra-list li { margin-bottom: 14px; font-size: 15px; position: relative; padding-left: 28px; }
-    .team-list li::before { content: "Person"; color: #C1A875; position: absolute; left: 0; font-weight: bold; }
-    .infra-list li::before { content: "Checkmark"; color: #2a9d8f; position: absolute; left: 0; font-weight: bold; }
+    .team-list li::before { content: "\1F464"; /* Unicode person icon 👤 */ color: #C1A875; position: absolute; left: 0; font-size: 1.2em; }
+    .infra-list li::before { content: "\2714"; /* Unicode checkmark ✔ */ color: #2a9d8f; position: absolute; left: 0; font-size: 1.2em; }
 
-   
-    /* Modal */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+    /* Alliya Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
     .modal.active { display: flex; }
-    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
-    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer; color: #aaa; }
+    .close:hover { color: #000; }
+
+    .alliya-box h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; color: #a07c3b; }
+    .alliya-box input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; }
+    .alliya-box button { margin-top: 10px; padding: 10px 20px; background: #C1A875; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .alliya-box button:hover { background: #a07c3b; }
+
+    .suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #eee; border-radius: 6px; max-height: 150px; overflow-y: auto; z-index: 10; }
+    .suggestions div { padding: 10px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
+    .suggestions div:hover { background: #f8f5ec; }
+
+    .reply { margin-top: 16px; padding: 12px; background: #f8f5ec; border-radius: 6px; font-size: 14px; }
+    .reply a { color: #25D366; font-weight: bold; }
+
+    /* Alliya Float */
+    .alliya-float { position: fixed; bottom: 20px; right: 20px; background: #C1A875; color: white; padding: 12px 18px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; font-size: 14px; }
+    .alliya-float:hover { background: #a07c3b; transform: scale(1.05); transition: all 0.3s; }
 
     footer { margin-top: 80px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
     .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
- /* Alliya Modal */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
-.modal.active { display: flex; }
-.modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-.close { position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer; color: #aaa; }
-.close:hover { color: #000; }
-
-.alliya-box h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; color: #a07c3b; }
-.alliya-box input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; }
-.alliya-box button { margin-top: 10px; padding: 10px 20px; background: #C1A875; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
-.alliya-box button:hover { background: #a07c3b; }
-
-.suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #eee; border-radius: 6px; max-height: 150px; overflow-y: auto; z-index: 10; }
-.suggestions div { padding: 10px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
-.suggestions div:hover { background: #f8f5ec; }
-
-.reply { margin-top: 16px; padding: 12px; background: #f8f5ec; border-radius: 6px; font-size: 14px; }
-.reply a { color: #25D366; font-weight: bold; }
-
-/* Alliya Float */
-.alliya-float { position: fixed; bottom: 20px; right: 20px; background: #C1A875; color: white; padding: 12px 18px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; font-size: 14px; }
-.alliya-float:hover { background: #a07c3b; transform: scale(1.05); transition: all 0.3s; }
   </style>
 </head>
 <body>
@@ -177,33 +171,39 @@
         <li>Scan logs available on request</li>
       </ul>
     </div>
-   <!-- Alliya Float -->
-  <div class="alliya-float" onclick="openModal()">
-    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
+
   </div>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
+  <!-- Alliya Float -->
+  <div class="alliya-float" onclick="openModal()">
+    <img src="../assets/img/alliya-icon.ico" alt="Alliya Icon" width="24"> Ask Alliya
+  </div>
+
+  <!-- Alliya Modal -->
+  <div id="alliya-modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">×</span>
       <div class="alliya-box">
-        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+        <h2><img src="../assets/img/alliya-icon.ico" alt="Alliya Icon" width="24"> Ask Alliya</h2>
         <div style="position:relative;">
-          <input type="text" id="modalInput" placeholder="Ask about prices, trends..." oninput="suggest(this.value, true)" />
-          <div id="modalSuggestions"></div>
+          <input type="text" id="alliya-input" placeholder="Ask about prices, trends, FCL..." oninput="showSuggestions(this.value)" />
+          <div id="suggestions" class="suggestions"></div>
         </div>
-        <button onclick="askAlliya(true)">Verify</button>
-        <div id="modalReply" class="reply"></div>
+        <button onclick="askAlliya()">Verify</button>
+        <div id="alliya-reply" class="reply"></div>
       </div>
     </div>
   </div>
-    <footer>
+
+  <footer>
     <div class="badge">Microsoft Copilot Enabled</div><br>
     <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> • 
     <a href="mailto:trust@grains.ae">trust@grains.ae</a><br>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
+  <!-- Global JS -->
+  <script src="../assets/js/app.js"></script>
   <script>
     // Hamburger
     document.querySelector('.hamburger').addEventListener('click', () => {
@@ -211,75 +211,35 @@
     });
 
     // Alliya Modal
-    function openModal() { document.getElementById('modal').classList.add('active'); }
-    function closeModal() { document.getElementById('modal').classList.remove('active'); }
+    function openModal() { document.getElementById('alliya-modal').classList.add('active'); }
+    function closeModal() { document.getElementById('alliya-modal').classList.remove('active'); }
 
     // Suggestions
     const keywords = ['founder story', 'philosophy', 'Alliya AI', 'compliance'];
-    function suggest(val, modal = false) {
-      const id = modal ? 'modalSuggestions' : 'suggestions';
-      const box = document.getElementById(id); box.innerHTML = '';
+    function showSuggestions(val) {
+      const box = document.getElementById('suggestions'); box.innerHTML = '';
       if (val.length < 2) return;
       keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
         const d = document.createElement('div'); d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
-        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        d.onclick = () => { document.getElementById('alliya-input').value = k; box.innerHTML = ''; askAlliya(); };
         box.appendChild(d);
       });
     }
 
-    async function askAlliya(modal = false) {
-      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
-      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+    async function askAlliya() {
+      const input = document.getElementById('alliya-input');
+      const reply = document.getElementById('alliya-reply');
       const q = input.value.trim();
       if (!q) return;
       reply.innerHTML = 'Verifying...';
       try {
         const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
         const data = await res.json();
-        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
-      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${encodeURIComponent(q)}">Message Us</a>`;
+      } catch {
+        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>';
+      }
     }
   </script>
-<!-- Alliya Modal (Shared) -->
-<div id="alliya-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <div class="alliya-box">
-      <h2><img src="assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya</h2>
-      <div style="position:relative;">
-        <input type="text" id="alliya-input" placeholder="Ask about prices, trends, FCL..." oninput="showSuggestions(this.value)" />
-        <div id="suggestions" class="suggestions"></div>
-
-<!-- Global JS -->
-<script src="assets/js/app.js"></script>
-<!-- Alliya Modal (Shared) -->
-<div id="alliya-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <div class="alliya-box">
-      <h2><img src="assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya</h2>
-      <div style="position:relative;">
-        <input type="text" id="alliya-input" placeholder="Ask about prices, trends, FCL..." oninput="showSuggestions(this.value)" />
-        <div id="suggestions" class="suggestions"></div>
-  </div>
-  </div>
-  </div>
-<!-- Alliya Modal (Shared) -->
-<div id="alliya-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <div class="alliya-box">
-      <h2><img src="assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya</h2>
-      <div style="position:relative;">
-        <input type="text" id="alliya-input" placeholder="Ask about prices, trends, FCL..." oninput="showSuggestions(this.value)" />
-        <div id="suggestions" class="suggestions"></div>
-      </div>
-      <button onclick="askAlliya()">Verify</button>
-      <div id="alliya-reply" class="reply"></div>
-    </div>
-  </div>
-</div>
-<!-- Global JS -->
-<script src="assets/js/app.js"></script>
 </body>
 </html>
