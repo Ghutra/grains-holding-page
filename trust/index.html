@@ -37,7 +37,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#f9f9f9; font-family:'Helvetica Neue',sans-serif; color:#333; line-height:1.7; }
 
-    /* ---------- NAVBAR (PERFECT ALIGNMENT, NO CHECKMARK) ---------- */
+    /* ---------- NAVBAR (NO CHECKMARK, PERFECT ALIGNMENT) ---------- */
     .navbar {
       background:#C1A875; padding:10px 20px; position:sticky; top:0; z-index:1000;
       display:flex; justify-content:space-between; align-items:center;
@@ -101,18 +101,18 @@
 
     /* ---------- CONTENT ---------- */
     .content { max-width:800px; margin:0 auto; padding:0 20px; }
-    .section { margin:50px 0; text-align:left; }
-    .section h2, .section h3 { font-size:24px; color:#a07c3b; margin-bottom:16px; text-align:center; }
+    .section { margin:50px 0; text-align:center; } /* All sections centered */
+    .section h2, .section h3 { font-size:24px; color:#a07c3b; margin-bottom:16px; }
     .section p { font-size:16px; margin-bottom:16px; }
 
-    /* ---------- TRUST CARDS: 2×2 ON DESKTOP, 1 COL ON MOBILE ---------- */
+    /* ---------- TRUST CARDS: 2×2 ON DESKTOP ---------- */
     .trust-grid {
       display:grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 per row on desktop */
+      grid-template-columns: repeat(2, 1fr);
       gap:20px; margin:40px 0;
     }
     @media (max-width:768px) {
-      .trust-grid { grid-template-columns: 1fr; } /* 1 per row on mobile */
+      .trust-grid { grid-template-columns: 1fr; }
     }
 
     .trust-card {
@@ -133,7 +133,7 @@
       font-size:14.5px; color:#555; line-height:1.5;
     }
 
-    /* ---------- TABLES & LISTS ---------- */
+    /* ---------- TABLES ---------- */
     table {
       width:100%; max-width:700px; margin:20px auto;
       border-collapse:collapse; background:#fff;
@@ -147,22 +147,29 @@
     }
     td { font-size:15px; }
 
+    /* ---------- LISTS (NO CHECKMARK IN CONTACT/SCAN HISTORY) ---------- */
     ul {
       list-style:none; padding-left:0; max-width:700px; margin:20px auto;
+      text-align:center;
     }
     ul li {
       margin-bottom:12px; font-size:15px;
-      position:relative; padding-left:28px;
+      padding-left:0;
     }
-    ul li::before {
-      content: "Checkmark"; /* Real checkmark */
-      color:#4CAF50; position:absolute; left:0; top:0;
-      font-weight:bold; font-size:1.2em;
+    /* Only table uses checkmark */
+    .status-check { color:#4CAF50; font-weight:bold; }
+
+    /* ---------- CENTERED TEXT BLOCKS ---------- */
+    .centered-text {
+      text-align:center; margin:20px auto; max-width:700px;
+    }
+    .centered-text p {
+      font-size:16px; margin-bottom:16px;
     }
 
     .quote {
       font-style:italic; color:#555; margin:50px auto; max-width:600px;
-      font-size:17px; line-height:1.6;
+      font-size:17px; line-height:1.6; text-align:center;
     }
 
     /* ---------- ALLIYA MODAL ---------- */
@@ -275,36 +282,38 @@
       <h3>Security Scan Status</h3>
       <table>
         <tr><th>Platform</th><th>Status</th></tr>
-        <tr><td>Norton Safe Web</td><td>Rated Safe Checkmark</td></tr>
-        <tr><td>VirusTotal</td><td>Clean scan, no threats Checkmark</td></tr>
+        <tr><td>Norton Safe Web</td><td>Rated Safe <span class="status-check">Checkmark</span></td></tr>
+        <tr><td>VirusTotal</td><td>Clean scan, no threats <span class="status-check">Checkmark</span></td></tr>
         <tr><td>Cisco Talos</td><td>Ticket submitted, under review Clock</td></tr>
         <tr><td>Fortinet FortiGuard</td><td>Reputation request submitted Clock</td></tr>
-        <tr><td>Sucuri SiteCheck</td><td>Clean Checkmark</td></tr>
-        <tr><td>Aikido</td><td>No critical or high issues Checkmark</td></tr>
+        <tr><td>Sucuri SiteCheck</td><td>Clean <span class="status-check">Checkmark</span></td></tr>
+        <tr><td>Aikido</td><td>No critical or high issues <span class="status-check">Checkmark</span></td></tr>
       </table>
-      <p><strong>Last updated:</strong> October 2025</p>
+      <p class="centered-text"><strong>Last updated:</strong> 7th November 2025</p>
     </div>
 
     <div class="section">
       <h3>Scan History</h3>
       <ul>
-        <li>Oct 13, 2025 – Aikido repo scan: No issues</li>
-        <li>Oct 13, 2025 – Norton Safe Web: Rated Safe</li>
-        <li>Oct 13, 2025 – Sucuri SiteCheck: Clean</li>
-        <li>Oct 13, 2025 – Fortinet: Reputation request submitted</li>
-        <li>Oct 12, 2025 – Talos ticket submitted</li>
-        <li>Oct 11, 2025 – VirusTotal scan: Clean</li>
+        <li>Nov 7, 2025 – Aikido repo scan: No issues</li>
+        <li>Nov 7, 2025 – Norton Safe Web: Rated Safe</li>
+        <li>Nov 7, 2025 – Sucuri SiteCheck: Clean</li>
+        <li>Nov 6, 2025 – Fortinet: Reputation request submitted</li>
+        <li>Nov 5, 202 |
+
       </ul>
     </div>
 
     <div class="section">
       <h3>Contact Identity</h3>
-      <p>For compliance inquiries, scan disputes, or reputation verification:</p>
-      <ul>
-        <li>Email: <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
-        <li>Domain: <a href="https://grains.ae" target="_blank">https://grains.ae</a></li>
-        <li>Trust Page: <a href="https://grains.ae/trust" target="_blank">https://grains.ae/trust</a></li>
-      </ul>
+      <div class="centered-text">
+        <p>For compliance inquiries, scan disputes, or reputation verification:</p>
+        <ul>
+          <li>Email: <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
+          <li>Domain: <a href="https://grains.ae" target="_blank">https://grains.ae</a></li>
+          <li>Trust Page: <a href="https://grains.ae/trust" target="_blank">https://grains.ae/trust</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="quote">
@@ -377,9 +386,9 @@
       try {
         const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
         const data = await res.json();
-        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${encodeURIComponent(q)}">Message Us</a>`;
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971585521976?text=${encodeURIComponent(q)}">Message Us</a>`;
       } catch {
-        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>';
+        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971585521976">Click Here</a>';
       }
     }
   </script>
