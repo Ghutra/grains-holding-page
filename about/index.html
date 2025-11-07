@@ -98,7 +98,30 @@
                                     position:relative; padding-left:28px; }
     .team-list li::before { content:"Person"; color:#C1A875; position:absolute; left:0; font-size:1.2em; }
     .infra-list li::before { content:"Checkmark"; color:#2a9d8f; position:absolute; left:0; font-size:1.2em; }
+/* ---------- LISTS (Person + Checkmark icons) ---------- */
+.team-list, .infra-list {
+  list-style:none; padding-left:0; max-width:600px; margin:20px auto;
+}
+.team-list li, .infra-list li {
+  margin-bottom:14px; font-size:15px;
+  position:relative; padding-left:28px;
+}
 
+/* Person icon (Unicode) */
+.team-list li::before {
+  content: "Person";     /* Person icon */
+  color:#C1A875;
+  position:absolute; left:0; top:0;
+  font-size:1.2em;
+}
+
+/* Checkmark icon (Unicode) */
+.infra-list li::before {
+  content: "Checkmark";   /* Heavy Check Mark */
+  color:#2a9d8f;
+  position:absolute; left:0; top:0;
+  font-size:1.2em;
+}
     /* ---------- ALLIYA MODAL ---------- */
     .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5);
              z-index:1000; justify-content:center; align-items:center; padding:20px; }
