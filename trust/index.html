@@ -3,121 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trust & Compliance – Grains Hub</title>
-  <meta name="description" content="Grains Hub – Dubai’s trusted B2B portal. Verified scans. Compliance-first. Built with restraint." />
-  <meta name="keywords" content="Grains Hub, trust, compliance, security scan, Dubai B2B, verified portal" />
+  <title>Why Grains Hub</title>
+  <meta name="description" content="Why Grains Hub: Dubai’s trusted B2B portal for grains, trade, and compliance. Built with restraint. Trusted across borders." />
+  <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, compliance, trust portal, Shahid Bashir" />
   <meta name="author" content="Shahid Bashir" />
-  <link rel="canonical" href="https://grains.ae/trust" />
+  <link rel="canonical" href="https://grains.ae/why" />
   <link rel="icon" href="../favicon.png" type="image/png" />
 
   <!-- OG Tags -->
-  <meta property="og:title" content="Trust & Compliance – Grains Hub" />
-  <meta property="og:description" content="Verified. Watched. Quietly defended. Every scan is a promise kept." />
-  <meta property="og:image" content="https://grains.ae/assets/img/trust-hero.jpg" />
-  <meta property="og:url" content="https://grains.ae/trust" />
+  <meta property="og:title" content="Why Grains Hub – Trust Built with Restraint" />
+  <meta property="og:description" content="We didn’t chase scale. We earned trust. Rooted in Dubai. Verified globally." />
+  <meta property="og:image" content="https://grains.ae/assets/img/why-hero.jpg" />
+  <meta property="og:url" content="https://grains.ae/why" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Trust & Compliance",
-    "url": "https://grains.ae/trust",
-    "description": "Security scan status, compliance infrastructure, and trust verification for Grains Hub.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Grains Hub",
-      "email": "trust@grains.ae"
-    }
+    "@type": "Organization",
+    "name": "Grains Hub",
+    "url": "https://grains.ae",
+    "logo": "https://grains.ae/grains-logo.png",
+    "founder": { "@type": "Person", "name": "Shahid Bashir" },
+    "description": "Dubai's trusted B2B grain portal. Built with restraint. Verified across borders.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
   }
   </script>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: #f9f9f9; font-family: 'Helvetica Neue', sans-serif; color: #333; line-height: 1.7; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#f9f9f9; font-family:'Helvetica Neue',sans-serif; color:#333; line-height:1.7; }
 
-    /* Navbar */
-    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
-    .nav-links { display: flex; list-style: none; gap: 20px; }
-    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
-    .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
-    .nav-links a.active { background-color: #fff; color: #C1A875; }
-    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; }
-    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; } .nav-links.active { display: flex; } .hamburger { display: flex; } }
+    /* ---------- NAVBAR (centered on desktop) ---------- */
+    .navbar {
+      background:#C1A875; padding:10px 20px; position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,.1);
+    }
+    .nav-center { display:flex; align-items:center; gap:30px; }
+    .logo { color:#fff; font-weight:bold; font-size:1.1rem; text-decoration:none; }
+    .nav-links { display:flex; list-style:none; gap:20px; }
+    .nav-links a {
+      color:#fff !important; /* Force white */
+      text-decoration:none; font-size:14px; font-weight:bold;
+      padding:8px 12px; border-radius:4px; transition:all .3s;
+    }
+    .nav-links a:hover { background:rgba(255,255,255,.3); }
+    .nav-links a.active { background:#fff; color:#C1A875 !important; }
 
-    /* Hero */
-    header { padding: 80px 20px 60px; background: url('../assets/img/trust-hero.jpg') center/cover no-repeat; position: relative; color: white; text-align: center; }
-    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.55); }
-    header > * { position: relative; z-index: 1; }
-    header img { width: 140px; margin-bottom: 16px; }
-    header h1 { font-size: 36px; font-weight: 500; margin-bottom: 12px; }
-    header p { font-size: 18px; max-width: 700px; margin: 10px auto; opacity: 0.95; }
+    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+    .hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
 
-    /* Content */
-    .content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-    .section { margin: 50px 0; }
-    .section h2 { font-size: 26px; color: #a07c3b; margin-bottom: 20px; text-align: center; }
-    .section p { font-size: 16px; margin-bottom: 16px; }
+    @media (max-width:768px) {
+      .hamburger { display:flex; }
+      .nav-center { justify-content:flex-end; }
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:#C1A875;
+        flex-direction:column; padding:10px 0; display:none;
+      }
+      .nav-links.active { display:flex; }
+      .nav-links a { color:#fff !important; } /* Mobile menu text */
+    }
+    @media (min-width:769px) {
+      .navbar { justify-content:center; }
+    }
 
-    /* Scan Table */
-    .scan-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
-    .scan-table th, .scan-table td { padding: 14px; text-align: left; border-bottom: 1px solid #eee; }
-    .scan-table th { background: #f0ece6; font-weight: 500; }
-    .scan-table tr:hover { background: #fdf8f0; }
-    .status { font-weight: bold; }
-    .status.safe { color: #2a9d8f; }
-    .status.pending { color: #e76f51; }
+    /* ---------- HERO ---------- */
+    header {
+      padding:80px 20px 60px;
+      background:url('../assets/img/why-hero.jpg') center/cover no-repeat;
+      position:relative; color:#fff; text-align:center;
+    }
+    header::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,.5); }
+    header > * { position:relative; z-index:1; }
+    header img { width:140px; margin-bottom:16px; }
+    header h1 { font-size:36px; font-weight:500; margin-bottom:12px; }
+    header p { font-size:18px; max-width:700px; margin:10px auto; opacity:.95; }
 
-    /* Scan History */
-    .history-list { list-style: none; padding-left: 0; max-width: 700px; margin: 20px auto; }
-    .history-list li { margin-bottom: 12px; font-size: 15px; position: relative; padding-left: 28px; }
-    .history-list li::before { content: "✔"; color: #2a9d8f; position: absolute; left: 0; font-weight: bold; }
+    /* ---------- CONTENT ---------- */
+    .content { max-width:800px; margin:0 auto; padding:0 20px; }
+    .section { margin:50px 0; text-align:left; }
+    .section h2 { font-size:24px; color:#a07c3b; margin-bottom:16px; text-align:center; }
+    .section p { font-size:16px; margin-bottom:16px; }
 
-    /* Contact */
-    .contact-list { list-style: none; padding-left: 0; max-width: 600px; margin: 30px auto; text-align: left; }
-    .contact-list li { margin-bottom: 12px; font-size: 15px; }
-    .contact-list a { color: #0056b3; text-decoration: none; }
-    .contact-list a:hover { text-decoration: underline; }
+    blockquote {
+      font-style:italic; color:#555; margin:30px auto; max-width:600px;
+      padding:20px; border-left:4px solid #C1A875; background:#f8f5ec;
+    }
+    blockquote p { margin:0; font-size:17px; }
+    blockquote footer { font-weight:bold; margin-top:12px; text-align:right; color:#a07c3b; }
 
-    /* Quote */
-    .quote { font-style: italic; color: #555; margin: 50px auto; max-width: 600px; padding: 20px; border-left: 4px solid #C1A875; background: #f8f5ec; font-size: 17px; }
+    /* ---------- CHECKMARK LIST (FIXED) ---------- */
+    ul {
+      list-style:none; padding-left:0; max-width:600px; margin:20px auto;
+    }
+    ul li {
+      margin-bottom:12px; font-size:15px;
+      position:relative; padding-left:28px;
+    }
+    ul li::before {
+      content: "Checkmark";   /* Real checkmark */
+      color:#C1A875; position:absolute; left:0; top:0;
+      font-weight:bold; font-size:1.2em;
+    }
 
-    /* Alliya Float */
-    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
+    .cta { text-align:center; margin:40px 0; }
+    .btn {
+      display:inline-block; padding:12px 28px; background:#0056b3; color:#fff;
+      border-radius:6px; text-decoration:none; font-weight:bold; font-size:15px;
+    }
+    .btn:hover { background:#004494; }
 
-    /* Modal */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
-    .modal.active { display: flex; }
-    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
-    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+    /* ---------- ALLIYA MODAL ---------- */
+    .modal {
+      display:none; position:fixed; inset:0; background:rgba(0,0,0,.5);
+      z-index:1000; justify-content:center; align-items:center; padding:20px;
+    }
+    .modal.active { display:flex; }
+    .modal-content {
+      background:#fff; border-radius:12px; width:90%; max-width:500px;
+      padding:20px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.2);
+    }
+    .close { position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer; color:#aaa; }
+    .close:hover { color:#000; }
 
-    footer { margin-top: 80px; padding: 20px; font-size: 14px; color: #777; text-align: center; }
-    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
- /* Alliya Modal */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
-.modal.active { display: flex; }
-.modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-.close { position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer; color: #aaa; }
-.close:hover { color: #000; }
+    .alliya-box h2 { display:flex; align-items:center; gap:8px; margin-bottom:16px; color:#a07c3b; }
+    .alliya-box input { width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-size:15px; }
+    .alliya-box button {
+      margin-top:10px; padding:10px 20px; background:#C1A875; color:#fff;
+      border:none; border-radius:6px; cursor:pointer; font-weight:bold;
+    }
+    .alliya-box button:hover { background:#a07c3b; }
 
-.alliya-box h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; color: #a07c3b; }
-.alliya-box input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; }
-.alliya-box button { margin-top: 10px; padding: 10px 20px; background: #C1A875; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
-.alliya-box button:hover { background: #a07c3b; }
+    .suggestions {
+      position:absolute; inset:100% 0 auto 0; background:#fff; border:1px solid #eee;
+      border-radius:6px; max-height:150px; overflow-y:auto; z-index:10;
+    }
+    .suggestions div { padding:10px; cursor:pointer; border-bottom:1px solid #f0f0f0; }
+    .suggestions div:hover { background:#f8f5ec; }
 
-.suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #eee; border-radius: 6px; max-height: 150px; overflow-y: auto; z-index: 10; }
-.suggestions div { padding: 10px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
-.suggestions div:hover { background: #f8f5ec; }
+    .reply { margin-top:16px; padding:12px; background:#f8f5ec; border-radius:6px; font-size:14px; }
+    .reply a { color:#25D366; font-weight:bold; }
 
-.reply { margin-top: 16px; padding: 12px; background: #f8f5ec; border-radius: 6px; font-size: 14px; }
-.reply a { color: #25D366; font-weight: bold; }
+    /* ---------- ALLIYA FLOAT (same as About) ---------- */
+    .alliya-float {
+      position:fixed; right:20px; background:#C1A875; color:#fff;
+      padding:12px 18px; border-radius:30px; cursor:pointer;
+      box-shadow:0 4px 16px rgba(0,0,0,.2);
+      display:flex; align-items:center; gap:8px; font-weight:bold;
+      z-index:999; font-size:14px;
+      transition:transform .3s, background .3s;
+    }
+    .alliya-float:hover { background:#a07c3b; transform:scale(1.05); }
 
-/* Alliya Float */
-.alliya-float { position: fixed; bottom: 20px; right: 20px; background: #C1A875; color: white; padding: 12px 18px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; font-size: 14px; }
-.alliya-float:hover { background: #a07c3b; transform: scale(1.05); transition: all 0.3s; }
+    @media (max-width:768px) { .alliya-float { bottom:80px; } }
+    @media (min-width:769px) { .alliya-float { bottom:20px; } }
+
+    footer { margin-top:80px; padding:20px; font-size:14px; color:#777; text-align:center; }
+    .badge { background:#C1A875; color:#fff; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:.9rem; }
   </style>
 </head>
 <body>
@@ -125,15 +169,19 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/" class="logo">Grains Hub</a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/why">Why</a></li>
-      <li><a href="/pulse/index.html">Pulse</a></li>
-      <li><a href="/trust" class="active">Trust</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/shop">Shop</a></li>
-    </ul>
-    <div class="hamburger">
+
+    <div class="nav-center">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/why" class="active">Why</a></li>
+        <li><a href="/pulse/index.html">Pulse</a></li>
+        <li><a href="/trust">Trust</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/shop">Shop</a></li>
+      </ul>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </nav>
@@ -141,65 +189,65 @@
   <!-- Hero -->
   <header>
     <img src="../grains-logo.png" alt="Grains Hub Logo" />
-    <h1>Trust & Compliance</h1>
-    <p>Verified. Watched. Quietly defended.</p>
+    <h1>Why Grains Hub</h1>
+    <p>We didn’t chase scale. We earned trust.</p>
   </header>
 
   <!-- Content -->
   <div class="content">
 
     <div class="section">
-      <h2>Security Scan Status</h2>
-      <table class="scan-table">
-        <thead>
-          <tr><th>Platform</th><th>Status</th></tr>
-        </thead>
-        <tbody id="scan-table-body">
-          <!-- Filled by JS -->
-        </tbody>
-      </table>
-      <p><strong>Last updated:</strong> <span id="last-scan">Loading...</span></p>
+      <h2>Rooted in Dubai’s Trade Legacy</h2>
+      <p>Grains Hub is more than a portal—it’s a signal of trust. Built with digital precision, anchored in Dubai’s trade heritage.</p>
     </div>
 
     <div class="section">
-      <h2>Scan History</h2>
-      <ul class="history-list" id="scan-history">
-        <!-- Filled by JS -->
-      </ul>
+      <h2>Founder’s Philosophy</h2>
+      <blockquote>
+        <p>“Grains Hub is a signal—not a marketplace. We serve specialists, not generalists.”</p>
+        <footer>— Shahid Bashir, Founder</footer>
+      </blockquote>
     </div>
 
     <div class="section">
-      <h2>Contact for Compliance</h2>
-      <ul class="contact-list">
-        <li>Email: <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
-        <li>Domain: <a href="https://grains.ae" target="_blank">https://grains.ae</a></li>
-        <li>Trust Page: <a href="https://grains.ae/trust" target="_blank">https://grains.ae/trust</a></li>
+      <h2>Emotional Discipline</h2>
+      <p>Our tone is quiet. Our messaging is restrained. Our trust is earned.</p>
+    </div>
+
+    <div class="section">
+      <h2>Verified Infrastructure</h2>
+      <ul>
+        <li>GitHub Pages hosting with auto-deploy</li>
+        <li>SPF, DKIM, DMARC configured</li>
+        <li>Cisco Talos scan cleared</li>
+        <li>Scan log available on request</li>
       </ul>
     </div>
 
-    <div class="quote">
-      <p>“Trust is not declared. It is earned—layer by layer, scan by scan.”</p>
+    <div class="section cta">
+      <p><strong>Cross-Border Confidence</strong><br>Trusted across borders. Verified in Dubai, Lahore, and beyond.</p>
+      <a href="/trust" class="btn">View Trust &amp; Compliance</a>
     </div>
 
   </div>
 
-  <!-- Alliya Float -->
+  <!-- Alliya Float (single) -->
   <div class="alliya-float" onclick="openModal()">
-    <img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya
+    <img src="../assets/img/alliya-icon.ico" alt="Alliya Icon" width="24"> Ask Alliya
   </div>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
+  <!-- Alliya Modal (single) -->
+  <div id="alliya-modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
+      <span class="close" onclick="closeModal()">x</span>
       <div class="alliya-box">
-        <h2><img src="../alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+        <h2><img src="../assets/img/alliya-icon.ico" alt="Alliya Icon" width="24"> Ask Alliya</h2>
         <div style="position:relative;">
-          <input type="text" id="modalInput" placeholder="Ask about scans, compliance..." oninput="suggest(this.value, true)" />
-          <div id="modalSuggestions"></div>
+          <input type="text" id="alliya-input" placeholder="Ask about trust, compliance..." oninput="showSuggestions(this.value)" />
+          <div id="suggestions" class="suggestions"></div>
         </div>
-        <button onclick="askAlliya(true)">Verify</button>
-        <div id="modalReply" class="reply"></div>
+        <button onclick="askAlliya()">Verify</button>
+        <div id="alliya-reply" class="reply"></div>
       </div>
     </div>
   </div>
@@ -211,117 +259,48 @@
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
+  <!-- Global JS -->
+  <script src="../assets/js/app.js"></script>
+
   <script>
-    // Hamburger
-    document.querySelector('.hamburger').addEventListener('click', () => {
+    function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('active');
-    });
-
-    // Scan Data (Live-updated)
-    const scanData = [
-      { platform: "Norton Safe Web", status: "Rated Safe", class: "safe" },
-      { platform: "VirusTotal", status: "Clean scan, no threats", class: "safe" },
-      { platform: "Cisco Talos", status: "Ticket submitted, under review", class: "pending" },
-      { platform: "Fortinet FortiGuard", status: "Reputation request submitted", class: "pending" },
-      { platform: "Sucuri SiteCheck", status: "Clean", class: "safe" },
-      { platform: "Aikido", status: "No critical or high issues", class: "safe" }
-    ];
-
-    const historyData = [
-      "Nov 06, 2025 – Aikido repo scan: No issues",
-      "Nov 06, 2025 – Norton Safe Web: Rated Safe",
-      "Nov 05, 2025 – Sucuri SiteCheck: Clean",
-      "Nov 04, 2025 – Fortinet: Reputation request submitted",
-      "Nov 03, 2025 – Talos ticket submitted",
-      "Nov 02, 2025 – VirusTotal scan: Clean"
-    ];
-
-    // Render Scan Table
-    function renderScans() {
-      const tbody = document.getElementById('scan-table-body');
-      scanData.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td><strong>${item.platform}</strong></td><td><span class="status ${item.class}">${item.status} ${item.class === 'safe' ? 'Safe' : 'Pending'}</span></td>`;
-        tbody.appendChild(row);
-      });
     }
+    document.querySelector('.hamburger').addEventListener('click', toggleMenu);
 
-    // Render History
-    function renderHistory() {
-      const list = document.getElementById('scan-history');
-      historyData.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        list.appendChild(li);
-      });
-    }
+    function openModal() { document.getElementById('alliya-modal').classList.add('active'); }
+    function closeModal() { document.getElementById('alliya-modal').classList.remove('active'); }
 
-    // Update Last Scan
-    function updateLastScan() {
-      const now = new Date();
-      const options = { year: 'numeric', month: 'short', day: 'numeric' };
-      document.getElementById('last-scan').textContent = now.toLocaleDateString('en-GB', options);
-    }
-
-    // Alliya Modal
-    function openModal() { document.getElementById('modal').classList.add('active'); }
-    function closeModal() { document.getElementById('modal').classList.remove('active'); }
-
-    // Suggestions
-    const keywords = ['scan status', 'Cisco Talos', 'SPF DKIM', 'compliance email'];
-    function suggest(val, modal = false) {
-      const id = modal ? 'modalSuggestions' : 'suggestions';
-      const box = document.getElementById(id); box.innerHTML = '';
+    const keywords = ['compliance scan', 'SPF DKIM', 'founder philosophy', 'Dubai trade'];
+    function showSuggestions(val) {
+      const box = document.getElementById('suggestions'); box.innerHTML = '';
       if (val.length < 2) return;
       keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
-        const d = document.createElement('div'); d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
-        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        const d = document.createElement('div');
+        d.textContent = k; d.style.padding = '8px'; d.style.cursor = 'pointer';
+        d.onclick = () => {
+          document.getElementById('alliya-input').value = k;
+          box.innerHTML = '';
+          askAlliya();
+        };
         box.appendChild(d);
       });
     }
 
-    async function askAlliya(modal = false) {
-      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
-      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+    async function askAlliya() {
+      const input = document.getElementById('alliya-input');
+      const reply = document.getElementById('alliya-reply');
       const q = input.value.trim();
       if (!q) return;
       reply.innerHTML = 'Verifying...';
       try {
         const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
         const data = await res.json();
-        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
-      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${encodeURIComponent(q)}">Message Us</a>`;
+      } catch {
+        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>';
+      }
     }
-
-    // Init
-    document.addEventListener('DOMContentLoaded', () => {
-      renderScans();
-      renderHistory();
-      updateLastScan();
-    });
   </script>
-<!-- Alliya Modal (Shared) -->
-<div id="alliya-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <div class="alliya-box">
-      <h2><img src="assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya</h2>
-      <div style="position:relative;">
-        <input type="text" id="alliya-input" placeholder="Ask about prices, trends, FCL..." oninput="showSuggestions(this.value)" />
-        <div id="suggestions" class="suggestions"></div>
-      </div>
-      <button onclick="askAlliya()">Verify</button>
-      <div id="alliya-reply" class="reply"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Alliya Float Button -->
-<div class="alliya-float" onclick="openModal()">
-  <img src="assets/img/alliya-icon.ico" alt="Alliya"> Ask Alliya
-</div>
-
-<!-- Global JS -->
-<script src="assets/js/app.js"></script>
 </body>
 </html>
