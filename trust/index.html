@@ -278,5 +278,28 @@
       updateLastScan();
     });
   </script>
+<!-- Alliya Modal (Shared) -->
+<div id="alliya-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <div class="alliya-box">
+      <h2><img src="assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya</h2>
+      <div style="position:relative;">
+        <input type="text" id="alliya-input" placeholder="Ask about prices, trends, FCL..." oninput="showSuggestions(this.value)" />
+        <div id="suggestions" class="suggestions"></div>
+      </div>
+      <button onclick="askAlliya()">Verify</button>
+      <div id="alliya-reply" class="reply"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Alliya Float Button -->
+<div class="alliya-float" onclick="openModal()">
+  <img src="assets/img/alliya-icon.ico" alt="Alliya"> Ask Alliya
+</div>
+
+<!-- Global JS -->
+<script src="assets/js/app.js"></script>
 </body>
 </html>
