@@ -37,21 +37,26 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#f9f9f9; font-family:'Helvetica Neue',sans-serif; color:#333; line-height:1.7; }
 
-    /* ---------- NAVBAR (NO CHECKMARK, PERFECT ALIGNMENT) ---------- */
+    /* ---------- NAVBAR: PERFECT ALIGNMENT (TITLE & MENU SAME LINE) ---------- */
     .navbar {
-      background:#C1A875; padding:10px 20px; position:sticky; top:0; z-index:1000;
-      display:flex; justify-content:space-between; align-items:center;
+      background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:center; align-items:center;
       box-shadow:0 2px 10px rgba(0,0,0,.1);
+      flex-wrap:wrap;
     }
+    .logo {
+      color:#fff; font-weight:bold; font-size:1.1rem; text-decoration:none;
+      display:flex; align-items:center; gap:8px;
+    }
+    .logo img { width:24px; height:24px; }
     .nav-center { display:flex; align-items:center; gap:30px; }
-    .logo { color:#fff; font-weight:bold; font-size:1.1rem; text-decoration:none; }
-
     .nav-links { display:flex; list-style:none; gap:20px; margin:0; padding:0; }
     .nav-links a {
       color:#fff !important;
       text-decoration:none; font-size:14px; font-weight:bold;
       padding:8px 12px; border-radius:4px;
       transition:background 0.2s ease, color 0.2s ease;
+      display:flex; align-items:center;
     }
     .nav-links a:hover {
       background:#fff !important;
@@ -66,25 +71,16 @@
     .hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
 
     @media (max-width:768px) {
+      .navbar { justify-content:space-between; padding:10px 16px; }
+      .logo { font-size:1rem; }
       .hamburger { display:flex; }
-      .nav-center { justify-content:flex-end; }
-      .nav-links {
-        position:absolute; top:100%; left:0; right:0; background:#C1A875;
-        flex-direction:column; padding:10px 0; display:none; width:100%;
+      .nav-center { position:absolute; top:100%; left:0; right:0; background:#C1A875;
+        flex-direction:column; padding:10px 0; display:none; width:100%; box-shadow:0 4px 10px rgba(0,0,0,.1);
       }
       .nav-links.active { display:flex; }
       .nav-links a {
-        color:#fff !important;
         text-align:center; width:100%; padding:12px;
       }
-      .nav-links a:hover,
-      .nav-links a.active {
-        background:#fff !important;
-        color:#C1A875 !important;
-      }
-    }
-    @media (min-width:769px) {
-      .navbar { justify-content:center; }
     }
 
     /* ---------- HERO ---------- */
@@ -101,39 +97,25 @@
 
     /* ---------- CONTENT ---------- */
     .content { max-width:800px; margin:0 auto; padding:0 20px; }
-    .section { margin:50px 0; text-align:center; } /* All sections centered */
-    .section h2, .section h3 { font-size:24px; color:#a07c3b; margin-bottom:16px; }
-    .section p { font-size:16px; margin-bottom:16px; }
+    .section { margin:50px 0; text-align:center; }
+    .section h3 { font-size:24px; color:#a07c3b; margin-bottom:16px; }
 
     /* ---------- TRUST CARDS: 2×2 ON DESKTOP ---------- */
     .trust-grid {
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:20px; margin:40px 0;
+      display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; margin:40px 0;
     }
-    @media (max-width:768px) {
-      .trust-grid { grid-template-columns: 1fr; }
-    }
-
+    @media (max-width:768px) { .trust-grid { grid-template-columns:1fr; } }
     .trust-card {
       background:#fff; padding:24px; border-radius:12px;
       box-shadow:0 4px 16px rgba(0,0,0,.08); text-align:center;
       transition:transform .3s, box-shadow .3s;
     }
-    .trust-card:hover {
-      transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.12);
-    }
-    .trust-card i {
-      font-size:2.2em; color:#C1A875; margin-bottom:12px;
-    }
-    .trust-card h3 {
-      font-size:18px; color:#a07c3b; margin-bottom:10px;
-    }
-    .trust-card p {
-      font-size:14.5px; color:#555; line-height:1.5;
-    }
+    .trust-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.12); }
+    .trust-card i { font-size:2.2em; color:#C1A875; margin-bottom:12px; }
+    .trust-card h3 { font-size:18px; color:#a07c3b; margin-bottom:10px; }
+    .trust-card p { font-size:14.5px; color:#555; line-height:1.5; }
 
-    /* ---------- TABLES ---------- */
+    /* ---------- TABLES (SCAN STATUS & HISTORY) ---------- */
     table {
       width:100%; max-width:700px; margin:20px auto;
       border-collapse:collapse; background:#fff;
@@ -146,33 +128,34 @@
       background:#f8f5ec; font-weight:500; color:#a07c3b;
     }
     td { font-size:15px; }
-
-    /* ---------- LISTS (NO CHECKMARK IN CONTACT/SCAN HISTORY) ---------- */
-    ul {
-      list-style:none; padding-left:0; max-width:700px; margin:20px auto;
-      text-align:center;
-    }
-    ul li {
-      margin-bottom:12px; font-size:15px;
-      padding-left:0;
-    }
-    /* Only table uses checkmark */
     .status-check { color:#4CAF50; font-weight:bold; }
 
-    /* ---------- CENTERED TEXT BLOCKS ---------- */
-    .centered-text {
-      text-align:center; margin:20px auto; max-width:700px;
+    /* ---------- CONTACT IDENTITY WITH ICONS ---------- */
+    .contact-grid {
+      display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; max-width:700px; margin:30px auto;
     }
-    .centered-text p {
-      font-size:16px; margin-bottom:16px;
+    @media (max-width:768px) { .contact-grid { grid-template-columns:1fr; } }
+    .contact-item {
+      background:#fff; padding:18px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.06);
+      text-align:center; font-size:15px;
     }
+    .contact-item i {
+      font-size:1.6em; color:#C1A875; margin-bottom:10px; display:block;
+    }
+    .contact-item a { color:#0056b3; text-decoration:none; font-weight:500; }
+    .contact-item a:hover { text-decoration:underline; }
 
     .quote {
       font-style:italic; color:#555; margin:50px auto; max-width:600px;
       font-size:17px; line-height:1.6; text-align:center;
     }
 
-    /* ---------- ALLIYA MODAL ---------- */
+    /* ---------- LAST UPDATED ---------- */
+    .last-updated {
+      font-size:15px; color:#777; margin:10px 0 30px;
+    }
+
+    /* ---------- ALLIYA MODAL & FLOAT ---------- */
     .modal {
       display:none; position:fixed; inset:0; background:rgba(0,0,0,.5);
       z-index:1000; justify-content:center; align-items:center; padding:20px;
@@ -203,7 +186,6 @@
     .reply { margin-top:16px; padding:12px; background:#f8f5ec; border-radius:6px; font-size:14px; }
     .reply a { color:#25D366; font-weight:bold; }
 
-    /* ---------- ALLIYA FLOAT ---------- */
     .alliya-float {
       position:fixed; right:20px; background:#C1A875; color:#fff;
       padding:12px 18px; border-radius:30px; cursor:pointer;
@@ -224,7 +206,9 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="/" class="logo">Grains Hub</a>
+    <a href="/" class="logo">
+      <img src="/grains-logo.png" alt="Logo" width="24"> Grains Hub
+    </a>
     <div class="nav-center">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
@@ -254,7 +238,7 @@
       <p>Grains Hub is built on restraint, precision, and trust. Our domain is not just secure—it is watched, verified, and quietly defended.</p>
     </div>
 
-    <!-- 4 Trust Cards: 2×2 on desktop -->
+    <!-- 4 Trust Cards -->
     <div class="trust-grid">
       <div class="trust-card">
         <i class="fas fa-shield-alt"></i>
@@ -278,6 +262,7 @@
       </div>
     </div>
 
+    <!-- Scan Status -->
     <div class="section">
       <h3>Security Scan Status</h3>
       <table>
@@ -289,30 +274,39 @@
         <tr><td>Sucuri SiteCheck</td><td>Clean <span class="status-check">Checkmark</span></td></tr>
         <tr><td>Aikido</td><td>No critical or high issues <span class="status-check">Checkmark</span></td></tr>
       </table>
-      <p class="centered-text"><strong>Last updated:</strong> 7th November 2025</p>
+      <p class="last-updated"><strong>Last updated:</strong> 7th November 2025</p>
     </div>
 
+    <!-- Scan History in Table -->
     <div class="section">
       <h3>Scan History</h3>
-      <ul>
-        <li>Nov 7, 2025 – Aikido repo scan: No issues</li>
-        <li>Nov 7, 2025 – Norton Safe Web: Rated Safe</li>
-        <li>Nov 7, 2025 – Sucuri SiteCheck: Clean</li>
-        <li>Nov 6, 2025 – Fortinet: Reputation request submitted</li>
-        <li>Nov 5, 202 |
-
-      </ul>
+      <table>
+        <tr><th>Date</th><th>Event</th></tr>
+        <tr><td>Nov 7, 2025</td><td>Aikido repo scan: No issues</td></tr>
+        <tr><td>Nov 7, 2025</td><td>Norton Safe Web: Rated Safe</td></tr>
+        <tr><td>Nov 7, 2025</td><td>Sucuri SiteCheck: Clean</td></tr>
+        <tr><td>Nov 6, 2025</td><td>Fortinet: Reputation request submitted</td></tr>
+        <tr><td>Nov 5, 2025</td><td>Cisco Talos: Ticket submitted</td></tr>
+        <tr><td>Nov 4, 2025</td><td>VirusTotal scan: Clean</td></tr>
+      </table>
     </div>
 
+    <!-- Contact Identity with Icons -->
     <div class="section">
       <h3>Contact Identity</h3>
-      <div class="centered-text">
-        <p>For compliance inquiries, scan disputes, or reputation verification:</p>
-        <ul>
-          <li>Email: <a href="mailto:trust@grains.ae">trust@grains.ae</a></li>
-          <li>Domain: <a href="https://grains.ae" target="_blank">https://grains.ae</a></li>
-          <li>Trust Page: <a href="https://grains.ae/trust" target="_blank">https://grains.ae/trust</a></li>
-        </ul>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:trust@grains.ae">trust@grains.ae</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-globe"></i>
+          <a href="https://grains.ae" target="_blank">grains.ae</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-shield-alt"></i>
+          <a href="https://grains.ae/trust" target="_blank">Trust Page</a>
+        </div>
       </div>
     </div>
 
