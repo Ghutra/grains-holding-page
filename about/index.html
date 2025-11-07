@@ -281,5 +281,16 @@
       }
     }
   </script>
+  <script>
+  // ---- ORIGINAL EVENT LISTENER (keeps old behaviour) ----
+  document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('active');
+  });
+
+  // ---- NEW TOGGLE FUNCTION (for onclick) ----
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
 </body>
 </html>
