@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grains Hub – Dubai’s Trusted B2B Portal</title>
-  <meta name="description" content="Grains Hub is Dubai’s trusted B2B portal for grains, trade, and compliance. Built with restraint. Trusted across borders.">
-  <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, compliance, trusted portal, cross-border trade">
-  <meta name="author" content="Shahid Bashir">
+  <title>Grains Hub – Dubai’s Trusted B2B Grain Portal</title>
+  <meta name="description" content="Dubai’s compliance-first B2B grain portal. Verified suppliers. FCL bookings. Al Ras, Jebel Ali, global reach." />
+  <meta name="keywords" content="Grains Hub, Dubai B2B, grain trade, FCL, compliance, verified suppliers, Al Ras" />
+  <meta name="author" content="Shahid Bashir" />
   <link rel="canonical" href="https://grains.ae/" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
+
+  <!-- OG Tags -->
   <meta property="og:title" content="Grains Hub – Dubai’s Trusted B2B Grain Portal" />
-  <meta property="og:description" content="Compliance-first B2B grain trading. Built in Dubai. Trusted globally." />
-  <meta property="og:image" content="https://grains.ae/og-image.jpg" />
+  <meta property="og:description" content="Compliance-first. Verified. Built in Al Ras, trusted globally." />
+  <meta property="og:image" content="https://grains.ae/assets/img/og-home.jpg" />
   <meta property="og:url" content="https://grains.ae/" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -21,101 +25,236 @@
     "name": "Grains Hub",
     "url": "https://grains.ae",
     "logo": "https://grains.ae/grains-logo.png",
-    "description": "Dubai's trusted B2B portal for grain trade and compliance.",
+    "description": "Dubai's trusted B2B grain portal. Verified suppliers. Compliance-first. Al Ras & Jebel Ali ready.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Al Ras, Dubai",
+      "addressCountry": "AE"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
+      "telephone": "+971585521976",
       "email": "letstalk@grains.ae",
       "contactType": "Customer Service"
     }
   }
   </script>
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: #f9f9f9; font-family: 'Helvetica Neue', sans-serif; color: #333; text-align: center; line-height: 1.6; }
-    .navbar { background-color: #C1A875; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .logo { color: #fff; font-weight: bold; font-size: 1.1rem; text-decoration: none; }
-    .nav-links { display: flex; list-style: none; gap: 20px; }
-    .nav-links a { color: #fff; text-decoration: none; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
-    .nav-links a:hover { background-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
-    .nav-links a.active { background-color: #fff; color: #C1A875; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-    .hamburger span { width: 25px; height: 3px; background-color: #fff; border-radius: 2px; transition: 0.3s; }
-    @media (max-width: 768px) { .nav-links { position: absolute; top: 100%; left: 0; right: 0; background-color: #C1A875; flex-direction: column; display: none; padding: 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); } .nav-links.active { display: flex; } .hamburger { display: flex; } }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#fdfdf9; font-family:'Helvetica Neue',sans-serif; color:#222; line-height:1.7; }
 
-    header { padding: 40px 20px 20px; background: url('assets/img/hero.jpg') center/cover no-repeat; position: relative; color: white; }
-    header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
-    header > * { position: relative; z-index: 1; }
-    header img { width: 120px; margin-bottom: 10px; }
-    h1 { font-size: 28px; font-weight: 500; margin-bottom: 10px; }
-    .quote { font-style: italic; color: #ddd; margin-bottom: 10px; }
-    .founder { font-weight: bold; margin-bottom: 30px; color: #eee; }
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:center; align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,.1); gap:40px;
+      flex-wrap:wrap;
+    }
+    .logo {
+      color:#fff; font-weight:bold; font-size:1.1rem; text-decoration:none;
+      display:flex; align-items:center; gap:8px;
+    }
+    .logo img { width:24px; height:24px; }
+    .nav-links {
+      display:flex; list-style:none; gap:20px; margin:0; padding:0;
+    }
+    .nav-links a {
+      color:#fff !important; text-decoration:none; font-size:14px; font-weight:bold;
+      padding:8px 12px; border-radius:4px;
+      transition:background 0.3s ease, color 0.3s ease;
+    }
+    .nav-links a:hover {
+      background:#fff !important; color:#C1A875 !important;
+    }
+    .nav-links a.active {
+      background:#fff !important; color:#C1A875 !important;
+    }
 
-    .intro { padding: 30px 20px; max-width: 700px; margin: auto; }
-    .intro p { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+    .hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
 
-    .trust-bar { display: flex; justify-content: center; gap: 20px; padding: 10px; background: #f0f0f0; font-size: 14px; color: #555; }
+    @media (max-width:768px) {
+      .navbar { justify-content:space-between; padding:10px 16px; gap:0; }
+      .logo { font-size:1rem; }
+      .hamburger { display:flex; }
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:#C1A875;
+        flex-direction:column; padding:10px 0; display:none; width:100%;
+        box-shadow:0 4px 10px rgba(0,0,0,.1);
+      }
+      .nav-links.active { display:flex; }
+      .nav-links a {
+        text-align:center; width:100%; padding:12px;
+      }
+    }
 
-    .split-section { display: flex; gap: 20px; max-width: 800px; margin: 40px auto; padding: 0 20px; }
-    .split-section .card { flex: 1; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: left; }
-    .stock-grid { display: grid; gap: 10px; }
-    .stock-item { display: flex; align-items: center; gap: 10px; }
-    .stock-item img { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; }
+    /* ---------- HERO ---------- */
+    header {
+      padding:100px 20px 80px;
+      background:url('/assets/img/hero-home.jpg') center/cover no-repeat;
+      position:relative; color:#fff; text-align:center;
+    }
+    header::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,.55); }
+    header > * { position:relative; z-index:1; }
+    header img { width:140px; margin-bottom:16px; }
+    header h1 { font-size:38px; font-weight:500; margin-bottom:12px; }
+    header p { font-size:18px; max-width:700px; margin:10px auto; opacity:.95; }
+    .founder { font-weight:bold; color:#eee; margin-top:20px; }
 
-    .alliya-box { background-color: #fff; border: 1px solid #ddd; padding: 25px; max-width: 600px; margin: 40px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: left; }
-    .alliya-box h2 { text-align: center; font-size: 1.4rem; margin-bottom: 15px; color: #333; display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .alliya-box input { width: 100%; padding: 12px; margin-bottom: 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 6px; outline: none; }
-    .alliya-box input:focus { border-color: #C1A875; }
-    .alliya-box button { width: 100%; padding: 12px; background-color: #0056b3; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
-    .reply { margin-top: 15px; background-color: #f8f9fa; padding: 12px; border-radius: 6px; min-height: 20px; }
+    /* ---------- TRUST BAR ---------- */
+    .trust-bar {
+      background:#f8f5ec; padding:16px; display:flex; justify-content:center; gap:30px;
+      font-size:14px; color:#a07c3b; flex-wrap:wrap;
+    }
+    .trust-bar span::before { content:'✓ '; color:#C1A875; font-weight:bold; }
 
-    #suggestions { position: absolute; background: white; border: 1px solid #ccc; width: 100%; max-height: 150px; overflow-y: auto; z-index: 10; }
-    #suggestions div { padding: 10px; cursor: pointer; }
-    #suggestions div:hover { background: #f0f0f0; }
+    /* ---------- DIAMOND CARDS ---------- */
+    .cards {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:24px; padding:60px 20px; max-width:1100px; margin:auto;
+    }
+    .card {
+      background:#fff; border-radius:16px; overflow:hidden;
+      box-shadow:0 8px 25px rgba(0,0,0,.08); transition:transform .3s, box-shadow .3s;
+      text-align:center;
+    }
+    .card:hover {
+      transform:translateY(-8px); box-shadow:0 16px 40px rgba(0,0,0,.14);
+    }
+    .card img {
+      width:100%; height:180px; object-fit:cover;
+    }
+    .card .content {
+      padding:24px;
+    }
+    .card h3 {
+      font-size:1.3rem; color:#a07c3b; margin-bottom:12px;
+    }
+    .card p {
+      font-size:0.95rem; color:#555; margin-bottom:16px;
+    }
+    .btn-card {
+      background:#C1A875; color:#fff; padding:12px 20px;
+      border-radius:8px; text-decoration:none; font-weight:bold;
+      display:inline-flex; align-items:center; gap:8px; font-size:0.95rem;
+    }
+    .btn-card:hover { background:#a07c3b; }
 
-    .alliya-float { position: fixed; bottom: 100px; right: 20px; background: #C1A875; color: white; padding: 12px 16px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; }
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
-    .modal.active { display: flex; }
-    .modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; }
-    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+    /* ---------- STOCK TEASER ---------- */
+    .stock-teaser {
+      background:#f8f5ec; padding:50px 20px; text-align:center;
+    }
+    .stock-teaser h2 { font-size:24px; color:#a07c3b; margin-bottom:28px; }
+    .stock-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px; max-width:1000px; margin:auto;
+    }
+    .stock-item {
+      background:#fff; border-radius:12px; padding:16px;
+      box-shadow:0 4px 15px rgba(0,0,0,.06); text-align:left;
+      display:flex; gap:12px; align-items:center;
+    }
+    .stock-item img {
+      width:60px; height:60px; object-fit:cover; border-radius:8px;
+    }
+    .stock-item h4 { font-size:1rem; color:#a07c3b; margin-bottom:4px; }
+    .stock-item p { font-size:0.85rem; color:#666; margin:2px 0; }
 
-    .cta { padding: 40px 20px; background: #C1A875; color: white; }
-    .btn-primary { background: white; color: #C1A875; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
+    /* ---------- ALLIYA FLOAT & MODAL ---------- */
+    .alliya-float {
+      position:fixed; right:20px; background:#C1A875; color:#fff;
+      padding:14px 20px; border-radius:30px; cursor:pointer;
+      box-shadow:0 4px 16px rgba(0,0,0,.2); display:flex; align-items:center;
+      gap:10px; font-weight:bold; z-index:999; font-size:14px;
+      transition:transform .3s, background .3s;
+    }
+    .alliya-float:hover { background:#a07c3b; transform:scale(1.05); }
+    @media (max-width:768px) { .alliya-float { bottom:80px; } }
+    @media (min-width:769px) { .alliya-float { bottom:20px; } }
 
-    footer { margin-top: 60px; padding: 20px; font-size: 14px; color: #777; }
-    .badge { background-color: #C1A875; color: #fff; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+    .modal {
+      display:none; position:fixed; inset:0; background:rgba(0,0,0,.5);
+      z-index:1000; justify-content:center; align-items:center; padding:20px;
+    }
+    .modal.active { display:flex; }
+    .modal-content {
+      background:#fff; border-radius:14px; width:90%; max-width:500px;
+      padding:24px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.2);
+    }
+    .close { position:absolute; top:12px; right:16px; font-size:28px; cursor:pointer; color:#aaa; }
+    .close:hover { color:#000; }
 
-    body::before { content: ""; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: url('grain-texture.png') repeat; opacity: 0.03; pointer-events: none; z-index: -1; }
- /* Alliya Modal */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
-.modal.active { display: flex; }
-.modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; padding: 20px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-.close { position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer; color: #aaa; }
-.close:hover { color: #000; }
+    .alliya-box h2 {
+      display:flex; align-items:center; gap:10px; margin-bottom:18px; color:#a07c3b;
+    }
+    .alliya-box input {
+      width:100%; padding:14px; border:1px solid #ddd; border-radius:8px;
+      font-size:15px; transition:border .3s;
+    }
+    .alliya-box input:focus {
+      outline:none; border-color:#C1A875; box-shadow:0 0 0 3px rgba(193,168,117,.2);
+    }
+    .alliya-box button {
+      margin-top:12px; padding:12px 24px; background:#C1A875; color:#fff;
+      border:none; border-radius:8px; cursor:pointer; font-weight:bold; width:100%;
+    }
+    .alliya-box button:hover { background:#a07c3b; }
 
-.alliya-box h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; color: #a07c3b; }
-.alliya-box input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; }
-.alliya-box button { margin-top: 10px; padding: 10px 20px; background: #C1A875; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
-.alliya-box button:hover { background: #a07c3b; }
+    .suggestions {
+      position:absolute; inset:100% 0 auto 0; background:#fff; border:1px solid #eee;
+      border-radius:8px; max-height:160px; overflow-y:auto; z-index:10; margin-top:4px;
+    }
+    .suggestions div {
+      padding:12px; cursor:pointer; border-bottom:1px solid #f0f0f0; font-size:14px;
+    }
+    .suggestions div:hover { background:#f8f5ec; }
 
-.suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #eee; border-radius: 6px; max-height: 150px; overflow-y: auto; z-index: 10; }
-.suggestions div { padding: 10px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
-.suggestions div:hover { background: #f8f5ec; }
+    .reply {
+      margin-top:16px; padding:14px; background:#f8f5ec; border-radius:8px;
+      font-size:14px; text-align:center;
+    }
+    .reply a { color:#25D366; font-weight:bold; }
 
-.reply { margin-top: 16px; padding: 12px; background: #f8f5ec; border-radius: 6px; font-size: 14px; }
-.reply a { color: #25D366; font-weight: bold; }
+    /* ---------- CTA BANNER ---------- */
+    .cta-banner {
+      background:linear-gradient(135deg, #C1A875 0%, #a07c3b 100%);
+      color:#fff; padding:60px 20px; text-align:center;
+    }
+    .cta-banner h2 { font-size:28px; margin-bottom:12px; }
+    .cta-banner p { font-size:18px; max-width:700px; margin:0 auto 20px; opacity:.95; }
+    .btn-cta {
+      background:#fff; color:#C1A875; padding:14px 32px; border-radius:50px;
+      text-decoration:none; font-weight:bold; font-size:1.1rem; display:inline-flex;
+      align-items:center; gap:10px; box-shadow:0 4px 15px rgba(0,0,0,.2);
+    }
+    .btn-cta:hover { background:#f0f0f0; transform:scale(1.05); }
 
-/* Alliya Float */
-.alliya-float { position: fixed; bottom: 20px; right: 20px; background: #C1A875; color: white; padding: 12px 18px; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-weight: bold; z-index: 999; font-size: 14px; }
-.alliya-float:hover { background: #a07c3b; transform: scale(1.05); transition: all 0.3s; }
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top:80px; padding:24px; font-size:14px; color:#777; text-align:center;
+    }
+    .badge-footer {
+      background:#C1A875; color:#fff; padding:6px 14px; border-radius:6px;
+      font-weight:bold; font-size:.9rem; display:inline-block; margin-bottom:8px;
+    }
+    .contact-links a {
+      color:#0056b3; text-decoration:none; margin:0 8px;
+    }
+    .contact-links a:hover { text-decoration:underline; }
+    .contact-links .whatsapp i { color:#25D366; font-size:1.2em; }
   </style>
 </head>
 <body>
 
+  <!-- Navbar -->
   <nav class="navbar">
-    <a href="/" class="logo">Grains Hub</a>
+    <a href="/" class="logo">
+      <img src="/grains-logo.png" alt="Logo" width="24"> Grains Hub
+    </a>
     <ul class="nav-links">
       <li><a href="/" class="active">Home</a></li>
       <li><a href="/why">Why</a></li>
@@ -124,116 +263,163 @@
       <li><a href="/about">About</a></li>
       <li><a href="/shop">Shop</a></li>
     </ul>
-    <div class="hamburger">
+    <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </nav>
 
+  <!-- Hero -->
   <header>
-    <img src="grains-logo.png" alt="Grains Hub Logo" />
+    <img src="/grains-logo.png" alt="Grains Hub Logo" />
     <h1>Grains Hub</h1>
-    <p class="quote">“Built with restraint. Trusted across borders.”</p>
+    <p>Built with restraint. Trusted across borders.</p>
     <p class="founder">— Shahid Bashir, Founder</p>
   </header>
 
-  <section class="intro">
-    <p>Grains Hub is more than a portal—it’s a signal of trust.<br>
-    Rooted in Dubai’s trade legacy, built with digital precision.<br>
-    We serve specialists, not generalists.<br>
-    Our infrastructure is clean. Our tone is quiet.<br>
-    We believe in compliance, clarity, and cross-border confidence.</p>
-  </section>
-
+  <!-- Trust Bar -->
   <div class="trust-bar">
     <span>Verified Suppliers</span>
     <span>Al Ras, Dubai</span>
     <span>Jebel Ali Ready</span>
   </div>
 
-  <div class="split-section">
+  <!-- Diamond Cards -->
+  <section class="cards">
     <div class="card">
-      <h3>Wholesale Stock</h3>
-      <div class="stock-grid" id="stock-grid"></div>
-      <a href="https://wa.me/971501234567" class="btn-primary">Get Quote</a>
+      <img src="/assets/img/cards/shop.jpg" alt="Marketplace">
+      <div class="content">
+        <h3>The Grains Shop</h3>
+        <p>10+ verified listings. Real-time stock. B2B pricing.</p>
+        <a href="/shop" class="btn-card">
+          <i class="fas fa-store"></i> Explore
+        </a>
+      </div>
     </div>
-    <div class="card">
-      <h3>FCL Booking</h3>
-      <p>20ft/40ft from India, Pakistan, Thailand.</p>
-      <a href="/fcl" class="btn-primary">Book Now</a>
-    </div>
-  </div>
 
-  <section class="alliya-box">
-    <h2><img src="alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
-    <div style="position:relative;">
-      <input type="text" id="queryInput" placeholder="Ask about rice, FCL, prices..." oninput="suggest(this.value)" />
-      <div id="suggestions"></div>
+    <div class="card">
+      <img src="/assets/img/cards/fcl.jpg" alt="FCL Booking">
+      <div class="content">
+        <h3>FCL Booking</h3>
+        <p>20ft & 40ft from India, Pakistan, Thailand. Prompt shipment.</p>
+        <a href="https://wa.me/971585521976?text=FCL%20Booking%20Inquiry" class="btn-card" target="_blank">
+          <i class="fas fa-ship"></i> Book Now
+        </a>
+      </div>
     </div>
-    <button onclick="askAlliya()">Verify</button>
-    <div id="replyBox" class="reply"></div>
+
+    <div class="card">
+      <img src="/assets/img/cards/compliance.jpg" alt="Compliance">
+      <div class="content">
+        <h3>Compliance First</h3>
+        <p>VAT-ready. Scan logs. Peer-rated suppliers.</p>
+        <a href="/trust" class="btn-card">
+          <i class="fas fa-shield-alt"></i> Learn More
+        </a>
+      </div>
+    </div>
   </section>
 
+  <!-- Stock Teaser -->
+  <section class="stock-teaser">
+    <h2>Live Stock Highlights</h2>
+    <div class="stock-grid" id="stock-grid">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+
+  <!-- Alliya Float -->
   <div class="alliya-float" onclick="openModal()">
-    <img src="alliya-icon.ico" alt="Alliya"> Ask Alliya
+    <img src="/assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya
   </div>
 
+  <!-- Alliya Modal -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">×</span>
-      <section class="alliya-box">
-        <h2><img src="alliya-icon.ico" alt="Alliya"> Ask Alliya</h2>
+      <div class="alliya-box">
+        <h2><img src="/assets/img/alliya-icon.ico" alt="Alliya" width="24"> Ask Alliya</h2>
         <div style="position:relative;">
-          <input type="text" id="modalInput" placeholder="Ask..." oninput="suggest(this.value, true)" />
-          <div id="modalSuggestions"></div>
+          <input type="text" id="modalInput" placeholder="Ask about stock, FCL, prices..." oninput="suggest(this.value, true)" />
+          <div id="modalSuggestions" class="suggestions"></div>
         </div>
         <button onclick="askAlliya(true)">Verify</button>
         <div id="modalReply" class="reply"></div>
-      </section>
+      </div>
     </div>
   </div>
 
-  <section class="cta">
+  <!-- CTA Banner -->
+  <section class="cta-banner">
     <h2>Ready to Trade with Confidence?</h2>
-    <p>Join Dubai’s most trusted grain network.</p>
-    <a href="/shop" class="btn-primary">Explore Marketplace</a>
+    <p>Join Dubai’s most trusted B2B grain network. Compliance-first. Al Ras powered.</p>
+    <a href="/shop" class="btn-cta">
+      <i class="fas fa-arrow-right"></i> Explore Marketplace
+    </a>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <div class="badge">Microsoft Copilot Enabled</div><br>
-    <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a><br>
+    <div class="badge-footer">Microsoft Copilot Enabled</div><br>
+    <div class="contact-links">
+      <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> |
+      <a href="https://wa.me/971585521976" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => {
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      l.classList.add('active');
-      navLinks.classList.remove('active');
-    }));
-    if (location.pathname === '/' || location.pathname.includes('index.html')) {
-      document.querySelector('.alliya-float').style.display = 'none';
+    // Hamburger
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
     }
+    document.querySelector('.hamburger').addEventListener('click', toggleMenu);
 
-    fetch('/shop/stock.json').then(r => r.json()).then(data => {
-      const grid = document.getElementById('stock-grid');
-      data.forEach(i => {
-        const div = document.createElement('div'); div.className = 'stock-item';
-        div.innerHTML = `<img src="assets/img/${i.img}" alt="${i.name}"><div><strong>${i.name}</strong> - ${i.price}<br><small>${i.available} MT avail</small></div>`;
-        grid.appendChild(div);
-      });
+    // Load 3 Stock Items
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('/assets/data/stock.json')
+        .then(r => r.json())
+        .then(data => {
+          const grid = document.getElementById('stock-grid');
+          const sample = data.slice(0, 3);
+          sample.forEach(i => {
+            const div = document.createElement('div');
+            div.className = 'stock-item';
+            div.innerHTML = `
+              <img src="/assets/img/${i.img}" alt="${i.name}">
+              <div>
+                <h4>${i.name}</h4>
+                <p><strong>Price:</strong> ${i.price}</p>
+                <p><strong>Stock:</strong> ${i.stock}</p>
+              </div>
+            `;
+            grid.appendChild(div);
+          });
+        })
+        .catch(() => {
+          document.getElementById('stock-grid').innerHTML = '<p>Stock loading...</p>';
+        });
     });
 
-    const keywords = ['basmati 1121 price', 'FCL booking', 'private label', 'VAT compliance'];
+    // Alliya Modal
+    function openModal() { document.getElementById('modal').classList.add('active'); }
+    function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+    // Suggestions
+    const keywords = ['1121 sella price', 'FCL booking', 'VAT compliance', 'pre-booking', 'organic rice'];
     function suggest(val, modal = false) {
       const id = modal ? 'modalSuggestions' : 'suggestions';
       const box = document.getElementById(id); box.innerHTML = '';
       if (val.length < 2) return;
       keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
-        const d = document.createElement('div'); d.textContent = k;
-        d.onclick = () => { (modal ? document.getElementById('modalInput') : document.getElementById('queryInput')).value = k; box.innerHTML = ''; askAlliya(modal); };
+        const d = document.createElement('div');
+        d.textContent = k; d.style.padding = '12px'; d.style.cursor = 'pointer';
+        d.onclick = () => {
+          const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+          input && (input.value = k); box.innerHTML = ''; askAlliya(modal);
+        };
         box.appendChild(d);
       });
     }
@@ -241,18 +427,17 @@
     async function askAlliya(modal = false) {
       const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
       const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
-      const q = input.value.trim();
+      const q = input ? input.value.trim() : '';
       if (!q) return;
       reply.innerHTML = 'Verifying...';
       try {
         const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
         const data = await res.json();
-        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971501234567?text=${q}">Message Us</a>`;
-      } catch { reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971501234567">Click Here</a>'; }
+        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971585521976?text=${encodeURIComponent(q)}">Message Us</a>`;
+      } catch {
+        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971585521976">Click Here</a>';
+      }
     }
-
-    function openModal() { document.getElementById('modal').classList.add('active'); }
-    function closeModal() { document.getElementById('modal').classList.remove('active'); }
   </script>
 </body>
 </html>
