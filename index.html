@@ -130,7 +130,7 @@
       text-align:center; 
       display:flex; 
       flex-direction:column;
-      height:100%; /* Equal height */
+      height:100%;
     }
     .card:hover {
       transform:translateY(-8px); box-shadow:0 16px 40px rgba(0,0,0,.14);
@@ -181,7 +181,7 @@
     .pulse-item .price { font-size:1.3rem; font-weight:bold; color:#fff; margin:10px 0; }
     .pulse-item .change { font-size:0.85rem; }
 
-    /* ---------- STOCK TEASER WITH HOVER ---------- */
+    /* ---------- STOCK TEASER (CLICKABLE TO SHOP) ---------- */
     .stock-teaser {
       background:#f8f5ec; padding:50px 20px; text-align:center;
     }
@@ -195,6 +195,7 @@
       box-shadow:0 4px 15px rgba(0,0,0,.06); text-align:left;
       display:flex; gap:12px; align-items:center;
       transition:transform .3s, box-shadow .3s;
+      cursor:pointer;
     }
     .stock-item:hover {
       transform:translateY(-6px); box-shadow:0 12px 25px rgba(193,168,117,.15);
@@ -324,7 +325,7 @@
     <span>Jebel Ali Ready</span>
   </div>
 
-  <!-- Diamond Cards (FIXED) -->
+  <!-- Diamond Cards -->
   <section class="cards">
     <div class="card">
       <img src="/assets/img/cards/shop.jpg" alt="Marketplace">
@@ -332,7 +333,7 @@
         <h3>The Grains Shop</h3>
         <p>10+ verified listings. Real-time stock. B2B pricing.</p>
         <a href="/shop" class="btn-card">
-          <i class="fas fa-store"></i> Explore
+          Explore
         </a>
       </div>
     </div>
@@ -343,7 +344,7 @@
         <h3>FCL Booking</h3>
         <p>20ft & 40ft from India, Pakistan, Thailand. Prompt shipment.</p>
         <a href="https://wa.me/971585521976?text=FCL%20Booking%20Inquiry" class="btn-card" target="_blank">
-          <i class="fas fa-ship"></i> Book Now
+          Book Now
         </a>
       </div>
     </div>
@@ -354,13 +355,13 @@
         <h3>Compliance First</h3>
         <p>VAT-ready. Scan logs. Peer-rated suppliers.</p>
         <a href="/trust" class="btn-card">
-          <i class="fas fa-shield-alt"></i> Learn More
+          Learn More
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Market Pulse Teaser (CLICKABLE) -->
+  <!-- Market Pulse Teaser (Clickable) -->
   <a href="/pulse/index.html" style="text-decoration:none; color:inherit;">
     <section class="pulse-teaser">
       <h2>Market Pulse</h2>
@@ -384,7 +385,7 @@
     </section>
   </a>
 
-  <!-- Stock Teaser with Hover -->
+  <!-- Stock Teaser (Clickable to Shop) -->
   <section class="stock-teaser">
     <h2>Live Stock Highlights</h2>
     <div class="stock-grid" id="stock-grid">
@@ -418,7 +419,7 @@
     <h2>Ready to Trade with Confidence?</h2>
     <p>Join Dubai’s most trusted B2B grain network. Compliance-first. Al Ras powered.</p>
     <a href="/shop" class="btn-cta">
-      <i class="fas fa-arrow-right"></i> Explore Marketplace
+      Explore Marketplace
     </a>
   </section>
 
@@ -428,7 +429,7 @@
     <div class="contact-links">
       <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> |
       <a href="https://wa.me/971585521976" target="_blank" class="whatsapp">
-        <i class="fab fa-whatsapp"></i> WhatsApp
+        WhatsApp
       </a>
     </div>
     <p>© 2025 Grains Hub. All rights reserved.</p>
@@ -436,22 +437,22 @@
 
   <!-- Scripts -->
   <script>
-    // Hamburger Menu - 100% FIXED
+    // HAMBURGER MENU - 100% FIXED
     function toggleMenu() {
       const menu = document.querySelector('.nav-links');
-      menu.classList.toggle('active');
+      if (menu) menu.classList.toggle('active');
     }
     const hamburger = document.querySelector('.hamburger');
     if (hamburger) hamburger.addEventListener('click', toggleMenu);
 
-    // Close menu on link click
+    // Close on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.remove('active');
+        document.querySelector('.nav-links')?.classList.remove('active');
       });
     });
 
-    // Load 3 Stock Items
+    // STOCK HIGHLIGHTS → GO TO SHOP ON CLICK
     document.addEventListener('DOMContentLoaded', () => {
       fetch('/assets/data/stock.json')
         .then(r => r.json())
@@ -459,7 +460,10 @@
           const grid = document.getElementById('stock-grid');
           const sample = data.slice(0, 3);
           sample.forEach(i => {
-            const div = document.createElement('div');
+            const div = document.createElement('a');
+            div.href = '/shop';
+            div.style.textDecoration = 'none';
+            div.style.color = 'inherit';
             div.className = 'stock-item';
             div.innerHTML = `
               <img src="/assets/img/${i.img}" alt="${i.name}">
