@@ -79,7 +79,7 @@
   }
   .hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
 
-  /* ---------- MOBILE MENU (FIXED) ---------- */
+  /* ---------- MOBILE MENU (FINAL FIX) ---------- */
   @media (max-width:768px) {
     .navbar { justify-content:space-between; padding:10px 16px; gap:0; }
     .logo { font-size:1rem; }
@@ -87,7 +87,7 @@
     .nav-links {
       position:absolute; top:100%; left:0; right:0; background:#C1A875;
       flex-direction:column; padding:0; margin:0;
-      max-height:0; overflow:hidden; transition:max-height .4s ease;
+      max-height:0; overflow:hidden; transition:max-height .35s ease;
       box-shadow:0 4px 10px rgba(0,0,0,.1);
     }
     .nav-links.active {
@@ -96,6 +96,7 @@
     .nav-links a {
       text-align:center; width:100%; padding:14px;
       border-bottom:1px solid rgba(255,255,255,.1);
+      display:block;
     }
   }
 
@@ -112,12 +113,17 @@
   header p { font-size:18px; max-width:700px; margin:10px auto; opacity:.95; }
   .founder { font-weight:bold; color:#eee; margin-top:20px; }
 
-  /* ---------- TRUST BAR ---------- */
+  /* ---------- TRUST BAR (Checkmark FIXED) ---------- */
   .trust-bar {
     background:#f8f5ec; padding:16px; display:flex; justify-content:center; gap:30px;
     font-size:14px; color:#a07c3b; flex-wrap:wrap;
   }
-  .trust-bar span::before { content:'Checkmark '; color:#C1A875; font-weight:bold; }
+  .trust-bar span {
+    position:relative; padding-left:20px;
+  }
+  .trust-bar span::before {
+    content:"✓"; color:#C1A875; font-weight:bold; position:absolute; left:0; top:0;
+  }
 
   /* ---------- DIAMOND CARDS ---------- */
   .cards {
@@ -441,7 +447,7 @@
   </footer>
 
   <script>
-  // HAMBURGER MENU - FINAL FIXED VERSION
+  // HAMBURGER MENU - FINAL & BULLETPROOF
   function toggleMenu() {
     const menu = document.querySelector('.nav-links');
     if (menu) {
@@ -450,19 +456,21 @@
   }
 
   // Attach to hamburger
-  const hamburger = document.querySelector('.hamburger');
-  if (hamburger) {
-    hamburger.addEventListener('click', toggleMenu);
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+      hamburger.onclick = toggleMenu;
+    }
 
-  // Close menu when link is clicked
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.querySelector('.nav-links')?.classList.remove('active');
+    // Close on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links')?.classList.remove('active');
+      });
     });
   });
 
-  // STOCK HIGHLIGHTS → GO TO SHOP ON CLICK
+  // STOCK HIGHLIGHTS → GO TO SHOP
   document.addEventListener('DOMContentLoaded', () => {
     fetch('/assets/data/stock.json')
       .then(r => r.json())
