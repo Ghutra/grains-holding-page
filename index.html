@@ -74,7 +74,9 @@
       background:#fff !important; color:#C1A875 !important;
     }
 
-    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+    .hamburger { 
+      display:none; flex-direction:column; cursor:pointer; gap:5px; 
+    }
     .hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
 
     @media (max-width:768px) {
@@ -86,7 +88,7 @@
         flex-direction:column; padding:10px 0; display:none; width:100%;
         box-shadow:0 4px 10px rgba(0,0,0,.1);
       }
-      .nav-links.active { display:flex; }
+      .nav-links.active { display:flex !important; }
       .nav-links a {
         text-align:center; width:100%; padding:12px;
       }
@@ -110,7 +112,7 @@
       background:#f8f5ec; padding:16px; display:flex; justify-content:center; gap:30px;
       font-size:14px; color:#a07c3b; flex-wrap:wrap;
     }
-    .trust-bar span::before { content:'✓ '; color:#C1A875; font-weight:bold; }
+    .trust-bar span::before { content:'Checkmark '; color:#C1A875; font-weight:bold; }
 
     /* ---------- DIAMOND CARDS ---------- */
     .cards {
@@ -144,7 +146,31 @@
     }
     .btn-card:hover { background:#a07c3b; }
 
-    /* ---------- STOCK TEASER ---------- */
+    /* ---------- MARKET PULSE TEASER ---------- */
+    .pulse-teaser {
+      background:#1a1a1a; color:#fff; padding:50px 20px; text-align:center;
+    }
+    .pulse-teaser h2 {
+      font-size:24px; margin-bottom:28px; color:#C1A875;
+    }
+    .pulse-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px; max-width:1000px; margin:auto;
+    }
+    .pulse-item {
+      background:linear-gradient(135deg, #2a2a2a, #1f1f1f); border-radius:12px;
+      padding:20px; box-shadow:0 4px 15px rgba(0,0,0,.3);
+      transition:transform .3s, box-shadow .3s;
+    }
+    .pulse-item:hover {
+      transform:translateY(-6px); box-shadow:0 12px 25px rgba(193,168,117,.2);
+    }
+    .pulse-item h4 { font-size:1.1rem; color:#C1A875; margin-bottom:8px; }
+    .pulse-item p { font-size:0.9rem; opacity:.9; }
+    .pulse-item .price { font-size:1.3rem; font-weight:bold; color:#fff; margin:10px 0; }
+    .pulse-item .change { font-size:0.85rem; }
+
+    /* ---------- STOCK TEASER WITH HOVER ---------- */
     .stock-teaser {
       background:#f8f5ec; padding:50px 20px; text-align:center;
     }
@@ -157,6 +183,10 @@
       background:#fff; border-radius:12px; padding:16px;
       box-shadow:0 4px 15px rgba(0,0,0,.06); text-align:left;
       display:flex; gap:12px; align-items:center;
+      transition:transform .3s, box-shadow .3s;
+    }
+    .stock-item:hover {
+      transform:translateY(-6px); box-shadow:0 12px 25px rgba(193,168,117,.15);
     }
     .stock-item img {
       width:60px; height:60px; object-fit:cover; border-radius:8px;
@@ -305,7 +335,7 @@
           <i class="fas fa-ship"></i> Book Now
         </a>
       </div>
-    </div>
+    </iyaç
 
     <div class="card">
       <img src="/assets/img/cards/compliance.jpg" alt="Compliance">
@@ -319,7 +349,29 @@
     </div>
   </section>
 
-  <!-- Stock Teaser -->
+  <!-- Market Pulse Teaser -->
+  <section class="pulse-teaser">
+    <h2>Market Pulse</h2>
+    <div class="pulse-grid">
+      <div class="pulse-item">
+        <h4>Basmati 1121</h4>
+        <p class="price">AED 160</p>
+        <p class="change">Up 2.5% today</p>
+      </div>
+      <div class="pulse-item">
+        <h4>Irri 6 5%</h4>
+        <p class="price">AED 60</p>
+        <p class="change">Stable</p>
+      </div>
+      <div class="pulse-item">
+        <h4>FCL India → Jebel Ali</h4>
+        <p class="price">USD 780</p>
+        <p class="change">Booking open</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stock Teaser with Hover -->
   <section class="stock-teaser">
     <h2>Live Stock Highlights</h2>
     <div class="stock-grid" id="stock-grid">
@@ -371,11 +423,19 @@
 
   <!-- Scripts -->
   <script>
-    // Hamburger
+    // Hamburger Menu - FIXED
     function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
+      const menu = document.querySelector('.nav-links');
+      menu.classList.toggle('active');
     }
     document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
 
     // Load 3 Stock Items
     document.addEventListener('DOMContentLoaded', () => {
