@@ -293,9 +293,9 @@
         <label for="tier">Tier</label>
         <select id="tier">
           <option value="">All Grades</option>
-          <option value="export">B2B Export</option>
-          <option value="organic">Organic Tier 1</option>
-          <option value="bulk">Bulk Grade</option>
+          <option value="verified">Verified Supplier</option>
+          <option value="peer">Peer Rated</option>
+          <option value="pre">Pre-Booking</option>
         </select>
       </div>
 
@@ -303,9 +303,9 @@
         <label for="use">Use</label>
         <select id="use">
           <option value="">All Purposes</option>
-          <option value="fasting">Seasonal Fasting</option>
-          <option value="ancestral">Ancestral Diets</option>
-          <option value="breadmaking">Breadmaking</option>
+          <option value="basmati">Basmati</option>
+          <option value="sella">Sella</option>
+          <option value="irri">Irri 6</option>
         </select>
       </div>
     </form>
@@ -351,6 +351,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="/assets/js/shop.js"></script>
   <script>
     // Hamburger
     function toggleMenu() {
@@ -363,7 +364,7 @@
     function closeModal() { document.getElementById('modal').classList.remove('active'); }
 
     // Suggestions
-    const keywords = ['basmati 1121', 'FCL booking', 'organic rice', '1121 steam', 'parboiled'];
+    const keywords = ['1121 sella', 'irri 6', 'sella basmati', 'pre-booking', 'FCL'];
     function suggest(val, modal = false) {
       const id = modal ? 'modalSuggestions' : 'suggestions';
       const box = document.getElementById(id); box.innerHTML = '';
@@ -394,62 +395,56 @@
       }
     }
 
-    // === LOAD PRODUCTS FROM BACKEND ===
-    const grid = document.getElementById('product-grid');
+    // === USE shop.js LOGIC ===
+    window.filterShop = function(filters) {
+      let filtered = window.allListings || [];
 
-    async function loadProducts() {
-      try {
-        const res = await fetch('https://grains-backend.onrender.com/api/products');
-        const products = await res.json();
+      if (filters.source) filtered = filtered.filter(i => i.origin === filters.source);
+      if (filters.tier) {
+        const map = { 'verified': 'Verified', 'peer': 'Peer', 'pre': 'Pre-Booking' };
+        filtered = filtered.filter(i => i.badge.includes(map[filters.tier]));
+      }
+      if (filters.use) {
+        filtered = filtered.filter(i => i.name.toLowerCase().includes(filters.use.toLowerCase()));
+      }
 
-        grid.innerHTML = ''; // Clear loading
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = '';
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="empty">No products match your filters.</div>';
+        return;
+      }
 
-        if (!products || products.length === 0) {
-          grid.innerHTML = '<div class="empty">No grains available at the moment. <a href="https://wa.me/971585521976">Contact us</a> for custom orders.</div>';
-          return;
-        }
-
-        products.forEach(p => {
-          const card = document.createElement('div');
-          card.className = 'product-card';
-          card.innerHTML = `
-            <img src="${p.image || '/assets/img/grains/default.jpg'}" alt="${p.name}">
-            <div class="content">
-              <h3>${p.name}</h3>
-              <p>${p.description}</p>
-              <span class="badge">${p.status || 'In Stock'}</span>
-              <a href="https://wa.me/971585521976?text=${encodeURIComponent('Inquiry: ' + p.name)}" class="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Inquire Now
-              </a>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
-      } catch (err) {
-        console.error('Failed to load products:', err);
-        grid.innerHTML = `
-          <div class="empty">
-            <p>Unable to load products. Please try again later.</p>
-            <a href="https://wa.me/971585521976" class="btn-whatsapp" style="display:inline-flex; margin-top:10px;">
-              <i class="fab fa-whatsapp"></i> Contact Support
+      filtered.forEach(item => {
+        const kgPrice = item.price.includes('USD') ? '' : ` • ${(parseFloat(item.price.replace('AED ', '')) / parseInt(item.size)).toFixed(2)} AED/kg`;
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="/assets/img/${item.img}" alt="${item.name}">
+          <div class="content">
+            <h3>${item.name}</h3>
+            <p><strong>Origin:</strong> ${item.origin}</p>
+            <p><strong>Packaging:</strong> ${item.packaging}</p>
+            <p><strong>Price:</strong> ${item.price}${kgPrice}</p>
+            <p><strong>Stock:</strong> ${item.stock}</p>
+            <span class="badge">${item.badge}</span>
+            <a href="https://wa.me/971585521976?text=${encodeURIComponent('Inquiry: ' + item.name + ' - ' + item.price)}" class="btn-whatsapp" target="_blank">
+              <i class="fab fa-whatsapp"></i> Get Quote
             </a>
           </div>
         `;
-      }
-    }
+        grid.appendChild(card);
+      });
+    };
 
-    // Load on start
-    document.addEventListener('DOMContentLoaded', loadProducts);
-
-    // Filter Logic
+    // Trigger filter on change
     document.getElementById('filter-form').addEventListener('change', () => {
-      const source = document.getElementById('source').value;
-      const tier = document.getElementById('tier').value;
-      const use = document.getElementById('use').value;
-
-      // Re-fetch with filters
-      grid.innerHTML = '<div class="loading">Filtering...</div>';
-      setTimeout(loadProducts, 300); // Simulate filter (replace with real API later)
+      const filters = {
+        source: document.getElementById('source').value,
+        tier: document.getElementById('tier').value,
+        use: document.getElementById('use').value
+      };
+      window.filterShop(filters);
     });
   </script>
 </body>
