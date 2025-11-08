@@ -105,7 +105,7 @@
     header h1 { font-size:36px; font-weight:500; margin-bottom:12px; }
     header p { font-size:18px; max-width:700px; margin:10px auto; opacity:.95; }
 
-    /* ---------- FILTERS: MODERN, EQUAL WIDTH ---------- */
+    /* ---------- FILTERS ---------- */
     #filters {
       background:#f8f5ec; padding:50px 20px; text-align:center;
     }
@@ -172,7 +172,12 @@
     }
     .btn-whatsapp i { font-size:1.2em; }
 
-    /* ---------- ALLIYA FLOAT & MODAL ---------- */
+    /* Loading & Empty States */
+    .loading, .empty {
+      grid-column: 1 / -1; text-align:center; padding:40px; color:#a07c3b; font-size:1.1rem;
+    }
+
+    /* ---------- ALLIYA ---------- */
     .alliya-float {
       position:fixed; right:20px; background:#C1A875; color:#fff;
       padding:14px 20px; border-radius:30px; cursor:pointer;
@@ -309,18 +314,7 @@
   <!-- Product Grid -->
   <section>
     <div class="product-grid" id="product-grid">
-      <!-- Fallback if shop.js fails -->
-      <div class="product-card">
-        <img src="/assets/img/grains/basmati.jpg" alt="Basmati 1121">
-        <div class="content">
-          <h3>Basmati 1121 Steam</h3>
-          <p>Premium long-grain, aromatic, export-grade.</p>
-          <span class="badge">In Stock</span>
-          <a href="https://wa.me/971585521976?text=Inquiry: Basmati 1121 Steam" class="btn-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i> Inquire Now
-          </a>
-        </div>
-      </div>
+      <div class="loading">Loading verified grains...</div>
     </div>
   </section>
 
@@ -357,21 +351,12 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/assets/js/shop.js"></script>
   <script>
     // Hamburger
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('active');
     }
     document.querySelector('.hamburger').addEventListener('click', toggleMenu);
-
-    // Filter Logic
-    document.getElementById('filter-form').addEventListener('change', () => {
-      const source = document.getElementById('source').value;
-      const tier = document.getElementById('tier').value;
-      const use = document.getElementById('use').value;
-      window.filterShop && window.filterShop({ source, tier, use });
-    });
 
     // Alliya Modal
     function openModal() { document.getElementById('modal').classList.add('active'); }
@@ -409,16 +394,62 @@
       }
     }
 
-    // Auto-link WhatsApp in product cards
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        document.querySelectorAll('.btn-whatsapp').forEach(btn => {
-          if (!btn.href.includes('wa.me')) {
-            const title = btn.closest('.product-card').querySelector('h3').textContent;
-            btn.href = `https://wa.me/971585521976?text=${encodeURIComponent('Inquiry: ' + title)}`;
-          }
+    // === LOAD PRODUCTS FROM BACKEND ===
+    const grid = document.getElementById('product-grid');
+
+    async function loadProducts() {
+      try {
+        const res = await fetch('https://grains-backend.onrender.com/api/products');
+        const products = await res.json();
+
+        grid.innerHTML = ''; // Clear loading
+
+        if (!products || products.length === 0) {
+          grid.innerHTML = '<div class="empty">No grains available at the moment. <a href="https://wa.me/971585521976">Contact us</a> for custom orders.</div>';
+          return;
+        }
+
+        products.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          card.innerHTML = `
+            <img src="${p.image || '/assets/img/grains/default.jpg'}" alt="${p.name}">
+            <div class="content">
+              <h3>${p.name}</h3>
+              <p>${p.description}</p>
+              <span class="badge">${p.status || 'In Stock'}</span>
+              <a href="https://wa.me/971585521976?text=${encodeURIComponent('Inquiry: ' + p.name)}" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Inquire Now
+              </a>
+            </div>
+          `;
+          grid.appendChild(card);
         });
-      }, 500);
+      } catch (err) {
+        console.error('Failed to load products:', err);
+        grid.innerHTML = `
+          <div class="empty">
+            <p>Unable to load products. Please try again later.</p>
+            <a href="https://wa.me/971585521976" class="btn-whatsapp" style="display:inline-flex; margin-top:10px;">
+              <i class="fab fa-whatsapp"></i> Contact Support
+            </a>
+          </div>
+        `;
+      }
+    }
+
+    // Load on start
+    document.addEventListener('DOMContentLoaded', loadProducts);
+
+    // Filter Logic
+    document.getElementById('filter-form').addEventListener('change', () => {
+      const source = document.getElementById('source').value;
+      const tier = document.getElementById('tier').value;
+      const use = document.getElementById('use').value;
+
+      // Re-fetch with filters
+      grid.innerHTML = '<div class="loading">Filtering...</div>';
+      setTimeout(loadProducts, 300); // Simulate filter (replace with real API later)
     });
   </script>
 </body>
