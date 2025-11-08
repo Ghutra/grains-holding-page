@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Grains Shop | Grains Hub</title>
-  <meta name="description" content="Dubai’s trusted B2B grain shop. Verified suppliers, compliance-first, poetic restraint. Filter by origin, grade, ritual use." />
+  <meta name="description" content="Dubai’s trusted B2B grain shop. Verified suppliers, compliance-first, poetic restraint. Filter by source, tier, use." />
   <meta name="keywords" content="grains shop, Dubai B2B, verified rice, basmati, FCL, compliance, ritual grains" />
   <meta name="author" content="Shahid Bashir" />
   <link rel="canonical" href="https://grains.ae/shop" />
@@ -47,7 +47,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { background:#fdfdf9; font-family:'Helvetica Neue',sans-serif; color:#222; line-height:1.7; }
 
-    /* ---------- NAVBAR: GOLDEN, CENTERED, SPACED ---------- */
+    /* ---------- NAVBAR ---------- */
     .navbar {
       background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
       display:flex; justify-content:center; align-items:center;
@@ -105,25 +105,31 @@
     header h1 { font-size:36px; font-weight:500; margin-bottom:12px; }
     header p { font-size:18px; max-width:700px; margin:10px auto; opacity:.95; }
 
-    /* ---------- FILTERS: GOLDEN TOUCH ---------- */
+    /* ---------- FILTERS: MODERN, EQUAL WIDTH ---------- */
     #filters {
       background:#f8f5ec; padding:50px 20px; text-align:center;
     }
     #filters h2 {
-      font-size:24px; color:#a07c3b; margin-bottom:24px;
+      font-size:24px; color:#a07c3b; margin-bottom:28px;
     }
     #filter-form {
-      display:flex; flex-wrap:wrap; gap:16px; justify-content:center;
+      display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
       max-width:900px; margin:auto;
     }
-    #filter-form label {
-      font-weight:bold; color:#a07c3b; min-width:100px; display:flex; align-items:center;
+    @media (max-width:768px) {
+      #filter-form { grid-template-columns:1fr; }
     }
-    #filter-form select {
-      padding:12px; border:1px solid #ddd; border-radius:8px; background:#fff;
-      font-size:15px; flex:1; min-width:180px; transition:border 0.3s;
+    .filter-group {
+      display:flex; flex-direction:column; gap:6px;
     }
-    #filter-form select:focus {
+    .filter-group label {
+      font-weight:bold; color:#a07c3b; font-size:14px; text-align:left;
+    }
+    .filter-group select {
+      padding:12px 14px; border:1px solid #ddd; border-radius:8px; background:#fff;
+      font-size:15px; transition:border 0.3s, box-shadow 0.3s;
+    }
+    .filter-group select:focus {
       outline:none; border-color:#C1A875; box-shadow:0 0 0 3px rgba(193,168,117,.2);
     }
 
@@ -156,13 +162,15 @@
       font-size:0.8rem; font-weight:bold; display:inline-block; margin:8px 0;
     }
     .btn-whatsapp {
-      display:block; background:#25D366; color:#fff; padding:12px;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      background:#25D366; color:#fff; padding:12px;
       border-radius:8px; text-decoration:none; font-weight:bold;
       margin-top:14px; font-size:0.95rem; transition:background .3s;
     }
     .btn-whatsapp:hover {
       background:#1ebe57;
     }
+    .btn-whatsapp i { font-size:1.2em; }
 
     /* ---------- ALLIYA FLOAT & MODAL ---------- */
     .alliya-float {
@@ -226,6 +234,13 @@
       background:#C1A875; color:#fff; padding:6px 14px; border-radius:6px;
       font-weight:bold; font-size:.9rem; display:inline-block; margin-bottom:8px;
     }
+    .contact-links a {
+      color:#0056b3; text-decoration:none; margin:0 8px;
+    }
+    .contact-links a:hover { text-decoration:underline; }
+    .contact-links .whatsapp i {
+      color:#25D366; font-size:1.2em;
+    }
   </style>
 </head>
 <body>
@@ -259,36 +274,53 @@
   <section id="filters">
     <h2>Refine Your Search</h2>
     <form id="filter-form">
-      <label for="origin">Origin:</label>
-      <select id="origin">
-        <option value="">All</option>
-        <option value="India">India</option>
-        <option value="Pakistan">Pakistan</option>
-        <option value="Thailand">Thailand</option>
-      </select>
+      <div class="filter-group">
+        <label for="source">Source</label>
+        <select id="source">
+          <option value="">All Origins</option>
+          <option value="India">India</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Thailand">Thailand</option>
+        </select>
+      </div>
 
-      <label for="grade">Grade:</label>
-      <select id="grade">
-        <option value="">All</option>
-        <option value="export">B2B Export</option>
-        <option value="organic">Organic Tier 1</option>
-        <option value="bulk">Bulk Grade</option>
-      </select>
+      <div class="filter-group">
+        <label for="tier">Tier</label>
+        <select id="tier">
+          <option value="">All Grades</option>
+          <option value="export">B2B Export</option>
+          <option value="organic">Organic Tier 1</option>
+          <option value="bulk">Bulk Grade</option>
+        </select>
+      </div>
 
-      <label for="ritual">Ritual Use:</label>
-      <select id="ritual">
-        <option value="">All</option>
-        <option value="fasting">Seasonal Fasting</option>
-        <option value="ancestral">Ancestral Diets</option>
-        <option value="breadmaking">Breadmaking</option>
-      </select>
+      <div class="filter-group">
+        <label for="use">Use</label>
+        <select id="use">
+          <option value="">All Purposes</option>
+          <option value="fasting">Seasonal Fasting</option>
+          <option value="ancestral">Ancestral Diets</option>
+          <option value="breadmaking">Breadmaking</option>
+        </select>
+      </div>
     </form>
   </section>
 
   <!-- Product Grid -->
   <section>
     <div class="product-grid" id="product-grid">
-      <!-- Filled by shop.js -->
+      <!-- Fallback if shop.js fails -->
+      <div class="product-card">
+        <img src="/assets/img/grains/basmati.jpg" alt="Basmati 1121">
+        <div class="content">
+          <h3>Basmati 1121 Steam</h3>
+          <p>Premium long-grain, aromatic, export-grade.</p>
+          <span class="badge">In Stock</span>
+          <a href="https://wa.me/971585521976?text=Inquiry: Basmati 1121 Steam" class="btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> Inquire Now
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -315,8 +347,12 @@
 
   <footer>
     <div class="badge-footer">Microsoft Copilot Enabled</div><br>
-    <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> | 
-    <a href="https://wa.me/971585521976">+971 585 521 976</a><br>
+    <div class="contact-links">
+      <a href="mailto:letstalk@grains.ae">letstalk@grains.ae</a> |
+      <a href="https://wa.me/971585521976" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
@@ -331,10 +367,10 @@
 
     // Filter Logic
     document.getElementById('filter-form').addEventListener('change', () => {
-      const origin = document.getElementById('origin').value;
-      const grade = document.getElementById('grade').value;
-      const ritual = document.getElementById('ritual').value;
-      window.filterShop && window.filterShop({ origin, grade, ritual });
+      const source = document.getElementById('source').value;
+      const tier = document.getElementById('tier').value;
+      const use = document.getElementById('use').value;
+      window.filterShop && window.filterShop({ source, tier, use });
     });
 
     // Alliya Modal
@@ -342,7 +378,7 @@
     function closeModal() { document.getElementById('modal').classList.remove('active'); }
 
     // Suggestions
-    const keywords = ['basmati 1121 price', 'FCL booking', 'organic tier 1', 'fasting grains', '1121 steam', 'parboiled rice'];
+    const keywords = ['basmati 1121', 'FCL booking', 'organic rice', '1121 steam', 'parboiled'];
     function suggest(val, modal = false) {
       const id = modal ? 'modalSuggestions' : 'suggestions';
       const box = document.getElementById(id); box.innerHTML = '';
@@ -352,7 +388,7 @@
         d.textContent = k; d.style.padding = '12px'; d.style.cursor = 'pointer';
         d.onclick = () => {
           const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
-          input.value = k; box.innerHTML = ''; askAlliya(modal);
+          input && (input.value = k); box.innerHTML = ''; askAlliya(modal);
         };
         box.appendChild(d);
       });
@@ -361,7 +397,7 @@
     async function askAlliya(modal = false) {
       const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
       const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
-      const q = input.value.trim();
+      const q = input ? input.value.trim() : '';
       if (!q) return;
       reply.innerHTML = 'Verifying...';
       try {
@@ -373,14 +409,16 @@
       }
     }
 
-    // Update Product Cards WhatsApp
+    // Auto-link WhatsApp in product cards
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.querySelectorAll('.btn-whatsapp').forEach(btn => {
-          const text = btn.closest('.product-card').querySelector('h3').textContent;
-          btn.href = `https://wa.me/971585521976?text=${encodeURIComponent('Inquiry: ' + text)}`;
+          if (!btn.href.includes('wa.me')) {
+            const title = btn.closest('.product-card').querySelector('h3').textContent;
+            btn.href = `https://wa.me/971585521976?text=${encodeURIComponent('Inquiry: ' + title)}`;
+          }
         });
-      }, 1000);
+      }, 500);
     });
   </script>
 </body>
