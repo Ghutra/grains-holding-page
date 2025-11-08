@@ -440,93 +440,98 @@
     <p>© 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // HAMBURGER MENU - 100% FIXED
-    function toggleMenu() {
-      const menu = document.querySelector('.nav-links');
-      if (menu) menu.classList.toggle('active');
+  // HAMBURGER MENU - FINAL FIXED VERSION
+  function toggleMenu() {
+    const menu = document.querySelector('.nav-links');
+    if (menu) {
+      menu.classList.toggle('active');
     }
-    const hamburger = document.querySelector('.hamburger');
-    if (hamburger) hamburger.addEventListener('click', toggleMenu);
+  }
 
-    // Close on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('.nav-links')?.classList.remove('active');
-      });
+  // Attach to hamburger
+  const hamburger = document.querySelector('.hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMenu);
+  }
+
+  // Close menu when link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links')?.classList.remove('active');
     });
+  });
 
-    // STOCK HIGHLIGHTS → GO TO SHOP ON CLICK
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('/assets/data/stock.json')
-        .then(r => r.json())
-        .then(data => {
-          const grid = document.getElementById('stock-grid');
-          const sample = data.slice(0, 3);
-          sample.forEach(i => {
-            const div = document.createElement('a');
-            div.href = '/shop';
-            div.style.textDecoration = 'none';
-            div.style.color = 'inherit';
-            div.className = 'stock-item';
-            div.innerHTML = `
-              <img src="/assets/img/${i.img}" alt="${i.name}">
-              <div>
-                <h4>${i.name}</h4>
-                <p><strong>Price:</strong> ${i.price}</p>
-                <p><strong>Stock:</strong> ${i.stock}</p>
-              </div>
-            `;
-            grid.appendChild(div);
-          });
-        })
-        .catch(() => {
-          document.getElementById('stock-grid').innerHTML = '<p>Stock loading...</p>';
+  // STOCK HIGHLIGHTS → GO TO SHOP ON CLICK
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('/assets/data/stock.json')
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById('stock-grid');
+        const sample = data.slice(0, 3);
+        sample.forEach(i => {
+          const a = document.createElement('a');
+          a.href = '/shop';
+          a.style.textDecoration = 'none';
+          a.style.color = 'inherit';
+          a.className = 'stock-item';
+          a.innerHTML = `
+            <img src="/assets/img/${i.img}" alt="${i.name}">
+            <div>
+              <h4>${i.name}</h4>
+              <p><strong>Price:</strong> ${i.price}</p>
+              <p><strong>Stock:</strong> ${i.stock}</p>
+            </div>
+          `;
+          grid.appendChild(a);
         });
-    });
-
-    // Alliya Modal
-    function openModal() { document.getElementById('modal').classList.add('active'); }
-    function closeModal() { document.getElementById('modal').classList.remove('active'); }
-
-    // Suggestions
-    const keywords = ['1121 sella price', 'FCL booking', 'VAT compliance', 'pre-booking', 'organic rice'];
-    function suggest(val, modal = false) {
-      const id = modal ? 'modalSuggestions' : 'suggestions';
-      const box = document.getElementById(id); 
-      if (!box) return;
-      box.innerHTML = '';
-      if (val.length < 2) return;
-      keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
-        const d = document.createElement('div');
-        d.textContent = k; 
-        d.style.padding = '12px'; 
-        d.style.cursor = 'pointer';
-        d.onclick = () => {
-          const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
-          if (input) input.value = k; 
-          box.innerHTML = ''; 
-          askAlliya(modal);
-        };
-        box.appendChild(d);
+      })
+      .catch(() => {
+        document.getElementById('stock-grid').innerHTML = '<p>Stock loading...</p>';
       });
-    }
+  });
 
-    async function askAlliya(modal = false) {
-      const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
-      const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
-      const q = input ? input.value.trim() : '';
-      if (!q) return;
-      reply.innerHTML = 'Verifying...';
-      try {
-        const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
-        const data = await res.json();
-        reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971585521976?text=${encodeURIComponent(q)}">Message Us</a>`;
-      } catch {
-        reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971585521976">Click Here</a>';
-      }
+  // Alliya Modal
+  function openModal() { document.getElementById('modal').classList.add('active'); }
+  function closeModal() { document.getElementById('modal').classList.remove('active'); }
+
+  // Suggestions
+  const keywords = ['1121 sella price', 'FCL booking', 'VAT compliance', 'pre-booking', 'organic rice'];
+  function suggest(val, modal = false) {
+    const id = modal ? 'modalSuggestions' : 'suggestions';
+    const box = document.getElementById(id); 
+    if (!box) return;
+    box.innerHTML = '';
+    if (val.length < 2) return;
+    keywords.filter(k => k.toLowerCase().includes(val.toLowerCase())).forEach(k => {
+      const d = document.createElement('div');
+      d.textContent = k; 
+      d.style.padding = '12px'; 
+      d.style.cursor = 'pointer';
+      d.onclick = () => {
+        const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+        if (input) input.value = k; 
+        box.innerHTML = ''; 
+        askAlliya(modal);
+      };
+      box.appendChild(d);
+    });
+  }
+
+  async function askAlliya(modal = false) {
+    const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
+    const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
+    const q = input ? input.value.trim() : '';
+    if (!q) return;
+    reply.innerHTML = 'Verifying...';
+    try {
+      const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
+      const data = await res.json();
+      reply.innerHTML = data.reply || `Try WhatsApp: <a href="https://wa.me/971585521976?text=${encodeURIComponent(q)}">Message Us</a>`;
+    } catch {
+      reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971585521976">Click Here</a>';
     }
-  </script>
+  }
+</script>
 </body>
 </html>
