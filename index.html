@@ -525,7 +525,21 @@
       box.appendChild(d);
     });
   }
+async function askAlliya() {
+  const input = document.getElementById('alliya-input');
+  const reply = document.getElementById('alliya-reply');
+  const q = input.value.trim();
+  if (!q) return;
 
+  reply.innerHTML = 'Alliya is thinking...';
+  try {
+    const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(q)}`);
+    const data = await res.json();
+    reply.innerHTML = data.reply;
+  } catch (err) {
+    reply.innerHTML = `Try WhatsApp: <a href="https://wa.me/971585521976?text=${encodeURIComponent(q)}">Click Here</a>`;
+  }
+}
   async function askAlliya(modal = false) {
     const input = modal ? document.getElementById('modalInput') : document.getElementById('queryInput');
     const reply = modal ? document.getElementById('modalReply') : document.getElementById('replyBox');
