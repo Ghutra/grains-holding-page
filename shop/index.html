@@ -79,19 +79,27 @@
     .hamburger span { width:25px; height:3px; background:#fff; border-radius:2px; }
 
     @media (max-width:768px) {
-      .navbar { justify-content:space-between; padding:10px 16px; gap:0; }
-      .logo { font-size:1rem; }
-      .hamburger { display:flex; }
-      .nav-links {
-        position:absolute; top:100%; left:0; right:0; background:#C1A875;
-        flex-direction:column; padding:10px 0; display:none; width:100%;
-        box-shadow:0 4px 10px rgba(0,0,0,.1);
-      }
-      .nav-links.active { display:flex; }
-      .nav-links a {
-        text-align:center; width:100%; padding:12px;
-      }
-    }
+  .navbar { 
+    justify-content:space-between; 
+    padding:10px 16px; 
+    gap:0; 
+  }
+  .logo { font-size:1rem; }
+  .hamburger { display:flex; }
+  .nav-links {
+    position:absolute; top:100%; left:0; right:0; background:#C1A875;
+    flex-direction:column; padding:0; margin:0;
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+  }
+  .nav-links.active { max-height:500px; }
+  .nav-links a {
+    text-align:center; width:100%; padding:14px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    display:block !important;
+    color:#fff !important;
+  }
+}
 
     /* ---------- HERO ---------- */
     header {
@@ -353,12 +361,21 @@
   <!-- Scripts -->
   <script src="/assets/js/shop.js"></script>
   <script>
-    // Hamburger
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-    document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+    // HAMBURGER MENU – BULLETPROOF
+function toggleMenu() {
+  const menu = document.querySelector('.nav-links');
+  if (menu) menu.classList.toggle('active');
+}
 
+// Attach to hamburger
+document.querySelector('.hamburger').onclick = toggleMenu;
+
+// Close on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links')?.classList.remove('active');
+  });
+});
     // Alliya Modal
     function openModal() { document.getElementById('modal').classList.add('active'); }
     function closeModal() { document.getElementById('modal').classList.remove('active'); }
