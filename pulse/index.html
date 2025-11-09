@@ -36,10 +36,12 @@
     body { background:#fdfdf9; font-family:'Helvetica Neue',sans-serif; color:#222; line-height:1.7; }
 
    /* ---------- NAVBAR (FIXED FOR DESKTOP + MOBILE) ---------- */
+/* ---------- NAVBAR (CENTERED ON DESKTOP) ---------- */
 .navbar {
   background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
-  display:flex; justify-content:space-between; align-items:center;
-  box-shadow:0 2px 10px rgba(0,0,0,.1);
+  display:flex; justify-content:center; align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.1); gap:40px;
+  flex-wrap:wrap;
 }
 .logo {
   color:#fff; font-weight:bold; font-size:1.1rem; text-decoration:none;
@@ -68,7 +70,11 @@
 
 /* ---------- MOBILE (HAMBURGER MENU) ---------- */
 @media (max-width:768px) {
-  .navbar { padding:10px 16px; }
+  .navbar { 
+    justify-content:space-between; 
+    padding:10px 16px; 
+    gap:0; 
+  }
   .logo { font-size:1rem; }
   .hamburger { display:flex; }
   .nav-links {
