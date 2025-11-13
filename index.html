@@ -300,6 +300,36 @@
   .contact-links a:hover { text-decoration:underline; }
   .contact-links .whatsapp i { color:#25D366; font-size:1.2em; }
 </style>
+  <head>
+  <meta charset="utf-8">
+  <title>Grains Hub – Dubai B2B Grain Marketplace</title>
+  
+  <!-- Your CSS -->
+  <style>
+    body { font-family: Arial; margin: 0; }
+    .hero { background: #1a5f3d; color: white; padding: 60px 20px; text-align: center; }
+    /* ... all your styles ... */
+  </style>
+
+  <!-- PASTE FIREBASE & ALLIYA HERE -->
+  <!-- Firebase App + Auth + Firestore -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { firebaseConfig } from "./firebase-config.js";
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    window.auth = auth;
+    window.db = db;
+  </script>
+
+  <!-- Alliya AI Chat -->
+  <script type="module" src="./alliya.js"></script>
+
 </head>
 <body>
 
