@@ -274,23 +274,21 @@
 
   <!-- PASTE FIREBASE & ALLIYA HERE -->
   <!-- Firebase App + Auth + Firestore -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { firebaseConfig } from "./firebase-config.js";
+ <script type="module">
+  // FULL CDN — NO "firebase/app" SHORTCUT EVER AGAIN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { firebaseConfig } from "./firebase-config.js";
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
 
-    window.auth = auth;
-    window.db = db;
-  </script>
-
-  <!-- Alliya AI Chat -->
-  <script type="module" src="./alliya.js"></script>
-
+  window.auth = auth;
+  window.db = db;
+</script>
+<script type="module" src="./alliya.js"></script>
 </head>
 <body>
 
@@ -299,6 +297,9 @@
     <a href="/" class="logo">
       <img src="../grains-logo.png" alt="Logo" width="24"> Grains Hub
     </a>
+<a href="login.html" style="position:absolute; top:20px; right:20px; background:#1a5f3d; color:white; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:bold; z-index:999;">
+  Trader Login
+</a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/why">Why</a></li>
