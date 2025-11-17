@@ -18,6 +18,21 @@
       signOut(auth).then(() => location.href = '/');
     });
   </script>
+  <script type="module">
+  // FULL CDN — NO "firebase/app" SHORTCUT EVER AGAIN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { firebaseConfig } from "./firebase-config.js";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  window.auth = auth;
+  window.db = db;
+</script>
+<script type="module" src="./alliya.js"></script>
 </head>
 <body style="font-family: Arial; padding: 30px; max-width: 800px; margin: 0 auto;">
   <h2>Welcome, <span id="userEmail"></span>!</h2>
