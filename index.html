@@ -598,6 +598,13 @@ async function askAlliya() {
   const auth = getAuth(app);
   const db = getFirestore(app);
 </script>
+    <script type="module">
+  fetch('./firebase-config.js')
+    .then(res => res.text())
+    .then(text => console.log(text));
+</script>
+
 <script type="module" src="./alliya.js"></script>
+    
 </body>
 </html>
