@@ -51,8 +51,7 @@ input.addEventListener('keypress', async (e) => {
 
     try {
   console.log("Querying Firestore with:", term.split(" "));
-  const q = query(
-    collection(db, "products"),
+  const q = query(collection(db, "products"));
     where("keywords", "array-contains-any", term.split(" "))
   );
       const snapshot = await getDocs(q);
