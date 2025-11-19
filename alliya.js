@@ -58,9 +58,6 @@ input.addEventListener('keypress', async (e) => {
   const snapshot = await getDocs(q);
   console.log("Docs found:", snapshot.size);
 
-      const snapshot = await getDocs(q);
-      body.lastChild.remove(); // remove "searching"
-
       if (snapshot.empty) {
         addMessage(`No match for "${term}". Try "basmati", "irri", "thai".`);
       } else {
