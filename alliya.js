@@ -50,10 +50,14 @@ input.addEventListener('keypress', async (e) => {
     addMessage("Searching grains.ae live stock...");
 
     try {
-      const q = query(
-        collection(db, "products"),
-        where("keywords", "array-contains-any", term.split(" "))
-      );
+  console.log("Querying Firestore with:", term.split(" "));
+  const q = query(
+    collection(db, "products"),
+    where("keywords", "array-contains-any", term.split(" "))
+  );
+  const snapshot = await getDocs(q);
+  console.log("Docs found:", snapshot.size);
+
       const snapshot = await getDocs(q);
       body.lastChild.remove(); // remove "searching"
 
