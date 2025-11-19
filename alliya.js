@@ -1,7 +1,10 @@
 // alliya.js
-import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { firebaseConfig } from "./firebase-config.js"; // adjust path if needed
 
-const db = window.db;
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 // Create Chat UI
 const chatBox = document.createElement('div');
@@ -63,6 +66,7 @@ input.addEventListener('keypress', async (e) => {
         });
       }
     } catch (err) {
+      console.error("Alliya fetch error:", err);
       addMessage("Network error. Check connection.");
     }
   }
