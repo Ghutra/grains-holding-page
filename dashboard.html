@@ -1,10 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Dashboard | Grains Hub</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; display: flex; height: 100vh; background: #f8f9fa; }
+    .sidebar { width: 250px; background: #2c3e50; color: white; padding: 20px; }
+    .sidebar ul { list-style: none; padding: 0; }
+    .sidebar li a { color: white; display: block; padding: 15px; text-decoration: none; transition: background 0.3s; }
+    .sidebar li a:hover { background: #1a5f3d; }
+    .main-content { flex: 1; padding: 40px; }
+    .logo { width: 150px; margin-bottom: 20px; }
+    .quote { font-style: italic; color: #666; margin-bottom: 30px; }
+    button { background: #f44336; color: white; padding: 12px; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.3s; }
+    button:hover { opacity: 0.9; }
+  </style>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { firebaseConfig } from "./firebase-config.js";
+    import firebaseConfig from "./firebase-config.js";
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -14,34 +28,31 @@
       else document.getElementById('userEmail').textContent = user.email;
     });
 
-    document.getElementById('logoutBtn')?.addEventListener('click', () => {
+    document.getElementById('logoutBtn').addEventListener('click', () => {
       signOut(auth).then(() => location.href = '/');
     });
   </script>
-  <script type="module">
-  // FULL CDN — NO "firebase/app" SHORTCUT EVER AGAIN
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import { firebaseConfig } from "./firebase-config.js";
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  window.auth = auth;
-  window.db = db;
-</script>
-<script type="module" src="./alliya.js"></script>
 </head>
-<body style="font-family: Arial; padding: 30px; max-width: 800px; margin: 0 auto;">
-  <h2>Welcome, <span id="userEmail"></span>!</h2>
-  <p><strong>Subscription:</strong> Active B2B Trader</p>
-  <hr>
-  <h3>Your Recent Activity</h3>
-  <ul>
-    <li>Basmati 1121: AED 160/MT (up 2.5%)</li>
-    <li>Irri 6: AED 95/MT (stable)</li>
-  </ul>
-  <button id="logoutBtn" style="padding: 12px; background: #f44336; color: white; border: none; border-radius: 6px;">Logout</button>
+<body>
+  <div class="sidebar">
+    <img class="logo" src="assets/grains-hub-logo.png" alt="Grains Hub Logo">
+    <ul>
+      <li><a href="#orders">My Orders</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#bookings">FCL Bookings</a></li>
+      <li><a href="#alerts">Price Alerts</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h2>Welcome, <span id="userEmail"></span>!</h2>
+    <p class="quote">"Built with restraint. Trusted across borders."</p>
+    <h3>Recent Activity</h3>
+    <ul>
+      <li>Booked: 2x40ft Basmati 1121 – Nov 12</li>
+      <li>Alert: Irri 6 price dropped to AED 92</li>
+    </ul>
+    <button id="logoutBtn">Logout</button>
+  </div>
 </body>
+</html>
