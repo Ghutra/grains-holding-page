@@ -313,7 +313,9 @@
 
 </head>
 <body>
-
+<div class="banner" style="background: #1a5f3d; color: white; padding: 15px; text-align: center; margin: 20px 0; border-radius: 6px; transition: background 0.3s;">
+  <p>Trader Offer: 10% off Irri-6 for first 50MT! <a href="whatsapp://send?phone=971XXXXXXXX" style="color: #fff; text-decoration: underline;">Get Quote</a></p>
+</div>
   <!-- Navbar -->
   <nav class="navbar">
     <a href="/" class="logo">
@@ -591,7 +593,15 @@ async function askAlliya() {
       reply.innerHTML = 'Try WhatsApp: <a href="https://wa.me/971585521976">Click Here</a>';
     }
   }
-</script>
+const banners = [
+  "Special on Basmati 1121 – AED 160/MT!",
+  "FCL Booking Deal: Free Loading for Pakistan Rice!",
+  "New Supplier: Thai Jasmine at AED 185/MT!"
+];
+const bannerDiv = document.querySelector('.banner p');
+let i = 0;
+setInterval(() => { bannerDiv.textContent = banners[i++ % banners.length]; }, 5000);
+  </script>
      <!-- PASTE FIREBASE & ALLIYA HERE -->
   <!-- Firebase App + Auth + Firestore -->
   // FULL CDN — NO "firebase/app" SHORTCUT EVER AGAIN
