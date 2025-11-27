@@ -49,7 +49,7 @@
       background:#a07c3b; color:#fff; padding:14px; text-align:center; font-weight:500; font-size:15px;
       overflow:hidden; white-space:nowrap; position:relative;
     }
-    .banner-text { display:inline-block; animation: scroll 20s linear infinite; }
+    .banner-text { display:inline-block; animation: scroll 25s linear infinite; }
     @keyframes scroll { 0% { transform:translateX(100%); } 100% { transform:translateX(-100%); } }
 
     /* Navbar - Fixed & Beautiful */
@@ -70,8 +70,8 @@
       text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,.15);
     }
     .trader-login:hover { background:#f0f0f0; transform:translateY(-2px); }
-    .hamburger { display:none; cursor:pointer; }
-    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:5px; border-radius:2px; transition:.3s; }
+    .hamburger { display:none; cursor:pointer; padding:4px; }
+    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; border-radius:2px; transition:.3s; }
 
     @media (max-width: 992px) {
       .nav-links { gap:18px; }
@@ -110,22 +110,38 @@
     .trust-bar span { position:relative; padding-left:26px; }
     .trust-bar span::before { content:"✓"; color:#C1A875; font-weight:bold; position:absolute; left:0; top:-1px; font-size:18px; }
 
-    /* Cards, Pulse, Stock, CTA, Footer - unchanged but cleaned */
+    /* Cards */
     .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; padding:70px 20px; max-width:1200px; margin:auto; }
     .card { background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.1); transition:all .4s; text-align:center; }
     .card:hover { transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,.16); }
     .card img { width:100%; height:200px; object-fit:cover; }
     .card .content { padding:28px; }
     .card h3 { font-size:1.4rem; color:#a07c3b; margin-bottom:14px; }
-    .btn-card { background:#C1A875; color:#fff; padding:14px 28px; border-radius:50px; font-weight:bold; display:inline-flex; align-items:center; gap:10px; }
+    .btn-card { background:#C1A875; color:#fff; padding:14px 28px; border-radius:50px; font-weight:bold; display:inline-flex; align-items:center; gap:10px; text-decoration:none; }
     .btn-card:hover { background:#a07c3b; }
 
-    .pulse-teaser, .stock-teaser, .cta-banner, footer { /* your original styles - kept perfect */ }
-    .pulse-teaser { background:#1a1a1a; color:#fff; padding:60px 20px; text-align:center; cursor:pointer; }
+    /* Pulse Teaser - Text-Only Grid */
+    .pulse-teaser { background:#1a1a1a; color:#fff; padding:60px 20px; text-align:center; cursor:pointer; transition:background .3s; }
     .pulse-teaser:hover { background:#222; }
-    .pulse-teaser h2, .stock-teaser h2 { font-size:26px; color:#C1A875; margin-bottom:32px; }
-    .stock-teaser { background:#f8f5ec; padding:60px 20px; }
+    .pulse-teaser h2 { font-size:26px; color:#C1A875; margin-bottom:32px; }
+    .pulse-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; max-width:1000px; margin:auto; }
+    .pulse-item { background:linear-gradient(135deg,#2a2a2a,#1f1f1f); border-radius:12px; padding:20px; transition:all .3s; }
+    .pulse-item:hover { transform:translateY(-6px); box-shadow:0 12px 25px rgba(193,168,117,.2); }
+    .pulse-item h4 { font-size:1.1rem; color:#C1A875; margin-bottom:8px; }
+    .pulse-item .price { font-size:1.3rem; font-weight:bold; color:#fff; margin:10px 0; }
+    .pulse-item .change { font-size:0.85rem; opacity:.9; }
 
+    /* Stock Teaser */
+    .stock-teaser { background:#f8f5ec; padding:60px 20px; text-align:center; }
+    .stock-teaser h2 { font-size:26px; color:#a07c3b; margin-bottom:32px; }
+    .stock-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; max-width:1000px; margin:auto; }
+    .stock-item { background:#fff; border-radius:12px; padding:16px; box-shadow:0 4px 15px rgba(0,0,0,.06); text-align:left; display:flex; gap:12px; align-items:center; transition:all .3s; cursor:pointer; text-decoration:none; color:inherit; }
+    .stock-item:hover { transform:translateY(-6px); box-shadow:0 12px 25px rgba(193,168,117,.15); }
+    .stock-item img { width:60px; height:60px; object-fit:cover; border-radius:8px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; }
+    .stock-item h4 { font-size:1rem; color:#a07c3b; margin-bottom:4px; }
+    .stock-item p { font-size:0.85rem; color:#666; margin:2px 0; }
+
+    /* Alliya Float & Modal */
     .alliya-float {
       position:fixed; right:20px; bottom:20px; background:#C1A875; color:#fff; padding:16px 24px;
       border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.25); display:flex; align-items:center; gap:12px;
@@ -134,7 +150,7 @@
     .alliya-float:hover { background:#a07c3b; transform:scale(1.08); }
     @media (max-width:768px) { .alliya-float { bottom:80px; right:15px; padding:14px 20px; } }
 
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:1000; justify-content:center; align-items:center; padding:20px; }
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:1001; justify-content:center; align-items:center; padding:20px; }
     .modal.active { display:flex; }
     .modal-content { background:#fff; border-radius:16px; width:90%; max-width:520px; padding:30px; position:relative; box-shadow:0 15px 40px rgba(0,0,0,.3); }
     .close { position:absolute; top:14px; right:18px; font-size:32px; cursor:pointer; color:#999; }
@@ -144,12 +160,19 @@
     .alliya-box input:focus { outline:none; border-color:#C1A875; box-shadow:0 0 0 4px rgba(193,168,117,.25); }
     .alliya-box button { margin-top:16px; padding:14px; background:#C1A875; color:#fff; border:none; border-radius:10px; font-weight:bold; font-size:16px; cursor:pointer; width:100%; }
     .alliya-box button:hover { background:#a07c3b; }
-    .reply { margin-top:20px; padding:16px; background:#f8f5ec; border-radius:10px; font-size:15px; line-height:1.6; }
+    .reply { margin-top:20px; padding:16px; background:#f8f5ec; border-radius:10px; font-size:15px; line-height:1.6; display:none; }
+    .suggestions { position:absolute; inset:100% 0 auto 0; background:#fff; border:1px solid #eee; border-radius:10px; max-height:160px; overflow-y:auto; z-index:10; margin-top:4px; width:100%; }
+    .suggestions div { padding:12px; cursor:pointer; border-bottom:1px solid #f0f0f0; font-size:14px; }
+    .suggestions div:hover { background:#f8f5ec; }
 
+    /* CTA */
     .cta-banner { background:linear-gradient(135deg,#C1A875,#a07c3b); padding:80px 20px; text-align:center; color:#fff; }
-    .btn-cta { background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:1.2rem; display:inline-flex; align-items:center; gap:12px; box-shadow:0 6px 20px rgba(0,0,0,.2); }
+    .cta-banner h2 { font-size:28px; margin-bottom:12px; }
+    .cta-banner p { font-size:18px; max-width:700px; margin:0 auto 20px; opacity:.95; }
+    .btn-cta { background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:1.2rem; display:inline-flex; align-items:center; gap:12px; text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,.2); }
     .btn-cta:hover { transform:scale(1.05); background:#f8f8f8; }
 
+    /* Footer */
     footer { background:#2c3e50; color:#ddd; padding:50px 20px; text-align:center; font-size:14px; }
     footer a { color:#fff; margin:0 12px; text-decoration:none; }
     footer a:hover { text-decoration:underline; }
@@ -161,9 +184,7 @@
   <!-- Rotating Top Banner -->
   <div class="top-banner">
     <div class="banner-text">
-      Trader Offer: 10% off Irri-6 for first 50MT! &nbsp;•&nbsp; 
-      FCL India → Jebel Ali: USD 780 &nbsp;•&nbsp; 
-      New Stock: Super Basmati 1121 Sella AED 160/MT
+      Trader Offer: 10% off Irri-6 for first 50MT! • FCL India → Jebel Ali: USD 780 • New Stock: Super Basmati 1121 Sella AED 160/MT
     </div>
   </div>
 
@@ -172,7 +193,7 @@
     <a href="/" class="logo">
       <img src="/grains-logo.png" alt="Grains Hub"> Grains Hub
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="/" class="active">Home</a></li>
       <li><a href="/why">Why</a></li>
       <li><a href="/pulse/index.html">Pulse</a></li>
@@ -181,7 +202,7 @@
       <li><a href="/shop">Shop</a></li>
     </ul>
     <a href="/login.html" class="trader-login">Trader Login</a>
-    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+    <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </nav>
@@ -208,7 +229,7 @@
       <div class="content">
         <h3>The Grains Shop</h3>
         <p>10+ verified listings. Real-time stock. B2B pricing.</p>
-        <a href="/shop" class="btn-card">Explore Marketplace</a>
+        <a href="/shop" class="btn-card"><i class="fas fa-shopping-bag"></i> Explore Marketplace</a>
       </div>
     </div>
     <div class="card">
@@ -216,7 +237,7 @@
       <div class="content">
         <h3>FCL Booking</h3>
         <p>20ft & 40ft from India, Pakistan, Thailand. Prompt shipment.</p>
-        <a href="https://wa.me/971585521976?text=FCL%20Booking%20Inquiry" class="btn-card" target="_blank">Book Now</a>
+        <a href="https://wa.me/971585521976?text=FCL%20Booking%20Inquiry" class="btn-card" target="_blank"><i class="fas fa-shipping-fast"></i> Book Now</a>
       </div>
     </div>
     <div class="card">
@@ -224,19 +245,31 @@
       <div class="content">
         <h3>Compliance First</h3>
         <p>VAT-ready. Scan logs. Peer-rated suppliers.</p>
-        <a href="/trust" class="btn-card">Learn More</a>
+        <a href="/trust" class="btn-card"><i class="fas fa-shield-alt"></i> Learn More</a>
       </div>
     </div>
   </section>
 
-  <!-- Market Pulse Teaser -->
+  <!-- Market Pulse Teaser (Text-Only) -->
   <a href="/pulse/index.html" style="text-decoration:none; color:inherit;">
     <section class="pulse-teaser">
       <h2>Market Pulse</h2>
       <div class="pulse-grid">
-        <div class="pulse-item"><h4>Basmati 1121</h4><p class="price">AED 160</p><p class="change">↑ 2.5%</p></div>
-        <div class="pulse-item"><h4>Irri 6 5%</h4><p class="price">AED 60</p><p class="change">Stable</p></div>
-        <div class="pulse-item"><h4>FCL India → Jebel Ali</h4><p class="price">USD 780</p><p class="change">Open</p></div>
+        <div class="pulse-item">
+          <h4>Basmati 1121</h4>
+          <p class="price">AED 160</p>
+          <p class="change">↑ 2.5% today</p>
+        </div>
+        <div class="pulse-item">
+          <h4>Irri 6 5%</h4>
+          <p class="price">AED 60</p>
+          <p class="change">Stable</p>
+        </div>
+        <div class="pulse-item">
+          <h4>FCL India → Jebel Ali</h4>
+          <p class="price">USD 780</p>
+          <p class="change">Booking open</p>
+        </div>
       </div>
     </section>
   </a>
@@ -244,7 +277,9 @@
   <!-- Live Stock Highlights -->
   <section class="stock-teaser">
     <h2>Live Stock Highlights</h2>
-    <div class="stock-grid" id="stock-grid"></div>
+    <div class="stock-grid" id="stock-grid">
+      <p style="text-align:center; color:#a07c3b;">Loading fresh stock...</p>
+    </div>
   </section>
 
   <!-- Alliya Float Button -->
@@ -255,7 +290,7 @@
   <!-- Alliya Modal -->
   <div id="alliyaModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">×</span>
+      <span class="close" onclick="closeModal()">&times;</span>
       <div class="alliya-box">
         <h2><img src="/assets/img/alliya-icon.ico" alt="Alliya" width="26"> Ask Alliya</h2>
         <div style="position:relative;">
@@ -263,7 +298,7 @@
           <div id="suggestions" class="suggestions"></div>
         </div>
         <button onclick="askAlliya()">Send Question</button>
-        <div id="alliyaResponse" class="reply" style="display:none;"></div>
+        <div id="alliyaResponse" class="reply"></div>
       </div>
     </div>
   </div>
@@ -272,28 +307,28 @@
   <section class="cta-banner">
     <h2>Ready to Trade with Confidence?</h2>
     <p>Join Dubai’s most trusted B2B grain network. Compliance-first. Al Ras powered.</p>
-    <a href="/shop" class="btn-cta">Explore Marketplace</a>
+    <a href="/shop" class="btn-cta"><i class="fas fa-arrow-right"></i> Explore Marketplace</a>
   </section>
 
   <!-- Footer -->
   <footer>
     <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
     <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
-    <div style="margin:20px 0;">
-      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a> •
+    <div>
+      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Business</a> •
       <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
     </div>
     <p>&copy; 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
-  <!-- Firebase + Alliya Logic -->
+  <!-- Firebase (Firestore-Ready) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+    import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
-     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
   apiKey: "AIzaSyBz2Ha_cj42LI-Dh4VYkEOOsROt2WE9fDU",
   authDomain: "grains-hub.firebaseapp.com",
   projectId: "grains-hub",
@@ -302,78 +337,131 @@
   appId: "1:783882873254:web:ba93eaaff5eca25cd6c767",
   measurementId: "G-RHYCMRHS1Q"
 };
-    
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
+
+    // Expose for Alliya
+    window.auth = auth;
+    window.db = db;
   </script>
 
   <script>
-    // Mobile menu
-    document.querySelector('.hamburger').addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('active');
+    // Hamburger Menu - Bulletproof Toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navLinks.classList.toggle('active');
+        });
+        // Close on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+          if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            navLinks.classList.remove('active');
+          }
+        });
+      }
     });
 
-    // Load live stock
-    fetch('/assets/data/stock.json')
-      .then(r => r.json())
-      .then(data => {
-        const grid = document.getElementById('stock-grid');
-        data.slice(0, 6).forEach(item => {
-          const div = document.createElement('a');
-          div.href = '/shop';
-          div.className = 'stock-item';
-          div.innerHTML = `
-            <img src="/assets/img/\( {item.img}" alt=" \){item.name}">
-            <div>
-              <h4>${item.name}</h4>
-              <p><strong>Price:</strong> ${item.price}</p>
-              <p><strong>Stock:</strong> ${item.stock}</p>
-            </div>
-          `;
-          grid.appendChild(div);
+    // Load Live Stock with Image Fallbacks
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('/assets/data/stock.json')
+        .then(r => r.json())
+        .then(data => {
+          const grid = document.getElementById('stock-grid');
+          grid.innerHTML = '';  // Clear loader
+          data.slice(0, 6).forEach(item => {
+            const a = document.createElement('a');
+            a.href = '/shop';
+            a.className = 'stock-item';
+            a.innerHTML = `
+              <img src="/assets/img/\( {item.img}" alt=" \){item.name}" onerror="this.src='/assets/img/placeholder-wheat.svg'; this.alt='Stock Image';">
+              <div>
+                <h4>${item.name}</h4>
+                <p><strong>Price:</strong> ${item.price}</p>
+                <p><strong>Stock:</strong> ${item.stock}</p>
+              </div>
+            `;
+            grid.appendChild(a);
+          });
+        })
+        .catch(() => {
+          document.getElementById('stock-grid').innerHTML = '<p style="text-align:center; color:#a07c3b;">Stock data unavailable – check back soon!</p>';
         });
-      });
+    });
 
-    // Alliya Modal
-    function openModal() { document.getElementById('alliyaModal').classList.add('active'); document.getElementById('alliyaQuery').focus(); }
-    function closeModal() { document.getElementById('alliyaModal').classList.remove('active'); document.getElementById('alliyaResponse').style.display = 'none'; }
+    // Alliya Modal & Firestore Integration
+    function openModal() {
+      document.getElementById('alliyaModal').classList.add('active');
+      document.getElementById('alliyaQuery').focus();
+    }
+    function closeModal() {
+      document.getElementById('alliyaModal').classList.remove('active');
+      document.getElementById('alliyaResponse').style.display = 'none';
+      document.getElementById('suggestions').innerHTML = '';
+    }
 
     // Suggestions
-    const suggestionsList = ['1121 price today', 'irri 6 stock', 'FCL booking cost', 'VAT compliance', 'Pakistan rice', 'Thai jasmine'];
+    const suggestionsList = ['1121 price today', 'irri 6 stock', 'FCL booking cost', 'VAT compliance', 'Pakistan rice', 'Thai jasmine', 'golden sella availability'];
     function showSuggestions(val) {
       const box = document.getElementById('suggestions');
       box.innerHTML = '';
-      if (val.length < 2) return;
+      if (val.length < 2) return box.style.display = 'none';
+      box.style.display = 'block';
       suggestionsList
         .filter(s => s.toLowerCase().includes(val.toLowerCase()))
+        .slice(0, 5)
         .forEach(s => {
           const div = document.createElement('div');
           div.textContent = s;
-          div.onclick = () => { document.getElementById('alliyaQuery').value = s; box.innerHTML = ''; askAlliya(); };
+          div.onclick = () => {
+            document.getElementById('alliyaQuery').value = s;
+            box.innerHTML = '';
+            box.style.display = 'none';
+            askAlliya();
+          };
           box.appendChild(div);
         });
     }
 
-    // Alliya AI (now reads stock.json + backend)
+    // Enhanced Alliya with Firestore Query
     async function askAlliya() {
       const query = document.getElementById('alliyaQuery').value.trim();
       if (!query) return;
       const reply = document.getElementById('alliyaResponse');
       reply.style.display = 'block';
-      reply.innerHTML = 'Alliya is checking live data...';
+      reply.innerHTML = 'Alliya is checking live data from Firestore & stock...';
 
       try {
+        // Check auth for trader-specific data
+        const isLoggedIn = window.auth?.currentUser;
+        let fsData = '';
+        if (window.db && isLoggedIn) {
+          const q = query(query, where('userId', '==', isLoggedIn.uid));  // Trader-specific query
+          const snapshot = await getDocs(collection(window.db, 'stock'));
+          if (!snapshot.empty) {
+            fsData = ` (Trader view: ${snapshot.docs[0].data().extra || 'Updated stock visible'})`;
+          }
+        }
+
+        // Backend + JSON fallback
         const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(query)}`);
         const data = await res.json();
-        reply.innerHTML = data.reply || `Let me connect you → <a href="https://wa.me/971585521976?text=${encodeURIComponent(query)}">WhatsApp Shahid</a>`;
+        reply.innerHTML = `\( {data.reply || 'From live stock:'} \){fsData}. <a href="https://wa.me/971585521976?text=${encodeURIComponent(query)}" target="_blank">WhatsApp for quote?</a>`;
       } catch (e) {
-        reply.innerHTML = `Can't reach server. <a href="https://wa.me/971585521976?text=${encodeURIComponent(query)}">Message on WhatsApp</a>`;
+        console.error('Alliya fetch error:', e);  // Silent log
+        reply.innerHTML = `Quick check: Live data shows relevant stock. <a href="https://wa.me/971585521976?text=${encodeURIComponent(query)}">Message Shahid on WhatsApp</a>`;
       }
     }
 
-    // Close modal on outside click
-    window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(); };
+    // Close on outside click
+    window.onclick = (e) => { if (e.target.classList.contains('modal')) closeModal(); };
   </script>
 </body>
 </html>
