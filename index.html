@@ -431,7 +431,7 @@ async function askAlliya() {
   try {
     // 1. Try Firestore first (real-time trader stock)
     if (window.db) {
-      const stockRef = collection(window.db, 'stock'); // change "stock" to your actual collection name
+      const stockRef = collection(window.db, 'products'); // change "stock" to your actual collection name
       const q = query(stockRef, where('keywords', 'array-contains-any', query.split(' ')));
       const snapshot = await getDocs(q);
 
