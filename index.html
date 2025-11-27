@@ -419,36 +419,59 @@ const firebaseConfig = {
       });
   }
 
-  // Alliya – Fixed, Clean & Loving
-  async function askAlliya() {
-    const query = document.getElementById('alliyaQuery').value.trim();
-    if (!query) return;
+  // ULTIMATE ALLIYA – Render + Firestore + Instant Fallback
+async function askAlliya() {
+  const query = document.getElementById('alliyaQuery').value.trim().toLowerCase();
+  if (!query) return;
 
-    const replyBox = document.getElementById('alliyaResponse');
-    replyBox.style.display = 'block';
-    replyBox.innerHTML = 'Alliya is checking live prices for you…';
+  const replyBox = document.getElementById('alliyaResponse');
+  replyBox.style.display = 'block';
+  replyBox.innerHTML = 'Alliya is checking live stock & Firestore…';
 
-    try {
-      const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(query)}`, {
-        cache: 'no-cache',
-        timeout: 8000
-      });
+  try {
+    // 1. Try Firestore first (real-time trader stock)
+    if (window.db) {
+      const stockRef = collection(window.db, 'stock'); // change "stock" to your actual collection name
+      const q = query(stockRef, where('keywords', 'array-contains-any', query.split(' ')));
+      const snapshot = await getDocs(q);
 
-      if (!res.ok) throw new Error('Server sleeping');
-
-      const data = await res.json();
-
-      if (data.reply) {
-        replyBox.innerHTML = data.reply;
-      } else {
-        replyBox.innerHTML = `Yes, <strong>\( {query}</strong> is available today!<br><br>WhatsApp me for exact quote → <a href="https://wa.me/971585521976?text= \){encodeURIComponent(query)}" target="_blank">Click Here</a>`;
+      if (!snapshot.empty) {
+        const item = snapshot.docs[0].data();
+        replyBox.innerHTML = `
+          <strong>Live from Firestore</strong><br>
+          \( {item.name} → \){item.price}<br>
+          Stock: ${item.stock} bags<br><br>
+          <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20I%20want%20${encodeURIComponent(item.name)}" 
+             style="background:#25D366;color:white;padding:10px 20px;border-radius:50px;display:inline-block;margin-top:8px;text-decoration:none;">
+             Book via WhatsApp
+          </a>`;
+        return; // Firestore won – stop here
       }
-    } catch (err) {
-      // Render is sleeping or slow – give instant loving fallback
-      replyBox.innerHTML = `I found <strong>\( {query}</strong> in stock!<br><br>Tap below for instant quote (I reply in seconds)<br><a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20 \){encodeURIComponent(query)}" target="_blank" style="background:#25D366;color:white;padding:10px 20px;border-radius:50px;display:inline-block;margin-top:10px;text-decoration:none;font-weight:bold;">WhatsApp Alliya Now</a>`;
     }
-  }
 
+    // 2. If no Firestore hit → ask Render backend
+    const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(query)}`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Render sleeping');
+
+    const data = await res.json();
+    if (data.reply) {
+      replyBox.innerHTML = data.reply;
+      return;
+    }
+
+    throw new Error('No reply');
+
+  } catch (err) {
+    // 3. Final loving fallback (never leave user hanging)
+    replyBox.innerHTML = `
+      Yes, <strong>${query}</strong> is available today!<br><br>
+      Let me get you the freshest price in seconds →<br>
+      <a href="https://wa.me/971585521976?text=Alliya%20-%20${encodeURIComponent(query)}" 
+         style="background:#25D366;color:white;padding:12px 24px;border-radius:50px;display:inline-block;margin-top:12px;text-decoration:none;font-weight:bold;">
+         WhatsApp Me Now
+      </a>`;
+  }
+}
   // Close modal when clicking outside
   window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) closeModal();
