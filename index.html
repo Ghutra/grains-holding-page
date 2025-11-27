@@ -434,7 +434,7 @@ async function askAlliya() {
     // FIRESTORE FIRST – instant & real-time
     if (window.db) {
       const words = userQuery.toLowerCase().split(' ').filter(w => w.length > 2);
-      const stockRef = collection(window.db, 'stock');
+      const stockRef = collection(window.db, 'products');
       const q = query(stockRef, where('keywords', 'array-contains-any', words));
       const snapshot = await getDocs(q);
 
