@@ -430,22 +430,28 @@ async function askAlliya() {
   replyBox.style.display = 'block';
   replyBox.innerHTML = 'Alliya checking Firestore…';
 
-  // DEBUG: Confirm Firebase is alive
   if (!window.db) {
-    replyBox.innerHTML = 'Firebase not loaded yet. Refresh page.';
-    console.error('window.db missing');
+    replyBox.innerHTML = 'Firebase not ready. Refresh page.';
     return;
   }
 
   try {
-    const words = userQuery.toLowerCase().split(' ').filter(w => w.length > 2);
+    // Force lowercase and clean the words
+    const searchWords = userQuery
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')   // remove punctuation
+      .split(/\s+/)
+      .filter(w => w.length >= 2);
+
+    console.log('Searching for keywords:', searchWords);   // ← check this in console
+
     const q = query(
       collection(window.db, 'products'),
-      where('keywords', 'array-contains-any', words.length > 0 ? words : ['rice'])  // fallback
+      where('keywords', 'array-contains-any', searchWords)
     );
-    
+
     const snapshot = await getDocs(q);
-    
+
     if (!snapshot.empty) {
       const item = snapshot.docs[0].data();
       replyBox.innerHTML = `
@@ -453,19 +459,20 @@ async function askAlliya() {
         ${item.name}<br>
         Price: <strong>AED ${item.price}/MT</strong><br>
         Stock: <strong>${item.stock} bags</strong><br><br>
-        <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20${encodeURIComponent(item.name)}" 
+        <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20${encodeURIComponent(item.name)}"
            style="background:#25D366;color:white;padding:12px 24px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
            WhatsApp Quote Now
         </a>`;
       return;
-    } else {
-      throw new Error('No match');
     }
+
+    // If still no match → show what we searched for (debug)
+    throw new Error('No product found for: ' + searchWords.join(', '));
+
   } catch (err) {
-    console.log('Firestore failed, falling back:', err.message);
-    // fallback to Render or WhatsApp
-    replyBox.innerHTML = `Yes, <strong>${userQuery}</strong> available!<br><br>
-      <a href="https://wa.me/971585521976?text=Alliya%20-%20${encodeURIComponent(userQuery)}" 
+    console.log('Firestore error:', err.message);
+    replyBox.innerHTML = `Yes, <strong>${userQuery}</strong> is available today!<br><br>
+      <a href="https://wa.me/971585521976?text=Alliya%20-%20${encodeURIComponent(userQuery)}"
          style="background:#25D366;color:white;padding:14px 28px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
          WhatsApp Me Now
       </a>`;
