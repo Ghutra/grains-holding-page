@@ -428,48 +428,43 @@ async function askAlliya() {
 
   const replyBox = document.getElementById('alliyaResponse');
   replyBox.style.display = 'block';
-  replyBox.innerHTML = 'Alliya is checking Firestore…';
+  replyBox.innerHTML = 'Alliya checking Firestore…';
+
+  // DEBUG: Confirm Firebase is alive
+  if (!window.db) {
+    replyBox.innerHTML = 'Firebase not loaded yet. Refresh page.';
+    console.error('window.db missing');
+    return;
+  }
 
   try {
-    // FIRESTORE FIRST – instant & real-time
-    if (window.db) {
-      const words = userQuery.toLowerCase().split(' ').filter(w => w.length > 2);
-      const stockRef = collection(window.db, 'products');
-      const q = query(stockRef, where('keywords', 'array-contains-any', words));
-      const snapshot = await getDocs(q);
-
-      if (!snapshot.empty) {
-        const item = snapshot.docs[0].data();
-        replyBox.innerHTML = `
-          <strong>Live from Firestore</strong><br><br>
-          ${item.name}<br>
-          Price: <strong>${item.price}</strong><br>
-          Stock: <strong>${item.stock}</strong><br><br>
-          <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20I%20want%20${encodeURIComponent(item.name)}" 
-             style="background:#25D366;color:white;padding:12px 24px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
-             WhatsApp Quote Now
-          </a>`;
-        return;
-      }
+    const words = userQuery.toLowerCase().split(' ').filter(w => w.length > 2);
+    const q = query(
+      collection(window.db, 'products'),
+      where('keywords', 'array-contains-any', words.length > 0 ? words : ['rice'])  // fallback
+    );
+    
+    const snapshot = await getDocs(q);
+    
+    if (!snapshot.empty) {
+      const item = snapshot.docs[0].data();
+      replyBox.innerHTML = `
+        <strong>Live from Firestore</strong><br><br>
+        ${item.name}<br>
+        Price: <strong>AED ${item.price}/MT</strong><br>
+        Stock: <strong>${item.stock} bags</strong><br><br>
+        <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20${encodeURIComponent(item.name)}" 
+           style="background:#25D366;color:white;padding:12px 24px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
+           WhatsApp Quote Now
+        </a>`;
+      return;
+    } else {
+      throw new Error('No match');
     }
-
-    // If nothing in Firestore → try Render backend
-    const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(userQuery)}`);
-    if (res.ok) {
-      const data = await res.json();
-      if (data.reply) {
-        replyBox.innerHTML = data.reply;
-        return;
-      }
-    }
-
-    // Final loving fallback
-    throw new Error();
-
   } catch (err) {
-    replyBox.innerHTML = `
-      Yes, <strong>${userQuery}</strong> is available today!<br><br>
-      Let me get you the freshest price in seconds →<br><br>
+    console.log('Firestore failed, falling back:', err.message);
+    // fallback to Render or WhatsApp
+    replyBox.innerHTML = `Yes, <strong>${userQuery}</strong> available!<br><br>
       <a href="https://wa.me/971585521976?text=Alliya%20-%20${encodeURIComponent(userQuery)}" 
          style="background:#25D366;color:white;padding:14px 28px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
          WhatsApp Me Now
