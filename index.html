@@ -423,8 +423,8 @@ const firebaseConfig = {
 
   // ULTIMATE ALLIYA – Render + Firestore + Instant Fallback
 async function askAlliya() {
-  const userQuery = document.getElementById('alliyaQuery').value.trim();
-  if (!userQuery) return;
+  const rawQuery = document.getElementById('alliyaQuery').value.trim();
+  if (!rawQuery) return;
 
   const replyBox = document.getElementById('alliyaResponse');
   replyBox.style.display = 'block';
@@ -436,18 +436,22 @@ async function askAlliya() {
   }
 
   try {
-    // Force lowercase and clean the words
-    const searchWords = userQuery
+    // SUPER CLEAN keyword extraction
+    const searchWords = rawQuery
       .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, '')   // remove punctuation
+      .replace(/[^a-z0-9\s]/g, ' ')   // remove commas, !!, etc.
+      .trim()
       .split(/\s+/)
       .filter(w => w.length >= 2);
 
-    console.log('Searching for keywords:', searchWords);   // ← check this in console
+    console.log('Searching keywords →', searchWords);
+
+    // If user typed nothing useful → default to rice
+    const finalWords = searchWords.length > 0 ? searchWords : ['rice', 'basmati'];
 
     const q = query(
       collection(window.db, 'products'),
-      where('keywords', 'array-contains-any', searchWords)
+      where('keywords', 'array-contains-any', finalWords)
     );
 
     const snapshot = await getDocs(q);
@@ -460,19 +464,19 @@ async function askAlliya() {
         Price: <strong>AED ${item.price}/MT</strong><br>
         Stock: <strong>${item.stock} bags</strong><br><br>
         <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20${encodeURIComponent(item.name)}"
-           style="background:#25D366;color:white;padding:12px 24px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
+           style="background:#25D366;color:white;padding:14px 28px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
            WhatsApp Quote Now
         </a>`;
       return;
     }
 
-    // If still no match → show what we searched for (debug)
-    throw new Error('No product found for: ' + searchWords.join(', '));
+    throw new Error('No match');
 
   } catch (err) {
-    console.log('Firestore error:', err.message);
-    replyBox.innerHTML = `Yes, <strong>${userQuery}</strong> is available today!<br><br>
-      <a href="https://wa.me/971585521976?text=Alliya%20-%20${encodeURIComponent(userQuery)}"
+    console.log('Firestore no match → fallback');
+    replyBox.innerHTML = `
+      Yes, <strong>${rawQuery}</strong> is available today!<br><br>
+      <a href="https://wa.me/971585521976?text=Alliya%20-%20${encodeURIComponent(rawQuery)}"
          style="background:#25D366;color:white;padding:14px 28px;border-radius:50px;display:inline-block;text-decoration:none;font-weight:bold;">
          WhatsApp Me Now
       </a>`;
