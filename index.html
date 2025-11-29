@@ -442,7 +442,7 @@ function normalizeName(name) {
   // 1. Try Firestore
   try {
     if (window.db) {
-      const stockRef = window.collection(window.db, 'stock');
+      const stockRef = window.collection(window.db, 'products');
       const q = window.query(stockRef, window.where('keywords', 'array-contains-any', userQuery.split(' ')));
       const snapshot = await window.getDocs(q);
 
