@@ -371,8 +371,8 @@ const firebaseConfig = {
           a.href = '/shop';
           a.className = 'stock-item';
           a.innerHTML = `
-           <img src={`/img/${product.imageName}`} alt={product.name} />
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2760%27 height=%2760%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%f8f5ec%27/%3E%3Ctext x=%2750%25%27 y=%2755%25%27 font-size=%2716%27 fill=%27%a07c3b%27 text-anchor=%27middle%27%3EWheat%3C/text%3E%3C/svg%3E';">
+           <img src={`/img/${product.imageName}`}
+  alt={product.name} onError={(e) => { e.target.src = '/img/default.jpg'; }}/>
             <div>
               <h4>${item.name}</h4>
               <p><strong>Price:</strong> ${item.price}</p>
