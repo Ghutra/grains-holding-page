@@ -429,9 +429,7 @@ function normalizeName(name) {
   }
 
   // ULTIMATE ALLIYA – Render + Firestore + Instant Fallback
-// ULTIMATE ALLIYA – Render + Firestore + Instant Fallback
 import { collection, query, where, getDocs } from "firebase/firestore";
-
 async function askAlliya() {
   const userQuery = document.getElementById('alliyaQuery').value.trim().toLowerCase();
   if (!userQuery) return;
@@ -485,7 +483,6 @@ async function askAlliya() {
       </a>`;
   }
 }
-
     // Close on outside click
     window.onclick = (e) => { if (e.target.classList.contains('modal')) closeModal(); };
 </script>
