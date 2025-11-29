@@ -440,9 +440,9 @@ function normalizeName(name) {
   try {
     // 1. Try Firestore first (real-time trader stock)
     if (window.db) {
-      const stockRef = collection(window.db, 'stock'); // adjust collection name if needed
-      const q = firestoreQuery(stockRef, where('keywords', 'array-contains-any', userQuery.split(' ')));
-      const snapshot = await getDocs(q);
+      const stockRef = window.collection(window.db, 'stock'); // adjust collection name if needed
+      const q = window.query(stockRef, window.where('keywords', 'array-contains-any', userQuery.split(' ')));
+      const snapshot = await window.getDocs(q);
 
       if (!snapshot.empty) {
         const item = snapshot.docs[0].data();
@@ -482,7 +482,6 @@ function normalizeName(name) {
       </a>`;
   }
 }
-
     // Close on outside click
     window.onclick = (e) => { if (e.target.classList.contains('modal')) closeModal(); };
 </script>
