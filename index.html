@@ -361,32 +361,39 @@ const firebaseConfig = {
 
   // Live Stock – now loads + beautiful inline wheat fallback (no 404s ever)
     document.addEventListener('DOMContentLoaded', () => {
-    fetch('/assets/data/stock.json')
-      .then(r => r.json())
-      .then(data => {
-        const grid = document.getElementById('stock-grid');
-        grid.innerHTML = '';
-        data.slice(0, 6).forEach(item => {
-          const a = document.createElement('a');
-          a.href = '/shop';
-          a.className = 'stock-item';
-          a.innerHTML = `
-            <img src="/assets/img/\( {item.img}" alt=" \){item.name}"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2760%27 height=%2760%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%f8f5ec%27/%3E%3Ctext x=%2750%25%27 y=%2755%25%27 font-size=%2716%27 fill=%27%a07c3b%27 text-anchor=%27middle%27%3EWheat%3C/text%3E%3C/svg%3E';">
-            <div>
-              <h4>${item.name}</h4>
-              <p><strong>Price:</strong> ${item.price}</p>
-              <p><strong>Stock:</strong> ${item.stock}</p>
-            </div>
-          `;
-          grid.appendChild(a);
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        document.getElementById('stock-grid').innerHTML = '<p style="text-align:center;color:#a07c3b;">Stock will be back in a second – refreshing…</p>';
+  fetch('/assets/data/stock.json')
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('stock-grid');
+      grid.innerHTML = '';
+      data.slice(0, 6).forEach(item => {
+        const imagePath = item.imageName || normalizeName(item.name) + '.jpg';
+        const a = document.createElement('a');
+        a.href = '/shop';
+        a.className = 'stock-item';
+        a.innerHTML = `
+          <img src="/assets/img/${imagePath}" alt="${item.name}"
+               onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2760%27 height=%2760%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23f8f5ec%27/%3E%3Ctext x=%2750%25%27 y=%2755%25%27 font-size=%2716%27 fill=%27%23a07c3b%27 text-anchor=%27middle%27%3EWheat%3C/text%3E%3C/svg%3E';">
+          <div>
+            <h4>${item.name}</h4>
+            <p><strong>Price:</strong> ${item.price}</p>
+            <p><strong>Stock:</strong> ${item.stock}</p>
+          </div>
+        `;
+        grid.appendChild(a);
       });
-  });
+    })
+    .catch(err => {
+      console.log(err);
+      document.getElementById('stock-grid').innerHTML = '<p style="text-align:center;color:#a07c3b;">Stock will be back in a second – refreshing…</p>';
+    });
+});
+
+// Optional helper if you don’t use imageName in JSON
+function normalizeName(name) {
+  return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
+}
+
 
   // Alliya Modal
   function openModal() {
