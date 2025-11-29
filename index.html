@@ -429,8 +429,9 @@ function normalizeName(name) {
   }
 
   // ULTIMATE ALLIYA – Render + Firestore + Instant Fallback
-import { collection, query, where, getDocs } from "firebase/firestore";
-async function askAlliya() {
+  import { collection, query, where, getDocs } from "firebase/firestore";
+
+  async function askAlliya() {
   const userQuery = document.getElementById('alliyaQuery').value.trim().toLowerCase();
   if (!userQuery) return;
 
