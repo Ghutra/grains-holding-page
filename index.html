@@ -429,8 +429,6 @@ function normalizeName(name) {
   }
 
   // ULTIMATE ALLIYA – Render + Firestore + Instant Fallback
-  import { collection, query, where, getDocs } from "firebase/firestore";
-
   async function askAlliya() {
   const userQuery = document.getElementById('alliyaQuery').value.trim().toLowerCase();
   if (!userQuery) return;
@@ -443,7 +441,7 @@ function normalizeName(name) {
     // 1. Try Firestore first (real-time trader stock)
     if (window.db) {
       const stockRef = collection(window.db, 'stock'); // adjust collection name if needed
-      const q = query(stockRef, where('keywords', 'array-contains-any', userQuery.split(' ')));
+      const q = firestoreQuery(stockRef, where('keywords', 'array-contains-any', userQuery.split(' ')));
       const snapshot = await getDocs(q);
 
       if (!snapshot.empty) {
@@ -484,7 +482,9 @@ function normalizeName(name) {
       </a>`;
   }
 }
-    
+
+    // Close on outside click
+    window.onclick = (e) => { if (e.target.classList.contains('modal')) closeModal(); };
 </script>
 </body>
 </html>
