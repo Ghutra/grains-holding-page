@@ -437,36 +437,58 @@ async function askAlliya() {
   replyBox.style.display = 'block';
   replyBox.innerHTML = 'Alliya is checking live stock & Firestore…';
 
+  const terms = userQuery.split(' ').map(w => w.trim().toLowerCase()).filter(Boolean);
   let found = false;
 
-  // 1. Try Firestore
+  // 1. Try Firestore query
   try {
-    if (window.db) {
-      const stockRef = window.collection(window.db, 'products'); // ✅ correct collection name
-      const q = window.query(
-        stockRef,
-        window.where('keywords', 'array-contains-any', userQuery.split(' '))
-      );
-      const snapshot = await window.getDocs(q);
+    const stockRef = window.collection(window.db, 'products');
+    const q = window.query(stockRef, window.where('keywords', 'array-contains-any', terms));
+    const snapshot = await window.getDocs(q);
 
-      if (!snapshot.empty) {
-        const item = snapshot.docs[0].data();
-        replyBox.innerHTML = `
-          <strong>Live from Firestore</strong><br>
-          ${item.name} → ${item.price}<br>
-          Stock: ${item.stock} bags<br><br>
-          <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20I%20want%20${encodeURIComponent(item.name)}" 
-             style="background:#25D366;color:white;padding:10px 20px;border-radius:50px;display:inline-block;margin-top:8px;text-decoration:none;">
-             Book via WhatsApp
-          </a>`;
-        found = true;
-      }
+    if (!snapshot.empty) {
+      const item = snapshot.docs[0].data();
+      replyBox.innerHTML = `
+        <strong>Live from Firestore</strong><br>
+        ${item.name} → ${item.price}<br>
+        Stock: ${item.stock} bags<br><br>
+        <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20I%20want%20${encodeURIComponent(item.name)}" 
+           style="background:#25D366;color:white;padding:10px 20px;border-radius:50px;display:inline-block;margin-top:8px;text-decoration:none;">
+           Book via WhatsApp
+        </a>`;
+      found = true;
     }
   } catch (err) {
-    console.warn("Firestore failed:", err);
+    console.warn("Firestore query failed:", err);
   }
 
-  // 2. If Firestore didn’t return → ask Render backend
+  // 2. Fuzzy match fallback (scan all docs)
+  if (!found) {
+    try {
+      const allDocs = await window.getDocs(window.collection(window.db, 'products'));
+      allDocs.forEach(doc => {
+        const data = doc.data();
+        const keywords = Array.isArray(data.keywords)
+          ? data.keywords.map(k => k.toLowerCase())
+          : [];
+        if (terms.some(term => keywords.includes(term))) {
+          replyBox.innerHTML = `
+            <strong>Matched via Fuzzy Scan</strong><br>
+            ${data.name} → ${data.price}<br>
+            Stock: ${data.stock} bags<br><br>
+            <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20I%20want%20${encodeURIComponent(data.name)}" 
+               style="background:#25D366;color:white;padding:10px 20px;border-radius:50px;display:inline-block;margin-top:8px;text-decoration:none;">
+               Book via WhatsApp
+            </a>`;
+          found = true;
+        }
+      });
+    } catch (err) {
+      console.warn("Fuzzy scan failed:", err);
+    }
+  }
+
+  // 3. Render backend fallback
   if (!found) {
     try {
       const res = await fetch(`https://grains-backend.onrender.com/api/alliya?q=${encodeURIComponent(userQuery)}`, { cache: 'no-cache' });
@@ -478,11 +500,11 @@ async function askAlliya() {
         }
       }
     } catch (err) {
-      console.warn("Render failed:", err);
+      console.warn("Render backend failed:", err);
     }
   }
 
-  // 3. Final fallback
+  // 4. Final graceful fallback
   if (!found) {
     replyBox.innerHTML = `
       Yes, <strong>${userQuery}</strong> is available today!<br><br>
