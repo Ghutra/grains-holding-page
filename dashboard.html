@@ -106,7 +106,7 @@
   <!-- Rotating Top Banner -->
   <div class="top-banner">
     <div class="banner-text">
-      Trader Offer: 10% off Irri-6 for first 50MT! • FCL India → Jebel Ali: USD 780 • New Stock: Super Basmati 1121 Sella AED 160/MT
+      Trader Offer: 10% off Irri-6 for first 50MT! • FCL India → Jebel Ali: Indian Creamy Sella USD 780 • New Stock: Indian 1121 Sella xxl  AED 160/40KG
     </div>
   </div>
 
@@ -123,7 +123,7 @@
       <li><a href="/about">About</a></li>
       <li><a href="/shop">Shop</a></li>
     </ul>
-    <a href="/logout" class="trader-login">Logout</a> <!-- Update to logout script later -->
+    <a href="#" class="trader-login" id="logoutBtn">Logout</a> <!-- Update to logout script later -->
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
@@ -147,22 +147,22 @@
           <tr><td colspan="5">Loading orders...</td></tr>
         </tbody>
       </table>
-      <a href="/new-order" class="btn-dash"><i class="fas fa-plus"></i> New Order</a>
+      <a href="https://wa.me/971585521976?text=Hi%20Team%2C%20I%20want%20to%20place%20a%20new%20order" 
+   class="btn-dash" target="_blank">New Order</a>
     </div>
 
     <div class="dash-section">
-      <h2>Stock Alerts</h2>
-      <ul id="alertsList">
-        <!-- Firestore data loads here -->
-        <li>Loading alerts...</li>
-      </ul>
-    </div>
+     <!-- Stock Alerts -->
+<div class="dash-section">
+  <h2>Stock Alerts</h2>
+  <p><em>Real-time low-stock & price-drop alerts coming this week.</em></p>
+</div>
 
-    <div class="dash-section">
-      <h2>Analytics</h2>
-      <p>Coming soon: Charts for your trades and market trends.</p>
-    </div>
-  </section>
+<!-- Analytics -->
+<div class="dash-section">
+  <h2>Analytics</h2>
+  <p><strong>Launching Dec 12:</strong> Your trade volume, savings vs market, and forecast charts.</p>
+</div>
 
   <!-- Footer -->
   <footer>
@@ -229,5 +229,14 @@
       }
     });
   </script>
+  <script type="module">
+  import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+  const auth = getAuth();
+  document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await signOut(auth);
+    window.location.href = '/'; // Redirects cleanly to home
+  });
+</script>
 </body>
 </html>
