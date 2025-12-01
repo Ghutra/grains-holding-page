@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register – Grains Hub</title>
+  <!-- Copy the exact same <head> from login.html (styles, meta, etc.) -->
+  <!-- Only change the <title> and add this style at the bottom of <style> -->
+  <style>
+    /* Paste ALL styles from login.html here */
+    /* ... */
+    .success { color:#27ae60; font-size:14px; margin-top:8px; display:none; }
+  </style>
+</head>
+<body>
+
+  <!-- Same banner + navbar as every page -->
+  <div class="top-banner">…</div>
+  <nav class="navbar">…</nav>
+
+  <section class="login-section">
+    <h1>Create Trader Account</h1>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Password (min 6 chars)" required minlength="6">
+      <button type="submit">Register Now</button>
+    </form>
+    <p class="error" id="regError"></p>
+    <p class="success" id="regSuccess"></p>
+    <p style="margin-top:20px;">Already have an account? <a href="/login.html">Login here</a></p>
+  </section>
+
+  <footer>…</footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    const firebaseConfig = { /* same as above */ 
+      apiKey: "AIzaSyBz2Ha_cj42LI-Dh4VYkEOOsROt2WE9fDU",
+      authDomain: "grains-hub.firebaseapp.com",
+      projectId: "grains-hub",
+      storageBucket: "grains-hub.firebasestorage.app",
+      messagingSenderId: "783882873254",
+      appId: "1:783882873254:web:ba93eaaff5eca25cd6c767"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(userCredential.user, { displayName: name });
+        document.getElementById('regSuccess').textContent = 'Account created! Redirecting…';
+        document.getElementById('regSuccess').style.display = 'block';
+        setTimeout(() => window.location.href = '/dashboard.html', 2000);
+      } catch (error) {
+        document.getElementById('regError').textContent = error.message;
+        document.getElementById('regError').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
