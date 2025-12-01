@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register – Grains Hub</title>
-  <meta name="description" content="Register – Grains Hub traders on Dubai’s compliance-first B2B grain platform." />
-  <meta name="keywords" content="Register – Grains Hub, B2B Grain Trade, Dubai Grains" />
-  <link rel="canonical" href="https://grains.ae/Register – Grains Hub" />
+  <meta name="description" content="Create your trader account on Dubai’s compliance-first B2B grain platform." />
+  <meta name="keywords" content="Grains Hub register, B2B grains UAE, trader signup, Dubai grains" />
+  <link rel="canonical" href="https://grains.ae/register.html" />
   <link rel="icon" href="/favicon.png" type="image/png" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Register – Grains Hub" />
-  <meta property="og:description" content="Register – Grains Hub." />
-  <meta property="og:image" content="https://grains.ae/assets/img/Register.jpg" />
-  <meta property="og:url" content="https://grains.ae/Register – Grains Hub" />
+  <meta property="og:description" content="Join Dubai’s trusted B2B grain trading platform." />
+  <meta property="og:image" content="https://grains.ae/assets/img/login-hero.jpg" />
+  <meta property="og:url" content="https://grains.ae/register.html" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Structured Data -->
@@ -21,13 +21,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Trader Login",
-    "url": "https://grains.ae/register",
-    "description": "Register – Grains Hub."
+    "name": "Trader Registration",
+    "url": "https://grains.ae/register.html",
+    "description": "Create your secure trader account on Grains Hub."
   }
   </script>
 
-  <!-- Font Awesome -->
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -44,7 +44,7 @@
     .banner-text { display:inline-block; animation: scroll 25s linear infinite; }
     @keyframes scroll { 0% { transform:translateX(100%); } 100% { transform:translateX(-100%); } }
 
-    /* Navbar - Fixed & Beautiful */
+    /* Navbar */
     .navbar {
       background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
       display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 15px rgba(0,0,0,.12);
@@ -52,25 +52,17 @@
     .logo { color:#fff; font-weight:bold; font-size:1.35rem; text-decoration:none; display:flex; align-items:center; gap:10px; }
     .logo img { width:28px; height:28px; }
     .nav-links { display:flex; list-style:none; gap:28px; }
-    .nav-links a {
-      color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 14px; border-radius:6px;
-      transition:background .3s, color .3s;
-    }
+    .nav-links a { color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 14px; border-radius:6px; }
     .nav-links a:hover, .nav-links a.active { background:#fff; color:#C1A875; }
     .trader-login {
       background:#fff; color:#C1A875; padding:10px 20px; border-radius:50px; font-weight:bold; font-size:14px;
       text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,.15);
     }
     .trader-login:hover { background:#f0f0f0; transform:translateY(-2px); }
-    .hamburger { display:none; cursor:pointer; padding:4px; }
-    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; border-radius:2px; transition:.3s; }
+    .hamburger { display:none; cursor:pointer; }
+    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; border-radius:2px; }
 
-    @media (max-width: 992px) {
-      .nav-links { gap:18px; }
-      .nav-links a { font-size:13px; padding:6px 10px; }
-    }
     @media (max-width: 768px) {
-      .navbar { padding:12px 16px; }
       .hamburger { display:block; }
       .nav-links {
         position:absolute; top:100%; left:0; right:0; background:#C1A875;
@@ -78,36 +70,34 @@
         box-shadow:0 6px 15px rgba(0,0,0,.15);
       }
       .nav-links.active { max-height:500px; }
-      .nav-links a { text-align:center; padding:16px; border-bottom:1px solid rgba(255,255,255,.1); }
+      .nav-links a { text-align:center; padding:16px; }
       .trader-login { margin:15px auto; display:block; width:fit-content; }
     }
 
-    /* Login Section */
-    .login-section {
+    /* Register Section */
+    .register-section {
       max-width: 420px; margin: 100px auto 80px; padding: 30px; background: #fff;
       border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.1); text-align: center;
     }
-    .login-section h1 { font-size: 26px; color: #a07c3b; margin-bottom: 24px; }
-    .login-section form { display: flex; flex-direction: column; gap: 16px; }
-    .login-section input {
+    .register-section h1 { font-size: 26px; color: #a07c3b; margin-bottom: 24px; }
+    .register-section form { display: flex; flex-direction: column; gap: 16px; }
+    .register-section input {
       padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px;
     }
-    .login-section input:focus { outline: none; border-color: #C1A875; box-shadow: 0 0 0 3px rgba(193,168,117,.2); }
-    .login-section button {
+    .register-section input:focus { outline: none; border-color: #C1A875; box-shadow: 0 0 0 3px rgba(193,168,117,.2); }
+    .register-section button {
       background: #C1A875; color: #fff; padding: 14px; border: none; border-radius: 8px;
       font-weight: bold; font-size: 15px; cursor: pointer; transition: all .3s;
     }
-    .login-section button:hover { background: #a07c3b; }
-    .login-section .error { color: #d9534f; font-size: 14px; margin-top: 8px; display: none; }
-    .login-section a { color: #C1A875; text-decoration: none; font-size: 14px; }
-    .login-section a:hover { text-decoration: underline; }
+    .register-section button:hover { background: #a07c3b; }
+    .register-section .error { color: #d9534f; font-size: 14px; margin-top: 8px; display: none; }
+    .register-section .success { color: #27ae60; font-size: 14px; margin-top: 8px; display: none; }
 
     /* Footer */
     footer { background:#2c3e50; color:#ddd; padding:50px 20px; text-align:center; font-size:14px; }
     footer a { color:#fff; margin:0 12px; text-decoration:none; }
     footer a:hover { text-decoration:underline; }
     footer .whatsapp i { color:#25D366; }
-    .success { color:#27ae60; font-size:14px; margin-top:8px; display:none; }
   </style>
 </head>
 <body>
@@ -115,7 +105,7 @@
   <!-- Rotating Top Banner -->
   <div class="top-banner">
     <div class="banner-text">
-       Trader Offer: Irri-6 for first 50MT! • FCL India → Jebel Ali: Indian Creamy Sella USD 780 • New Stock: Indian 1121 Sella xxl  AED 160/40KG   
+      Trader Offer: Irri-6 for first 50MT! • FCL India → Jebel Ali: Indian Creamy Sella USD 780 • New Stock: Indian 1121 Sella XXL AED 160/40KG
     </div>
   </div>
 
@@ -132,18 +122,19 @@
       <li><a href="/about">About</a></li>
       <li><a href="/shop">Shop</a></li>
     </ul>
-    <a href="/login.html" class="Register – Grains Hub">Register Grains Hub</a>
+    <a href="/login.html" class="trader-login">Trader Login</a>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </nav>
 
-  <section class="login-section">
+  <!-- Register Form -->
+  <section class="register-section">
     <h1>Create Trader Account</h1>
     <form id="registerForm">
       <input type="text" id="name" placeholder="Full Name" required>
       <input type="email" id="email" placeholder="Email Address" required>
-      <input type="password" id="password" placeholder="Password (min 6 chars)" required minlength="6">
+      <input type="password" id="password" placeholder="Password (min 6 characters)" required minlength="6">
       <button type="submit">Register Now</button>
     </form>
     <p class="error" id="regError"></p>
@@ -151,23 +142,23 @@
     <p style="margin-top:20px;">Already have an account? <a href="/login.html">Login here</a></p>
   </section>
 
- <!-- Footer -->
+  <!-- Footer -->
   <footer>
     <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
     <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
     <div>
-      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Business</a> •
+      <a href="https://wa.me/971585521976" class="whatsapp">WhatsApp Business</a> •
       <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
     </div>
     <p>&copy; 2025 Grains Hub. All rights reserved.</p>
   </footer>
 
-
+  <!-- Firebase Registration -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-    const firebaseConfig = { /* same as above */ 
+    const firebaseConfig = {
       apiKey: "AIzaSyBz2Ha_cj42LI-Dh4VYkEOOsROt2WE9fDU",
       authDomain: "grains-hub.firebaseapp.com",
       projectId: "grains-hub",
@@ -188,13 +179,26 @@
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         await updateProfile(userCredential.user, { displayName: name });
-        document.getElementById('regSuccess').textContent = 'Account created! Redirecting…';
+        document.getElementById('regSuccess').textContent = 'Account created successfully! Redirecting…';
         document.getElementById('regSuccess').style.display = 'block';
         setTimeout(() => window.location.href = '/dashboard.html', 2000);
       } catch (error) {
-        document.getElementById('regError').textContent = error.message;
+        let msg = error.message;
+        if (error.code === 'auth/email-already-in-use') msg = 'This email is already registered.';
+        if (error.code === 'auth/weak-password') msg = 'Password should be at least 6 characters.';
+        document.getElementById('regError').textContent = msg;
         document.getElementById('regError').style.display = 'block';
       }
+    });
+  </script>
+
+  <!-- Hamburger Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.onclick = () => navLinks.classList.toggle('active');
+      navLinks.querySelectorAll('a').forEach(a => a.onclick = () => navLinks.classList.remove('active'));
     });
   </script>
 </body>
