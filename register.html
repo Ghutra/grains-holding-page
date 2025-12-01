@@ -1,22 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register – Grains Hub</title>
-  <!-- Copy the exact same <head> from login.html (styles, meta, etc.) -->
-  <!-- Only change the <title> and add this style at the bottom of <style> -->
-  <style>
-    /* Paste ALL styles from login.html here */
-    /* ... */
-    .success { color:#27ae60; font-size:14px; margin-top:8px; display:none; }
-  </style>
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trader Login – Grains Hub</title>
+  <meta name="description" content="Secure login for traders on Dubai’s compliance-first B2B grain portal. Access your dashboard, stock, and bookings." />
+  <meta name="keywords" content="Grains Hub Login, Trader Dashboard, B2B Grain Trade, Dubai Grains" />
+  <link rel="canonical" href="https://grains.ae/login" />
+  <link rel="icon" href="/favicon.png" type="image/png" />
 
-  <!-- Same banner + navbar as every page -->
-  <div class="top-banner">…</div>
-  <nav class="navbar">…</nav>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trader Login – Grains Hub" />
+  <meta property="og:description" content="Login to manage your B2B grain trades securely." />
+  <meta property="og:image" content="https://grains.ae/assets/img/login-hero.jpg" />
+  <meta property="og:url" content="https://grains.ae/login" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trader Login",
+    "url": "https://grains.ae/login",
+    "description": "Secure trader login for Grains Hub."
+  }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#fdfdf9; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#222; line-height:1.7; }
+    a { transition:all 0.3s ease; }
+
+    /* Rotating Banner */
+    .top-banner {
+      background:#a07c3b; color:#fff; padding:14px; text-align:center; font-weight:500; font-size:15px;
+      overflow:hidden; white-space:nowrap; position:relative;
+    }
+    .banner-text { display:inline-block; animation: scroll 25s linear infinite; }
+    @keyframes scroll { 0% { transform:translateX(100%); } 100% { transform:translateX(-100%); } }
+
+    /* Navbar - Fixed & Beautiful */
+    .navbar {
+      background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 15px rgba(0,0,0,.12);
+    }
+    .logo { color:#fff; font-weight:bold; font-size:1.35rem; text-decoration:none; display:flex; align-items:center; gap:10px; }
+    .logo img { width:28px; height:28px; }
+    .nav-links { display:flex; list-style:none; gap:28px; }
+    .nav-links a {
+      color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 14px; border-radius:6px;
+      transition:background .3s, color .3s;
+    }
+    .nav-links a:hover, .nav-links a.active { background:#fff; color:#C1A875; }
+    .trader-login {
+      background:#fff; color:#C1A875; padding:10px 20px; border-radius:50px; font-weight:bold; font-size:14px;
+      text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,.15);
+    }
+    .trader-login:hover { background:#f0f0f0; transform:translateY(-2px); }
+    .hamburger { display:none; cursor:pointer; padding:4px; }
+    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; border-radius:2px; transition:.3s; }
+
+    @media (max-width: 992px) {
+      .nav-links { gap:18px; }
+      .nav-links a { font-size:13px; padding:6px 10px; }
+    }
+    @media (max-width: 768px) {
+      .navbar { padding:12px 16px; }
+      .hamburger { display:block; }
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:#C1A875;
+        flex-direction:column; max-height:0; overflow:hidden; transition:max-height .4s ease;
+        box-shadow:0 6px 15px rgba(0,0,0,.15);
+      }
+      .nav-links.active { max-height:500px; }
+      .nav-links a { text-align:center; padding:16px; border-bottom:1px solid rgba(255,255,255,.1); }
+      .trader-login { margin:15px auto; display:block; width:fit-content; }
+    }
 
   <section class="login-section">
     <h1>Create Trader Account</h1>
@@ -31,7 +95,40 @@
     <p style="margin-top:20px;">Already have an account? <a href="/login.html">Login here</a></p>
   </section>
 
-  <footer>…</footer>
+  /* Footer */
+    footer { background:#2c3e50; color:#ddd; padding:50px 20px; text-align:center; font-size:14px; }
+    footer a { color:#fff; margin:0 12px; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+    footer .whatsapp i { color:#25D366; }
+  </style>
+</head>
+<body>
+
+  <!-- Rotating Top Banner -->
+  <div class="top-banner">
+    <div class="banner-text">
+       Trader Offer: Irri-6 for first 50MT! • FCL India → Jebel Ali: Indian Creamy Sella USD 780 • New Stock: Indian 1121 Sella xxl  AED 160/40KG   
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="logo">
+      <img src="/grains-logo.png" alt="Grains Hub"> Grains Hub
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why">Why</a></li>
+      <li><a href="/pulse/index.html">Pulse</a></li>
+      <li><a href="/trust">Trust</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/shop">Shop</a></li>
+    </ul>
+    <a href="/login.html" class="trader-login">Trader Login</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -45,6 +142,16 @@
       messagingSenderId: "783882873254",
       appId: "1:783882873254:web:ba93eaaff5eca25cd6c767"
     };
+<!-- Footer -->
+  <footer>
+    <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
+    <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
+    <div>
+      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Business</a> •
+      <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
+    </div>
+    <p>&copy; 2025 Grains Hub. All rights reserved.</p>
+  </footer>
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
