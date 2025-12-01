@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trader Login – Grains Hub</title>
-  <meta name="description" content="Secure login for traders on Dubai’s compliance-first B2B grain portal. Access your dashboard, stock, and bookings." />
-  <meta name="keywords" content="Grains Hub Login, Trader Dashboard, B2B Grain Trade, Dubai Grains" />
-  <link rel="canonical" href="https://grains.ae/login" />
+  <title>Register – Grains Hub</title>
+  <meta name="description" content="Register – Grains Hub traders on Dubai’s compliance-first B2B grain platform." />
+  <meta name="keywords" content="Register – Grains Hub, B2B Grain Trade, Dubai Grains" />
+  <link rel="canonical" href="https://grains.ae/Register – Grains Hub" />
   <link rel="icon" href="/favicon.png" type="image/png" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Trader Login – Grains Hub" />
-  <meta property="og:description" content="Login to manage your B2B grain trades securely." />
-  <meta property="og:image" content="https://grains.ae/assets/img/login-hero.jpg" />
-  <meta property="og:url" content="https://grains.ae/login" />
+  <meta property="og:title" content="Register – Grains Hub" />
+  <meta property="og:description" content="Register – Grains Hub." />
+  <meta property="og:image" content="https://grains.ae/assets/img/Register.jpg" />
+  <meta property="og:url" content="https://grains.ae/Register – Grains Hub" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Structured Data -->
@@ -22,8 +22,8 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Trader Login",
-    "url": "https://grains.ae/login",
-    "description": "Secure trader login for Grains Hub."
+    "url": "https://grains.ae/register",
+    "description": "Register – Grains Hub."
   }
   </script>
 
@@ -82,24 +82,32 @@
       .trader-login { margin:15px auto; display:block; width:fit-content; }
     }
 
-  <section class="login-section">
-    <h1>Create Trader Account</h1>
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <input type="password" id="password" placeholder="Password (min 6 chars)" required minlength="6">
-      <button type="submit">Register Now</button>
-    </form>
-    <p class="error" id="regError"></p>
-    <p class="success" id="regSuccess"></p>
-    <p style="margin-top:20px;">Already have an account? <a href="/login.html">Login here</a></p>
-  </section>
+    /* Login Section */
+    .login-section {
+      max-width: 420px; margin: 100px auto 80px; padding: 30px; background: #fff;
+      border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.1); text-align: center;
+    }
+    .login-section h1 { font-size: 26px; color: #a07c3b; margin-bottom: 24px; }
+    .login-section form { display: flex; flex-direction: column; gap: 16px; }
+    .login-section input {
+      padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px;
+    }
+    .login-section input:focus { outline: none; border-color: #C1A875; box-shadow: 0 0 0 3px rgba(193,168,117,.2); }
+    .login-section button {
+      background: #C1A875; color: #fff; padding: 14px; border: none; border-radius: 8px;
+      font-weight: bold; font-size: 15px; cursor: pointer; transition: all .3s;
+    }
+    .login-section button:hover { background: #a07c3b; }
+    .login-section .error { color: #d9534f; font-size: 14px; margin-top: 8px; display: none; }
+    .login-section a { color: #C1A875; text-decoration: none; font-size: 14px; }
+    .login-section a:hover { text-decoration: underline; }
 
-  /* Footer */
+    /* Footer */
     footer { background:#2c3e50; color:#ddd; padding:50px 20px; text-align:center; font-size:14px; }
     footer a { color:#fff; margin:0 12px; text-decoration:none; }
     footer a:hover { text-decoration:underline; }
     footer .whatsapp i { color:#25D366; }
+    .success { color:#27ae60; font-size:14px; margin-top:8px; display:none; }
   </style>
 </head>
 <body>
@@ -124,11 +132,36 @@
       <li><a href="/about">About</a></li>
       <li><a href="/shop">Shop</a></li>
     </ul>
-    <a href="/login.html" class="trader-login">Trader Login</a>
+    <a href="/login.html" class="Register – Grains Hub">Register Grains Hub</a>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </nav>
+
+  <section class="login-section">
+    <h1>Create Trader Account</h1>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Password (min 6 chars)" required minlength="6">
+      <button type="submit">Register Now</button>
+    </form>
+    <p class="error" id="regError"></p>
+    <p class="success" id="regSuccess"></p>
+    <p style="margin-top:20px;">Already have an account? <a href="/login.html">Login here</a></p>
+  </section>
+
+ <!-- Footer -->
+  <footer>
+    <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
+    <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
+    <div>
+      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Business</a> •
+      <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
+    </div>
+    <p>&copy; 2025 Grains Hub. All rights reserved.</p>
+  </footer>
+
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -142,16 +175,6 @@
       messagingSenderId: "783882873254",
       appId: "1:783882873254:web:ba93eaaff5eca25cd6c767"
     };
-<!-- Footer -->
-  <footer>
-    <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
-    <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
-    <div>
-      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Business</a> •
-      <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
-    </div>
-    <p>&copy; 2025 Grains Hub. All rights reserved.</p>
-  </footer>
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
