@@ -14,78 +14,85 @@
   <meta property="og:image" content="https://grains.ae/assets/img/alliya-hero.jpg" />
   <meta property="og:url" content="https://grains.ae/alliya.html" />
 
-  <!-- Font Awesome + Google Fonts (fixed URL) -->
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:#fdfdf9; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#222; line-height:1.7; }
-    
-    /* Rotating Banner */
-    .top-banner { background:#a07c3b; color:#fff; padding:14px; text-align:center; font-weight:500; font-size:15px; overflow:hidden; white-space:nowrap; }
-    .banner-text { display:inline-block; animation: scroll 25s linear infinite; }
-    @keyframes scroll { 0% { transform:translateX(100%); } 100% { transform:translateX(-100%); } }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:#fdfdf9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#222;line-height:1.7;}
+    .top-banner{background:#a07c3b;color:#fff;padding:14px;text-align:center;font-weight:500;font-size:15px;overflow:hidden;white-space:nowrap;}
+    .banner-text{display:inline-block;animation:scroll 25s linear infinite;}
+    @keyframes scroll{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
 
-    /* Navbar */
-    .navbar { background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 15px rgba(0,0,0,.12); }
-    .logo { color:#fff; font-weight:bold; font-size:1.35rem; text-decoration:none; display:flex; align-items:center; gap:10px; }
-    .logo img { width:28px; height:28px; }
-    .nav-links { display:flex; gap:28px; list-style:none; }
-    .nav-links a { color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 14px; border-radius:6px; }
-    .nav-links a:hover { background:#fff; color:#C1A875; }
-    .trader-login { background:#fff; color:#C1A875; padding:10px 20px; border-radius:50px; font-weight:bold; text-decoration:none; }
-    .hamburger { display:none; cursor:pointer; }
-    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; }
+    .navbar{background:#C1A875;padding:12px 20px;position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 15px rgba(0,0,0,.12);}
+    .logo{color:#fff;font-weight:bold;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px;}
+    .logo img{width:28px;height:28px;}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:8px 14px;border-radius:6px;}
+    .nav-links a:hover{background:#fff;color:#C1A875;}
+    .trader-login{background:#fff;color:#C1A875;padding:10px 20px;border-radius:50px;font-weight:bold;text-decoration:none;}
+    .hamburger{display:none;cursor:pointer;}
+    .hamburger span{width:26px;height:3px;background:#fff;display:block;margin:3px 0;}
 
-    @media (max-width: 768px) {
-      .hamburger { display:block; }
-      .nav-links { position:absolute; top:100%; left:0; right:0; background:#C1A875; flex-direction:column; max-height:0; overflow:hidden; transition:max-height .4s ease; }
-      .nav-links.active { max-height:500px; }
+    @media(max-width:768px){
+      .hamburger{display:block;}
+      .nav-links{position:absolute;top:100%;left:0;right:0;background:#C1A875;flex-direction:column;max-height:0;overflow:hidden;transition:max-height .4s ease;}
+      .nav-links.active{max-height:500px;}
     }
 
     /* Hero */
-    .hero-alliya {
-      background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/img/alliya-hero.jpg') center/cover no-repeat;
-      color:#fff; text-align:center; padding:160px 20px 120px;
+    .hero-alliya{
+      background:linear-gradient(rgba(0,0,0,0.68),rgba(0,0,0,0.68)),url('/assets/img/alliya-hero.jpg') center/cover no-repeat;
+      color:#fff;text-align:center;padding:160px 20px 120px;
     }
-    .hero-alliya h1 { font-size:44px; margin-bottom:20px; }
-    .hero-alliya p { font-size:20px; max-width:740px; margin:0 auto 34px; opacity:0.94; }
-    .btn-cta {
-      background:#fff; color:#C1A875; padding:18px 44px; border-radius:50px; font-weight:bold; font-size:19px;
-      text-decoration:none; box-shadow:0 8px 25px rgba(0,0,0,.25); display:inline-block; transition:all .3s;
+    .hero-alliya h1{font-size:44px;margin-bottom:20px;}
+    .hero-alliya p{font-size:20px;max-width:740px;margin:0 auto 34px;opacity:0.94;}
+    .btn-cta{
+      background:#fff;color:#C1A875;padding:18px 44px;border-radius:50px;font-weight:bold;font-size:19px;
+      text-decoration:none;box-shadow:0 8px 25px rgba(0,0,0,.25);display:inline-block;transition:all .3s;
     }
-    .btn-cta:hover { transform:translateY(-4px); }
+    .btn-cta:hover{transform:translateY(-4px);}
 
-    /* WhatsApp fallback section */
-    .wa-section { text-align:center; padding:90px 20px; background:#f8f5ec; }
-    .wa-section h2 { color:#a07c3b; margin-bottom:16px; font-size:28px; }
-    .wa-section p { max-width:640px; margin:0 auto 30px; color:#444; }
-    .wa-btn {
-      background:#25D366; color:#fff; padding:18px 50px; border-radius:50px; font-weight:bold; font-size:19px;
-      text-decoration:none; box-shadow:0 8px 25px rgba(37,211,102,.3); display:inline-block;
+    /* Feature Cards */
+    .features{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;max-width:1100px;margin:80px auto;padding:0 20px;
+    }
+    .card{
+      background:#fff;padding:40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;transition:transform .3s;
+    }
+    .card:hover{transform:translateY(-8px);}
+    .card i{font-size:50px;color:#C1A875;margin-bottom:20px;}
+    .card h3{font-size:24px;margin-bottom:16px;color:#a07c3b;}
+
+    /* WhatsApp section */
+    .wa-section{text-align:center;padding:90px 20px;background:#f8f5ec;}
+    .wa-section h2{color:#a07c3b;margin-bottom:16px;font-size:28px;}
+    .wa-section p{max-width:640px;margin:0 auto 30px;color:#444;}
+    .wa-btn{
+      background:#25D366;color:#fff;padding:18px 50px;border-radius:50px;font-weight:bold;font-size:19px;
+      text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.3);display:inline-block;
     }
 
-    /* Footer */
-    footer { background:#2c3e50; color:#ddd; padding:60px 20px 40px; text-align:center; font-size:14px; }
-    footer a { color:#fff; margin:0 10px; text-decoration:none; }
-    footer .whatsapp i { color:#25D366; }
+    /* Floating Alliya Button */
+    .alliya-float{
+      position:fixed;bottom:20px;right:20px;background:#C1A875;color:#fff;padding:14px 24px;border-radius:50px;
+      cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:9999;font-weight:bold;font-size:15px;
+      transition:all .3s;display:flex;align-items:center;gap:10px;
+    }
+    .alliya-float:hover{transform:scale(1.05);}
+
+    footer{background:#2c3e50;color:#ddd;padding:60px 20px 40px;text-align:center;font-size:14px;}
+    footer a{color:#fff;margin:0 10px;text-decoration:none;}
+    footer .whatsapp i{color:#25D366;}
   </style>
 </head>
 <body>
 
-  <!-- Rotating Banner -->
-  <div class="top-banner">
-    <div class="banner-text">
-      Trader Offer: Irri-6 first 50MT! • FCL India → Jebel Ali USD 780 • Indian 1121 Sella XXL AED 160/40KG
-    </div>
-  </div>
-
-  <!-- Navbar -->
+  <!-- Banner + Navbar (same as your site) -->
+  <div class="top-banner"><div class="banner-text">Trader Offer: Irri-6 first 50MT! • FCL India → Jebel Ali USD 780 • Indian 1121 Sella XXL AED 160/40KG</div></div>
   <nav class="navbar">
-    <a href="/" class="logo">
-      <img src="/grains-logo.png" alt="Grains Hub"> Grains Hub
-    </a>
+    <a href="/" class="logo"><img src="/grains-logo.png" alt="Grains Hub"> Grains Hub</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
       <li><a href="/why">Why</a></li>
@@ -98,49 +105,74 @@
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <!-- HERO – opens floating Alliya chat -->
+  <!-- HERO -->
   <section class="hero-alliya">
     <h1>Meet Alliya</h1>
     <p>Dubai’s first AI trader that never sleeps.<br>Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
-    <a href="javascript:void(0)" 
-       onclick="document.getElementById('alliyaFloatBtn')?.click(); 
-                document.getElementById('alliyaFloatBtn')?.scrollIntoView({behavior:'smooth'});"
-       class="btn-cta">
+    <a href="javascript:void(0)" onclick="openAlliya()" class="btn-cta">
       Chat with Alliya Right Now
     </a>
   </section>
+
+  <!-- Feature Cards (back and beautiful) -->
+  <div class="features">
+    <div class="card" onclick="openAlliya()">
+      <i class="fas fa-bolt"></i>
+      <h3>Real-Time Answers</h3>
+      <p>Live stock & pricing straight from Al Ras warehouse via Firebase.</p>
+    </div>
+    <div class="card" onclick="openAlliya()">
+      <i class="fas fa-brain"></i>
+      <h3>Understands Traders</h3>
+      <p>Powered by Microsoft Copilot AI — speaks natural English & Arabic.</p>
+    </div>
+    <div class="card" onclick="openAlliya()">
+      <i class="fab fa-whatsapp"></i>
+      <h3>Books Deals Instantly</h3>
+      <p>One tap → WhatsApp booking link. Never lose a lead.</p>
+    </div>
+  </div>
 
   <!-- WhatsApp human fallback -->
   <div class="wa-section">
     <h2>Prefer to speak directly with our sales team?</h2>
     <p>Tap below and connect instantly with Rana or the team leader — live prices, warehouse photos, and deals 24/7.</p>
-    <a href="https://wa.me/971585521976?text=Hi%20team%2C%20I%20saw%20Alliya%20and%20want%20to%20talk%20live%20prices%20%26%20stock"
-       class="wa-btn">
+    <a href="https://wa.me/971585521976?text=Hi%20team%2C%20I%20saw%20Alliya%20and%20want%20to%20talk%20live%20prices%20%26%20stock" class="wa-btn">
       Message Sales Team on WhatsApp
     </a>
   </div>
 
-  <!-- Footer with proper credit -->
+  <!-- Footer -->
   <footer>
     <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
     <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
-    <div>
-      <a href="https://wa.me/971585521976" class="whatsapp">WhatsApp Business</a> •
-      <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
-    </div>
-    <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); font-size:13px;">
+    <div><a href="https://wa.me/971585521976" class="whatsapp">WhatsApp Business</a> • <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a></div>
+    <div style="margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;">
       Powered by <strong>Ghutra Goods Wholesaler LLC</strong> • Platform by <a href="https://ghutra.ae" target="_blank" style="color:#C1A875;">Ghutra</a><br>
       © 2025 Grains Hub. All rights reserved.
     </div>
   </footer>
 
-  <!-- Floating Alliya Button (with the required ID) -->
-  <div id="alliyaFloatBtn" class="alliya-float" onclick="openModal()" style="position:fixed; bottom:20px; right:20px; background:#C1A875; color:#fff; padding:14px 20px; border-radius:50px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.3); z-index:9999; font-weight:bold;">
-    <img src="/assets/img/alliya-icon.ico" alt="Alliya" width="26" style="vertical-align:middle; margin-right:8px;"> Ask Alliya
+  <!-- Floating Alliya Button + openModal function -->
+  <div id="alliyaFloatBtn" class="alliya-float" onclick="openAlliya()">
+    <img src="/assets/img/alliya-icon.ico" alt="Alliya" width="26"> Ask Alliya
   </div>
 
-  <!-- Hamburger script -->
+  <!-- Core Script – this makes EVERYTHING work -->
   <script>
+    // Make sure your existing openModal() function exists somewhere on the site
+    // If not, use this simple version:
+    function openAlliya() {
+      if (typeof openModal === 'function') {
+        openModal();
+      } else {
+        // fallback: scroll to floating button and click it
+        document.getElementById('alliyaFloatBtn').click();
+      }
+      document.getElementById('alliyaFloatBtn').scrollIntoView({behavior:'smooth'});
+    }
+
+    // Hamburger menu
     document.getElementById('hamburger')?.addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('active');
     });
