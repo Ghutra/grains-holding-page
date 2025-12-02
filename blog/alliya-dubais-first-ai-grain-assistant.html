@@ -223,12 +223,12 @@
 
   <!-- This button now opens the real Alliya floating chat (when it's ready) 
        For now it smoothly scrolls to the floating bubble at bottom-right -->
-  <a href="javascript:void(0)" onclick="document.querySelector('.alliya-float')?.click(); 
-         document.querySelector('.alliya-float')?.scrollIntoView({behavior:'smooth'});"
-     class="btn-cta" 
-     style="background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px; text-decoration:none;">
-    <i class="fas fa-robot"></i> Chat with Alliya Now
-  </a>
+  <a href="javascript:void(0)" 
+   onclick="document.getElementById('alliyaFloatBtn')?.click(); 
+            document.getElementById('alliyaFloatBtn')?.scrollIntoView({behavior:'smooth'});"
+   class="btn-cta">
+  <i class="fas fa-robot"></i> Chat with Alliya Right Now
+</a>
 </section>
 
   <div class="alliya-grid">
