@@ -87,7 +87,23 @@
       .nav-links a { text-align:center; padding:16px; border-bottom:1px solid rgba(255,255,255,.1); }
       .trader-login { margin:15px auto; display:block; width:fit-content; }
     }
-
+.hero-alliya {
+      background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/img/alliya-hero.jpg') center/cover no-repeat;
+      color:#fff; text-align:center; padding:140px 20px 100px;
+    }
+    .hero-alliya h1 { font-size:42px; margin-bottom:20px; }
+    .hero-alliya p { font-size:20px; max-width:700px; margin:0 auto 30px; opacity:0.95; }
+    .btn-cta {
+      background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px; text-decoration:none;
+      box-shadow:0 6px 20px rgba(0,0,0,.2); transition:all .3s;
+    }
+    .btn-cta:hover { transform:translateY(-3px); }
+    .wa-section { text-align:center; padding:90px 20px; background:#f8f5ec; }
+    .wa-section h2 { color:#a07c3b; margin-bottom:16px; }
+    .wa-btn {
+      background:#25D366; color:#fff; padding:18px 48px; border-radius:50px; font-weight:bold; font-size:19px;
+      text-decoration:none; box-shadow:0 8px 25px rgba(37,211,102,.3);
+    }
     /* Hero */
     header {
       padding:120px 20px 90px; background:url('/assets/img/hero-home.jpg') center/cover no-repeat;
@@ -216,19 +232,19 @@
 
 
   <!-- Hero Section – Fixed CTA -->
-<section class="hero-alliya">
-  <h1>Meet Alliya</h1>
-  <p>Dubai’s first AI trader that never sleeps.<br>
-     Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
+<!-- HERO – opens the real floating Alliya chat -->
+  <section class="hero-alliya">
+    <h1>Meet Alliya</h1>
+    <p>Dubai’s first AI trader that never sleeps.<br>Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
 
-  <!-- This button now opens the real Alliya floating chat (when it's ready) 
-       For now it smoothly scrolls to the floating bubble at bottom-right -->
-  <a href="javascript:void(0)" 
-   onclick="document.getElementById('alliyaFloatBtn')?.click(); 
-            document.getElementById('alliyaFloatBtn')?.scrollIntoView({behavior:'smooth'});"
-   class="btn-cta">
-  <i class="fas fa-robot"></i> Chat with Alliya Right Now
-</a>
+    <!-- This button triggers the actual floating Alliya chat bubble -->
+    <a href="javascript:void(0)" 
+       onclick="document.querySelector('#alliyaFloatBtn')?.click() || 
+                document.querySelector('.alliya-float')?.click(); 
+                alert('Alliya is waking up… chat opening!');"
+       class="btn-cta">
+      <i class="fas fa-robot"></i> Chat with Alliya Right Now
+    </a>
 </section>
 
   <div class="alliya-grid">
@@ -249,22 +265,17 @@
     </div>
   </div>
 
-<!-- Bottom CTA – WhatsApp fallback (kept because many traders still love WA) -->
-<div style="text-align:center; padding:80px 20px; background:#f8f5ec;">
-  <h2 style="color:#a07c3b; margin-bottom:16px;">
-    Prefer WhatsApp? Tap below and Alliya will reply instantly
-  </h2>
-  <p style="margin-bottom:30px; color:#555; font-size:15px;">
-    Works 24/7 — same live prices & stock
-  </p>
-  <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20Show%20me%20today's%20stock%20and%20prices"
-     style="background:#25D366; color:#fff; padding:18px 44px; border-radius:50px; font-weight:bold; font-size:19px; text-decoration:none; box-shadow:0 8px 20px rgba(37,211,102,.3);">
-    <i class="fab fa-whatsapp"></i> Message Alliya on WhatsApp
-  </a>
-</div>
+ <!-- Bottom – Human fallback (your exact vision) -->
+  <div class="wa-section">
+    <h2>Prefer to speak directly with our sales team?</h2>
+    <p style="max-width:600px; margin:0 auto 30px; color:#555;">
+      Tap below and connect instantly with Rana or the team leader — live prices, photos, and deals 24/7.
+    </p>
+    <a href="https://wa.me/971585521976?text=Hi%20team%2C%20I%20saw%20Alliya%20and%20want%20to%20talk%20live%20prices%20%26%20stock"
+       class="wa-btn">
+      <i class="fab fa-whatsapp"></i> Message Sales Team Directly
     </a>
   </div>
-
   <!-- Footer -->
   <footer>
     <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
