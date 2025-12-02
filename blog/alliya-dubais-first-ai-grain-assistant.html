@@ -215,14 +215,21 @@
   </nav>
 
 
-  <section class="hero-alliya">
-    <h1>Meet Alliya</h1>
-    <p>Dubai’s first AI trader that never sleeps.<br>
-       Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
-    <a href="https://grains.ae" class="btn-cta" style="background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px;">
-      Try Alliya Live Now
-    </a>
-  </section>
+  <!-- Hero Section – Fixed CTA -->
+<section class="hero-alliya">
+  <h1>Meet Alliya</h1>
+  <p>Dubai’s first AI trader that never sleeps.<br>
+     Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
+
+  <!-- This button now opens the real Alliya floating chat (when it's ready) 
+       For now it smoothly scrolls to the floating bubble at bottom-right -->
+  <a href="javascript:void(0)" onclick="document.querySelector('.alliya-float')?.click(); 
+         document.querySelector('.alliya-float')?.scrollIntoView({behavior:'smooth'});"
+     class="btn-cta" 
+     style="background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px; text-decoration:none;">
+    <i class="fas fa-robot"></i> Chat with Alliya Now
+  </a>
+</section>
 
   <div class="alliya-grid">
     <div class="feature">
@@ -242,11 +249,19 @@
     </div>
   </div>
 
-  <div style="text-align:center; padding:60px 20px; background:#f8f5ec;">
-    <h2 style="color:#a07c3b; margin-bottom:20px;">Be the first to trade with AI in Al Ras</h2>
-    <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20Show%20me%20live%20stock" 
-       style="background:#25D366; color:#fff; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px; text-decoration:none;">
-       Start Chat with Alliya
+<!-- Bottom CTA – WhatsApp fallback (kept because many traders still love WA) -->
+<div style="text-align:center; padding:80px 20px; background:#f8f5ec;">
+  <h2 style="color:#a07c3b; margin-bottom:16px;">
+    Prefer WhatsApp? Tap below and Alliya will reply instantly
+  </h2>
+  <p style="margin-bottom:30px; color:#555; font-size:15px;">
+    Works 24/7 — same live prices & stock
+  </p>
+  <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20Show%20me%20today's%20stock%20and%20prices"
+     style="background:#25D366; color:#fff; padding:18px 44px; border-radius:50px; font-weight:bold; font-size:19px; text-decoration:none; box-shadow:0 8px 20px rgba(37,211,102,.3);">
+    <i class="fab fa-whatsapp"></i> Message Alliya on WhatsApp
+  </a>
+</div>
     </a>
   </div>
 
