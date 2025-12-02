@@ -6,9 +6,91 @@
   <title>Meet Alliya – Dubai’s First AI Grain Trader | Grains Hub</title>
   <meta name="description" content="24/7 AI assistant that knows live rice prices, stock, FCL rates and books deals instantly.">
   <meta property="og:image" content="https://grains.ae/assets/img/alliya-hero.jpg">
-  <!-- Your full <head> + styles -->
+   <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Grains Hub",
+    "url": "https://grains.ae",
+    "logo": "https://grains.ae/grains-logo.png",
+    "description": "Dubai's trusted B2B grain platform. Verified suppliers. Compliance-first.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Al Ras, Dubai", "addressCountry": "AE" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971585521976",
+      "email": "letstalk@grains.ae",
+      "contactType": "Customer Service"
+    }
+  }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Paste your full site CSS */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#fdfdf9; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#222; line-height:1.7; }
+    a { transition:all 0.3s ease; }
+
+    /* Rotating Banner */
+    .top-banner {
+      background:#a07c3b; color:#fff; padding:14px; text-align:center; font-weight:500; font-size:15px;
+      overflow:hidden; white-space:nowrap; position:relative;
+    }
+    .banner-text { display:inline-block; animation: scroll 25s linear infinite; }
+    @keyframes scroll { 0% { transform:translateX(100%); } 100% { transform:translateX(-100%); } }
+
+    /* Navbar - Fixed & Beautiful */
+    .navbar {
+      background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 15px rgba(0,0,0,.12);
+    }
+    .logo { color:#fff; font-weight:bold; font-size:1.35rem; text-decoration:none; display:flex; align-items:center; gap:10px; }
+    .logo img { width:28px; height:28px; }
+    .nav-links { display:flex; list-style:none; gap:28px; }
+    .nav-links a {
+      color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 14px; border-radius:6px;
+      transition:background .3s, color .3s;
+    }
+    .nav-links a:hover, .nav-links a.active { background:#fff; color:#C1A875; }
+    .trader-login {
+      background:#fff; color:#C1A875; padding:10px 20px; border-radius:50px; font-weight:bold; font-size:14px;
+      text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,.15);
+    }
+    .trader-login:hover { background:#f0f0f0; transform:translateY(-2px); }
+    .hamburger { display:none; cursor:pointer; padding:4px; }
+    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; border-radius:2px; transition:.3s; }
+
+    @media (max-width: 992px) {
+      .nav-links { gap:18px; }
+      .nav-links a { font-size:13px; padding:6px 10px; }
+    }
+    @media (max-width: 768px) {
+      .navbar { padding:12px 16px; }
+      .hamburger { display:block; }
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:#C1A875;
+        flex-direction:column; max-height:0; overflow:hidden; transition:max-height .4s ease;
+        box-shadow:0 6px 15px rgba(0,0,0,.15);
+      }
+      .nav-links.active { max-height:500px; }
+      .nav-links a { text-align:center; padding:16px; border-bottom:1px solid rgba(255,255,255,.1); }
+      .trader-login { margin:15px auto; display:block; width:fit-content; }
+    }
+  <style>
+    /* Footer */
+    footer { background:#2c3e50; color:#ddd; padding:50px 20px; text-align:center; font-size:14px; }
+    footer a { color:#fff; margin:0 12px; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+    footer .whatsapp i { color:#25D366; }
+  </style>
+</head>
+<body>
+
+  
+
     .hero-alliya {
       background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/img/alliya-hero.jpg') center/cover no-repeat;
       color:#fff; text-align:center; padding:140px 20px 100px;
@@ -58,6 +140,28 @@
     </a>
   </div>
 
-  <!-- Your footer with Ghutra credit -->
+  <!-- Footer -->
+  <footer>
+    <p><strong>Grains Hub</strong> • Al Ras, Dubai • UAE</p>
+    <p>letstalk@grains.ae • <a href="tel:+971585521976">+971 58 552 1976</a></p>
+    <div>
+      <a href="https://wa.me/971585521976" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Business</a> •
+      <a href="/privacy">Privacy</a> • <a href="/terms">Terms</a>
+    </div>
+   <!-- Powered by + Credits -->
+<div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.9;">
+  <p>
+    Powered by 
+    <strong>Ghutra Goods Wholesaler LLC</strong> • Al Ras, Dubai • License No. XXXXXXX
+  </p>
+  <p>
+    Site by 
+    <a href="https://ghutra.ae" target="_blank" style="color:#C1A875; text-decoration:none;">
+      <strong>Ghutra</strong>
+    </a> 
+    • Grains Hub © 2025 • All rights reserved
+  </p>
+</div>
+  </footer>
 </body>
 </html>
