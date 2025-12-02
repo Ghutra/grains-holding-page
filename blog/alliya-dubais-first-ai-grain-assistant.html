@@ -3,238 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Alliya Works – Dubai’s First AI Grain Assistant | Grains Hub Blog</title>
-  <meta name="description" content="Meet Alliya – the AI that understands rice queries and replies with live stock & pricing from Al Ras warehouse in 1 second.">
+  <title>Meet Alliya – Dubai’s First AI Grain Trader | Grains Hub</title>
+  <meta name="description" content="24/7 AI assistant that knows live rice prices, stock, FCL rates and books deals instantly.">
+  <meta property="og:image" content="https://grains.ae/assets/img/alliya-hero.jpg">
+  <!-- Your full <head> + styles -->
   <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #fdfdfb;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.8;
+    /* Paste your full site CSS */
+    .hero-alliya {
+      background: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/img/alliya-hero.jpg') center/cover no-repeat;
+      color:#fff; text-align:center; padding:140px 20px 100px;
     }
-    h1, h2 {
-      font-weight: 600;
-    }
-    h1 {
-      font-size: 32px;
-      color: #a07c3b;
-      text-align: center;
-      margin-top: 60px;
-    }
-    h2 {
-      color: #C1A875;
-      margin-top: 40px;
-      text-align: center;
-    }
-    .blog-container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .date {
-      text-align: center;
-      color: #666;
-      margin: 10px 0 30px;
-    }
-    .gold-card {
-      background: linear-gradient(135deg, #f8f5ec, #fff);
-      border: 1px solid #C1A875;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(192, 168, 117, 0.2);
-    }
-    .gold-card h3 {
-      margin-top: 0;
-      color: #a07c3b;
-    }
-    .cta {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .cta a {
-      background: #C1A875;
-      color: #fff;
-      padding: 16px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .cta a:hover {
-      background: #a07c3b;
-    }
-    footer {
-      text-align: center;
-      color: #666;
-      padding: 20px;
-      margin-top: 60px;
-      border-top: 1px solid #eee;
-    }
+    .hero-alliya h1 { font-size:42px; margin-bottom:20px; }
+    .hero-alliya p { font-size:20px; max-width:700px; margin:0 auto 30px; opacity:0.95; }
+    .alliya-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; max-width:1100px; margin:80px auto; padding:0 20px; }
+    .feature { background:#fff; padding:40px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.1); text-align:center; }
+    .feature i { font-size:50px; color:#C1A875; margin-bottom:20px; }
   </style>
 </head>
 <body>
-  <!-- Open Graph -->
-  <meta property="og:title" content="Grains Hub – Dubai’s Trusted B2B Grain Platform" />
-  <meta property="og:description" content="Compliance-first. Verified. Built in Al Ras, trusted globally." />
-  <meta property="og:image" content="https://grains.ae/assets/img/home-hero.jpg" />
-  <meta property="og:url" content="https://grains.ae/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Your banner + navbar -->
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Grains Hub",
-    "url": "https://grains.ae",
-    "logo": "https://grains.ae/grains-logo.png",
-    "description": "Dubai's trusted B2B grain platform. Verified suppliers. Compliance-first.",
-    "address": { "@type": "PostalAddress", "addressLocality": "Al Ras, Dubai", "addressCountry": "AE" },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+971585521976",
-      "email": "letstalk@grains.ae",
-      "contactType": "Customer Service"
-    }
-  }
-  </script>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:#fdfdf9; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#222; line-height:1.7; }
-    a { transition:all 0.3s ease; }
-
-    /* Rotating Banner */
-    .top-banner {
-      background:#a07c3b; color:#fff; padding:14px; text-align:center; font-weight:500; font-size:15px;
-      overflow:hidden; white-space:nowrap; position:relative;
-    }
-    .banner-text { display:inline-block; animation: scroll 25s linear infinite; }
-    @keyframes scroll { 0% { transform:translateX(100%); } 100% { transform:translateX(-100%); } }
-
-    /* Navbar - Fixed & Beautiful */
-    .navbar {
-      background:#C1A875; padding:12px 20px; position:sticky; top:0; z-index:1000;
-      display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 15px rgba(0,0,0,.12);
-    }
-    .logo { color:#fff; font-weight:bold; font-size:1.35rem; text-decoration:none; display:flex; align-items:center; gap:10px; }
-    .logo img { width:28px; height:28px; }
-    .nav-links { display:flex; list-style:none; gap:28px; }
-    .nav-links a {
-      color:#fff; text-decoration:none; font-weight:600; font-size:14px; padding:8px 14px; border-radius:6px;
-      transition:background .3s, color .3s;
-    }
-    .nav-links a:hover, .nav-links a.active { background:#fff; color:#C1A875; }
-    .trader-login {
-      background:#fff; color:#C1A875; padding:10px 20px; border-radius:50px; font-weight:bold; font-size:14px;
-      text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,.15);
-    }
-    .trader-login:hover { background:#f0f0f0; transform:translateY(-2px); }
-    .hamburger { display:none; cursor:pointer; padding:4px; }
-    .hamburger span { width:26px; height:3px; background:#fff; display:block; margin:3px 0; border-radius:2px; transition:.3s; }
-
-    @media (max-width: 992px) {
-      .nav-links { gap:18px; }
-      .nav-links a { font-size:13px; padding:6px 10px; }
-    }
-    @media (max-width: 768px) {
-      .navbar { padding:12px 16px; }
-      .hamburger { display:block; }
-      .nav-links {
-        position:absolute; top:100%; left:0; right:0; background:#C1A875;
-        flex-direction:column; max-height:0; overflow:hidden; transition:max-height .4s ease;
-        box-shadow:0 6px 15px rgba(0,0,0,.15);
-      }
-      .nav-links.active { max-height:500px; }
-      .nav-links a { text-align:center; padding:16px; border-bottom:1px solid rgba(255,255,255,.1); }
-      .trader-login { margin:15px auto; display:block; width:fit-content; }
-    }
- /* Footer */
-    footer { background:#2c3e50; color:#ddd; padding:50px 20px; text-align:center; font-size:14px; }
-    footer a { color:#fff; margin:0 12px; text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
-    footer .whatsapp i { color:#25D366; }
-  </style>
-</head>
-<body>
-
-  <!-- Rotating Top Banner -->
-  <div class="top-banner">
-    <div class="banner-text">
-      Trader Offer: Irri-6 for first 50MT! • FCL India → Jebel Ali: Indian Creamy Sella USD 780 • New Stock: Indian 1121 Sella xxl  AED 160/40KG
-    </div>
-  </div>
-
-  <!-- Navbar -->
- <nav class="navbar">
-    <a href="/" class="logo">
-      <img src="/grains-logo.png" alt="Grains Hub"> Grains Hub
+  <section class="hero-alliya">
+    <h1>Meet Alliya</h1>
+    <p>Dubai’s first AI trader that never sleeps.<br>
+       Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
+    <a href="https://grains.ae" class="btn-cta" style="background:#fff; color:#C1A875; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px;">
+      Try Alliya Live Now
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/" class="active">Home</a></li>
-      <li><a href="/why">Why</a></li>
-      <li><a href="/pulse/index.html">Pulse</a></li>
-      <li><a href="/trust">Trust</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/shop">Shop</a></li>
-    </ul>
-    <a href="/login.html" class="trader-login">Trader Login</a>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+  </section>
+
+  <div class="alliya-grid">
+    <div class="feature">
+      <i class="fas fa-bolt"></i>
+      <h3>Real-Time Answers</h3>
+      <p>Live stock & pricing straight from Al Ras warehouse via Firebase.</p>
     </div>
-  </nav>
-
-  <div class="blog-container">
-    <h1>Meet Alliya – Dubai’s First Real AI Grain Trader</h1>
-    <p class="date">1 December 2025</p>
-
-    <div class="gold-card">
-      <h3>The Problem Every Trader Knows</h3>
-      <p>In Al Ras, buyers ask the same questions daily:</p>
-      <ul>
-        <li>“What’s your 1121 price today?”</li>
-        <li>“Still have Irri-6 5% broken?”</li>
-        <li>“FCL India to Jebel Ali rate?”</li>
-      </ul>
-      <p>Until now, you had to wait for a reply. <strong>Not anymore.</strong></p>
+    <div class="feature">
+      <i class="fas fa-brain"></i>
+      <h3>Understands Traders</h3>
+      <p>Powered by Microsoft Copilot AI — speaks natural English & Arabic.</p>
     </div>
-
-    <div class="gold-card">
-      <h3>Alliya = Live Firebase Vault + Microsoft Copilot Brain</h3>
-      <p>We combined two world-class technologies:</p>
-      <ol>
-        <li><strong>Google Firebase</strong> – the secure vault used by Binance & Alibaba – holds every price, stock level, MOQ, and origin in real time.</li>
-        <li><strong>Microsoft Copilot AI</strong> – understands natural trader language (English & Arabic) and answers in 1 second.</li>
-      </ol>
-      <p>A buyer types “best basmati under 165” → Alliya instantly checks warehouse stock → replies with exact price and WhatsApp booking link.</p>
+    <div class="feature">
+      <i class="fab fa-whatsapp"></i>
+      <h3>Books Deals Instantly</h3>
+      <p>One tap → WhatsApp booking link. Never lose a lead.</p>
     </div>
-
-    <div class="gold-card">
-      <h3>Why Traders Love It</h3>
-      <ul>
-        <li>Live prices 24/7</li>
-        <li>Never says “I don’t know” – always falls back to WhatsApp booking</li>
-        <li>Works on mobile while walking Al Ras market</li>
-      </ul>
-    </div>
-
-    <div class="cta">
-      <a href="https://grains.ae">Try Alliya Live Now</a>
-    </div>
-
-    <footer>
-      Grains Hub – Powered by Ghutra Goods Wholesaler LLC<br>
-      Built with restraint. Trusted across borders.
-    </footer>
   </div>
 
-  <!-- Same footer -->
+  <div style="text-align:center; padding:60px 20px; background:#f8f5ec;">
+    <h2 style="color:#a07c3b; margin-bottom:20px;">Be the first to trade with AI in Al Ras</h2>
+    <a href="https://wa.me/971585521976?text=Hi%20Alliya%20-%20Show%20me%20live%20stock" 
+       style="background:#25D366; color:#fff; padding:16px 40px; border-radius:50px; font-weight:bold; font-size:18px; text-decoration:none;">
+       Start Chat with Alliya
+    </a>
+  </div>
+
+  <!-- Your footer with Ghutra credit -->
 </body>
 </html>
