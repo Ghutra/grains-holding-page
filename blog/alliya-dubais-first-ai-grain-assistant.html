@@ -238,13 +238,12 @@
     <p>Dubai’s first AI trader that never sleeps.<br>Ask about 1121, Irri-6, FCL rates — get live answers in 1 second.</p>
 
     <!-- This button triggers the actual floating Alliya chat bubble -->
-    <a href="javascript:void(0)" 
-       onclick="document.querySelector('#alliyaFloatBtn')?.click() || 
-                document.querySelector('.alliya-float')?.click(); 
-                alert('Alliya is waking up… chat opening!');"
-       class="btn-cta">
-      <i class="fas fa-robot"></i> Chat with Alliya Right Now
-    </a>
+   <a href="javascript:void(0)" 
+   onclick="document.getElementById('alliyaFloatBtn')?.click(); 
+            document.getElementById('alliyaFloatBtn')?.scrollIntoView({behavior:'smooth'});"
+   class="btn-cta">
+  <i class="fas fa-robot"></i> Chat with Alliya Right Now
+</a>
 </section>
 
   <div class="alliya-grid">
